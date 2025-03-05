@@ -1,18 +1,56 @@
 ---
 ---
-<section id="inicio" class="bg-primary">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-    <div class="aspect-video bg-gray-200 rounded-lg overflow-hidden" data-aos="zoom-in-right">
-      <img 
-        src="https://via.placeholder.com/600x400" 
-        alt="Foto referencia" 
-        class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-600"
-      />
-    </div>
-    <div data-aos="fade-left" data-aos-delay="150">
-      <h1 class="text-4xl lg:text-6xl font-bold text-secondary relative">
-          TÍTULO PRINCIPAL
+
+<section id="inicio" class="relative w-full h-screen overflow-hidden">
+  <!-- Fondo oscuro inicial -->
+  <div class="absolute inset-0 bg-black z-10 animate-fade-out"></div>
+  
+  <!-- Imagen de fondo -->
+  <picture class="absolute inset-0 z-0">
+    <img 
+      src="hero.webp" 
+      alt=""
+      class="w-full h-full object-cover object-center" 
+      loading="eager"
+    >
+  </picture>
+
+  <!-- Contenedor del título -->
+  <div class="absolute inset-0 flex items-center justify-center z-20 overflow-visible">
+    <div class="relative w-full max-w-screen-xl px-4">
+      <h1 
+        class="text-5xl md:text-8xl xl:text-9xl font-bold text-white text-center mx-auto animate-slide-in-left"
+        style="text-shadow: 3px 3px 8px rgba(0,0,0,0.8);"
+      >
+        Tu negocio, tu web
       </h1>
     </div>
   </div>
 </section>
+
+<style>
+  /* Animación de fade out para el overlay */
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  .animate-fade-out {
+    animation: fade-out 1.5s ease-out forwards;
+  }
+
+  /* Animación de entrada mejorada */
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  .animate-slide-in-left {
+    animation: slide-in-left 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    margin-left: clamp(20px, 5vw, 60px); /* Margen de seguridad */
+  }
+</style>

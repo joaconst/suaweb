@@ -28,38 +28,12 @@
 </html>
 
 <style is:global>
-  html {
-    font-family: system-ui, sans-serif;
-    scroll-behavior: smooth;
-  }
-
-  section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  section > * {
-    position: relative;
-    z-index: 1;
-  }
-
   @keyframes rotate {
     from {
       transform: rotate(0deg);
     }
     to {
       transform: rotate(360deg);
-    }
-  }
-
-  @media (max-width: 768px) {
-    section {
-      padding: 1rem;
     }
   }
 
