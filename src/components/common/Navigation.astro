@@ -1,91 +1,28 @@
 ---
-const mainMenuItems = ['NOSOTROS', 'FORMATO', 'CONTACTO'];
+
 ---
-<header class="fixed top-0 left-0 right-0 bg-gray-900 text-white h-16 z-50 flex items-center justify-between px-6">
-  <a href="#" class="text-2xl font-bold flex items-center space-x-2" data-aos="fade-right">
-    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">LOGO</span>
+
+<header class="fixed top-0 left-0 right-0 h-16 z-50 flex items-center justify-between px-6">
+  <a href="#" class="text-2xl font-bold flex items-center space-x-2">
+    <span>LOGO</span>
   </a>
-  
+
   <nav class="hidden md:flex items-center space-x-8">
-    {mainMenuItems.map((item, index) => (
-      <a 
-        href={`#${item.toLowerCase()}`} 
-        class="text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 relative group"
-        data-aos="fade-down"
-        data-aos-delay={index * 100}
-      >
-        {item}
-        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
-      </a>
-    ))}
+    <a href="#" class="text-secondary font-medium transition-all duration-300 hover:scale-105 relative group">
+      INICIO
+      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="#" class="text-secondary font-medium transition-all duration-300 hover:scale-105 relative group">
+      NOSOTROS  
+      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="#" class="text-secondary font-medium transition-all duration-300 hover:scale-105 relative group">
+      FORMATO
+      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="#" class="text-secondary font-medium transition-all duration-300 hover:scale-105 relative group">
+      CONTACTO
+      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+    </a>
   </nav>
-
-  <button 
-    id="menuToggle"
-    class="md:hidden p-2 hover:bg-gray-800 rounded-lg transition-colors duration-300"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
-  </button>
 </header>
-
-<div 
-  id="mobileMenu" 
-  class="md:hidden fixed top-16 left-0 right-0 bg-gray-900 z-40 transition-all duration-300 transform shadow-lg"
->
-  <div class="p-4 space-y-3">
-    {mainMenuItems.map((item) => (
-      <a 
-        href={`#${item.toLowerCase()}`}
-        class="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-all duration-300"
-      >
-        {item}
-      </a>
-    ))}
-  </div>
-</div>
-
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  let isMenuOpen = false;
-
-  menuToggle?.addEventListener('click', () => {
-    isMenuOpen = !isMenuOpen;
-    if (isMenuOpen) {
-      mobileMenu?.classList.remove('-translate-y-full');
-    } else {
-      mobileMenu?.classList.add('-translate-y-full');
-    }
-  });
-
-  // Initialize mobile menu as closed
-  window.addEventListener('load', () => {
-    if (window.innerWidth < 768) {
-      mobileMenu?.classList.add('-translate-y-full');
-    }
-  });
-
-  // Handle resize events
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768) {
-      mobileMenu?.classList.remove('-translate-y-full');
-      isMenuOpen = false;
-    } else if (!isMenuOpen) {
-      mobileMenu?.classList.add('-translate-y-full');
-    }
-  });
-</script>
-
-<style>
-  @media (max-width: 768px) {
-    #mobileMenu {
-      transform: translateY(-100%);
-    }
-  }
-
-  .group:hover .group-hover\:w-full {
-    width: 100%;
-  }
-</style>
