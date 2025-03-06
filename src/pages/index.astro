@@ -1,13 +1,71 @@
 ---
-import '../styles/global.css'
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/common/Navigation.astro';
-import Hero from '../components/sections/Hero.astro';
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/common/Navigation.astro";
+import Hero from "../components/sections/Hero.astro";
+import Section from "../components/sections/Section.astro";
+import Nosotros from "../components/sections/Nosotros.astro";
+import Paginas from '../components/sections/Paginas.astro'
+import Beneficios from "../components/sections/Beneficios.astro";
+import Contacto from '../components/sections/Contacto.astro'
 ---
 
 <Layout>
-    <Navigation />
-    <main>
-      <Hero />
-    </main>
+  <Navigation />
+  <main id="main-container">
+    <Hero />
+    <Section />
+    <Nosotros />
+    <Paginas />
+    <Beneficios />
+    <Contacto />
+  </main>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const main = document.getElementById('main-container');
+    const heroContent = document.getElementById('hero-content');
+    const heroImage = document.getElementById('hero-img');
+    const heroOverlay = document.getElementById('hero-overlay');
+
+    if (main && heroContent && heroImage && heroOverlay) {
+      let isScrolling = false;
+
+      main.addEventListener('wheel', (e) => {
+        e.preventDefault();
+
+        if (isScrolling) return;
+        isScrolling = true;
+
+        const delta = Math.sign(e.deltaY);
+        const scrollAmount = window.innerHeight * delta;
+
+        if (scrollAmount > 0) { // Scroll hacia abajo
+          heroOverlay.classList.add('animate-fade-in-darkness');
+          
+          setTimeout(() => {
+            main.scrollBy({
+              top: scrollAmount,
+              behavior: 'smooth'
+            });
+            isScrolling = false;
+          }, 500);
+
+        } else { // Scroll hacia arriba
+          heroOverlay.classList.remove('animate-fade-in-darkness');
+          heroOverlay.classList.add('animate-fade-out-darkness');
+          
+          setTimeout(() => {
+            main.scrollBy({
+              top: scrollAmount,
+              behavior: 'smooth'
+            });
+            isScrolling = false;
+            heroOverlay.classList.remove('animate-fade-out-darkness');
+          }, 500);
+        }
+      }, { passive: false });
+    }
+  });
+</script>

@@ -1,0 +1,43 @@
+/* Animación de oscurecimiento */
+@keyframes fade-in-darkness {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.6;
+    }
+  }
+  
+  .animate-fade-in-darkness {
+    animation: fade-in-darkness 1s ease-out forwards;
+  }
+  
+  /* Animación para aclarar */
+  @keyframes fade-out-darkness {
+    from {
+      opacity: 0.6;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .animate-fade-out-darkness {
+    animation: fade-out-darkness 1s ease-out forwards;
+  }
+  
+  /* Mantenemos solo las animaciones de entrada iniciales si son necesarias */
+  .animate-slide-in-left {
+    animation: slide-in-left 1s ease-out;
+  }
+  
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-20%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }

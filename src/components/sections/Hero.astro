@@ -1,58 +1,40 @@
-<section id="inicio" class="relative w-full h-screen overflow-hidden">
-  <!-- Fondo oscuro inicial -->
-  <div class="absolute inset-0 bg-black z-10 animate-fade-out"></div>
-  
+---
+import '../../styles/hero.css'
+---
+
+<section id="inicio" class="relative w-full h-screen overflow-hidden bg-black">
+  <!-- Overlay que controlará el oscurecimiento -->
+  <div id="hero-overlay" class="absolute inset-0 bg-black z-10 opacity-0"></div>
+
   <!-- Imagen de fondo -->
   <picture class="absolute inset-0 z-0">
-    <img 
-      src="hero.webp" 
+    <img
+      src="hero.webp"
       alt=""
-      class="w-full h-full object-cover object-center" 
+      class="w-full h-full object-cover object-center"
+      id="hero-img"
       loading="eager"
     >
   </picture>
 
-  <!-- Contenedor del título -->
-  <div class="absolute inset-0 flex flex-col items-center justify-center z-20 overflow-visible space-y-8">
+  <!-- Contenido -->
+  <article
+    id="hero-content"
+    class="absolute inset-0 flex flex-col items-center justify-center z-20 overflow-visible space-y-8 text-white"
+  >
     <div class="relative w-full max-w-screen-xl px-4">
-      <h1 
+      <h1
         class="text-5xl md:text-8xl xl:text-9xl font-bold text-center mx-auto animate-slide-in-left"
         style="text-shadow: 3px 3px 8px rgba(0,0,0,0.8);"
       >
         Tu negocio, tu web
       </h1>
     </div>
-    <button 
+    <button
       class="bg-[#292929] px-20 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in-left"
-      style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8);">
+      style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8);"
+    >
       Contáctate con nosotros
     </button>
-  </div>
+  </article>
 </section>
-
-<style>
-  /* Animación de fade out para el overlay */
-  @keyframes fade-out {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-  .animate-fade-out {
-    animation: fade-out 1.5s ease-out forwards;
-  }
-
-  /* Animación de entrada mejorada */
-  @keyframes slide-in-left {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  .animate-slide-in-left {
-    animation: slide-in-left 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-    margin-left: clamp(20px, 5vw, 60px); /* Margen de seguridad */
-  }
-</style>
