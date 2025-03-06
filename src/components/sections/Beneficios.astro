@@ -11,77 +11,72 @@
   </picture>
 
   <!-- Sección con el grid -->
-  <section class="absolute inset-0 grid grid-cols-3 place-items-center gap-6 px-8">
+  <section class="absolute inset-0 grid grid-cols-1 md:grid-cols-3 place-items-center gap-6 px-8">
     <!-- Artículos -->
-    <article class="card-animation opacity-0 flex-1 w-full max-w-[400px] h-[250px] flex items-center justify-center bg-secondary/90 backdrop-blur-sm p-8 text-center rounded-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
+    <article class="card-animation opacity-0 flex-1 w-full flex items-center justify-center bg-secondary/90 backdrop-blur-sm p-8 text-center rounded-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
       <h2 class="font-bold uppercase text-xl tracking-wide">Diseño personalizado</h2>
     </article>
     
-    <article class="card-animation opacity-0 flex-1 w-full max-w-[400px] h-[250px] flex items-center justify-center bg-secondary/90 backdrop-blur-sm p-8 text-center rounded-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
+    <article class="card-animation opacity-0 flex-1 w-full flex items-center justify-center bg-secondary/90 backdrop-blur-sm p-8 text-center rounded-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
       <h2 class="font-bold uppercase text-xl tracking-wide">Pago único</h2>
     </article>
     
-    <article class="card-animation opacity-0 flex-1 w-full max-w-[400px] h-[250px] flex items-center justify-center bg-secondary/90 backdrop-blur-sm p-8 text-center rounded-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
+    <article class="card-animation opacity-0 flex-1 w-full flex items-center justify-center bg-secondary/90 backdrop-blur-sm p-8 text-center rounded-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
       <h2 class="font-bold uppercase text-xl tracking-wide">Diseñada para ayudarte a crecer</h2>
     </article>
   </section>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const section = document.getElementById('custom-cards-section');
-  const cards = document.querySelectorAll('.card-animation');
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("custom-cards-section");
+    const cards = document.querySelectorAll(".card-animation");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Animación escalonada para cada tarjeta
-          cards.forEach((card, index) => {
-            setTimeout(() => {
-              card.classList.add('animate-fade-in-up');
-              card.classList.remove('opacity-0');
-            }, index * 150); // Delay progresivo
-          });
-        } else {
-          // Reset al salir de la vista
-          cards.forEach(card => {
-            card.classList.remove('animate-fade-in-up');
-            card.classList.add('opacity-0');
-          });
-        }
-      });
-    },
-    { threshold: 0.25 } // 25% de visibilidad para activar
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animación escalonada para cada tarjeta
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add("animate-fade-in-up");
+                card.classList.remove("opacity-0");
+              }, index * 150);
+            });
+          } else {
+            // Reset al salir de la vista
+            cards.forEach((card) => {
+              card.classList.remove("animate-fade-in-up");
+              card.classList.add("opacity-0");
+            });
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
 
-  if (section) observer.observe(section);
-});
+    if (section) observer.observe(section);
+  });
 </script>
 
 <style>
-@keyframes fade-in-up {
-  0% {
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .opacity-0 {
     opacity: 0;
-    transform: translateY(30px);
+    transition: opacity 0.3s ease-out;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-.opacity-0 {
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
-}
-
-/* Efecto hover mantiene la interactividad */
-.hover\:scale-105:hover {
-  transform: scale(1.05);
-}
 </style>
