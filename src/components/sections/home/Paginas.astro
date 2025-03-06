@@ -1,64 +1,83 @@
 ---
-import '../../../styles/pages.css'
+import "../../../styles/pages.css";
 ---
 
 <section
-    class="grid grid-cols-2 gap-8 items-center justify-center h-screen"
+    class="grid grid-cols-2 gap-8 items-center justify-center min-h-screen py-12 px-4"
     id="grid-animation-section"
 >
+    <!-- Tarjeta 1 -->
     <article
-        class="grid-card opacity-0 flex items-center justify-center w-full bg-primary p-8 rounded-4xl shadow-2xl transition-transform hover:scale-105"
+        class="grid-card opacity-0 flex flex-col items-center justify-center w-full bg-primary p-8 rounded-4xl shadow-2xl transition-all hover:scale-105 group relative h-64"
     >
-        1
+        <h2 class="text-2xl font-bold text-center mb-4">Título 1</h2>
+        <p class="text-muted text-center">Descripción breve del contenido</p>
+        <button
+            class="text-white font-semibold bg-buttons p-4 rounded-2xl mt-auto"
+        >
+            VER MÁS
+        </button>
     </article>
+    <!-- Tarjeta 2 -->
     <article
-        class="grid-card opacity-0 flex items-center justify-center w-full bg-primary p-8 rounded-4xl shadow-2xl transition-transform hover:scale-105"
+        class="grid-card opacity-0 flex flex-col items-center justify-center w-full bg-primary p-8 rounded-4xl shadow-2xl transition-all hover:scale-105 group relative h-64"
     >
-        2
+        <h2 class="text-2xl font-bold text-center mb-4">Título 2</h2>
+        <p class="text-muted text-center">Descripción breve del contenido</p>
+        <button
+            class="text-white font-semibold bg-buttons p-4 rounded-2xl mt-auto"
+        >
+            VER MÁS
+        </button>
     </article>
+    <!-- Tarjeta 3 -->
     <article
-        class="grid-card opacity-0 flex items-center justify-center w-full bg-primary p-8 rounded-4xl shadow-2xl transition-transform hover:scale-105"
+        class="grid-card opacity-0 flex flex-col items-center justify-center w-full bg-primary p-8 rounded-4xl shadow-2xl transition-all hover:scale-105 group relative h-64"
     >
-        3
+        <h2 class="text-2xl font-bold text-center mb-4">Título 3</h2>
+        <p class="text-muted text-center">Descripción breve del contenido</p>
+        <button
+            class="text-white font-semibold bg-buttons p-4 rounded-2xl mt-auto"
+        >
+            VER MÁS
+        </button>
     </article>
+    <!-- Tarjeta 4 -->
     <article
-        class="grid-card opacity-0 flex items-center justify-center w-full bg-primary p-8 rounded-4xl shadow-2xl transition-transform hover:scale-105"
+        class="grid-card opacity-0 flex flex-col items-center justify-center w-full bg-primary p-8 rounded-4xl shadow-2xl transition-all hover:scale-105 group relative h-64"
     >
-        4
+        <h2 class="text-2xl font-bold text-center mb-4">Título 4</h2>
+        <p class="text-muted text-center">Descripción breve del contenido</p>
+        <button
+            class="text-white font-semibold bg-buttons p-4 rounded-2xl mt-auto"
+        >
+            VER MÁS
+        </button>
     </article>
 </section>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const section = document.getElementById("grid-animation-section");
-        const cards = document.querySelectorAll(".grid-card");
+        const cards = document.querySelectorAll<HTMLElement>(".grid-card");
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                cards.forEach((card, index) => {
                     if (entry.isIntersecting) {
-                        cards.forEach((card, index) => {
-                            const cardElement = card as HTMLElement;
-                            setTimeout(() => {
-                                if (cardElement) {
-                                    cardElement.style.animation = `grid-appear-subtle 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.15}s forwards`;
-                                    cardElement.classList.remove("opacity-0");
-                                }
-                            }, index * 150);
-                        });
+                        setTimeout(() => {
+                            card.style.animation = `grid-appear 0.6s ease-out ${index * 0.1}s forwards`;
+                            card.classList.remove("opacity-0");
+                        }, index * 100);
                     } else {
-                        cards.forEach((card) => {
-                            const cardElement = card as HTMLElement;
-                            if (cardElement) {
-                                cardElement.style.animation = "";
-                                cardElement.classList.add("opacity-0");
-                            }
-                        });
+                        setTimeout(() => {
+                            card.style.animation = `grid-disappear 0.4s ease-in ${(cards.length - index - 1) * 0.1}s forwards`;
+                            card.classList.add("opacity-0");
+                        }, (cards.length - index - 1) * 100);
                     }
                 });
-            },
-            { threshold: 0.3 },
-        );
+            });
+        }, { threshold: 0.15 });
 
         if (section) observer.observe(section);
     });

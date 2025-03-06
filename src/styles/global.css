@@ -3,7 +3,9 @@
 @theme {
   --color-primary: #ffd93b;
   --color-secondary: #7454d9;
-  --color-buttons: #292929
+  --color-third: #79cbbf;
+  --color-buttons: #292929;
+  --color-muted: #b1b1b1;
 }
 
 html {

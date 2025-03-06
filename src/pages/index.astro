@@ -5,9 +5,9 @@ import Navigation from "../components/common/Navigation.astro";
 import Hero from "../components/sections/home/Hero.astro";
 import Section from "../components/sections/home/Section.astro";
 import Nosotros from "../components/sections/home/Nosotros.astro";
-import Paginas from '../components/sections/home/Paginas.astro'
+import Paginas from "../components/sections/home/Paginas.astro";
 import Beneficios from "../components/sections/home/Beneficios.astro";
-import Contacto from '../components/sections/home/Contacto.astro'
+import Contacto from "../components/sections/home/Contacto.astro";
 ---
 
 <Layout>
@@ -23,49 +23,54 @@ import Contacto from '../components/sections/home/Contacto.astro'
 </Layout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const main = document.getElementById('main-container');
-    const heroContent = document.getElementById('hero-content');
-    const heroImage = document.getElementById('hero-img');
-    const heroOverlay = document.getElementById('hero-overlay');
+  document.addEventListener("DOMContentLoaded", () => {
+    const main = document.getElementById("main-container");
+    const heroContent = document.getElementById("hero-content");
+    const heroImage = document.getElementById("hero-img");
+    const heroOverlay = document.getElementById("hero-overlay");
 
     if (main && heroContent && heroImage && heroOverlay) {
       let isScrolling = false;
 
-      main.addEventListener('wheel', (e) => {
-        e.preventDefault();
+      main.addEventListener(
+        "wheel",
+        (e) => {
+          e.preventDefault();
 
-        if (isScrolling) return;
-        isScrolling = true;
+          if (isScrolling) return;
+          isScrolling = true;
 
-        const delta = Math.sign(e.deltaY);
-        const scrollAmount = window.innerHeight * delta;
+          const delta = Math.sign(e.deltaY);
+          const scrollAmount = window.innerHeight * delta;
 
-        if (scrollAmount > 0) { // Scroll hacia abajo
-          heroOverlay.classList.add('animate-fade-in-darkness');
-          
-          setTimeout(() => {
-            main.scrollBy({
-              top: scrollAmount,
-              behavior: 'smooth'
-            });
-            isScrolling = false;
-          }, 500);
+          if (scrollAmount > 0) {
+            // Scroll hacia abajo
+            heroOverlay.classList.add("animate-fade-in-darkness");
 
-        } else { // Scroll hacia arriba
-          heroOverlay.classList.remove('animate-fade-in-darkness');
-          heroOverlay.classList.add('animate-fade-out-darkness');
-          
-          setTimeout(() => {
-            main.scrollBy({
-              top: scrollAmount,
-              behavior: 'smooth'
-            });
-            isScrolling = false;
-            heroOverlay.classList.remove('animate-fade-out-darkness');
-          }, 500);
-        }
-      }, { passive: false });
+            setTimeout(() => {
+              main.scrollBy({
+                top: scrollAmount,
+                behavior: "smooth",
+              });
+              isScrolling = false;
+            }, 500);
+          } else {
+            // Scroll hacia arriba
+            heroOverlay.classList.remove("animate-fade-in-darkness");
+            heroOverlay.classList.add("animate-fade-out-darkness");
+
+            setTimeout(() => {
+              main.scrollBy({
+                top: scrollAmount,
+                behavior: "smooth",
+              });
+              isScrolling = false;
+              heroOverlay.classList.remove("animate-fade-out-darkness");
+            }, 500);
+          }
+        },
+        { passive: false },
+      );
     }
   });
 </script>

@@ -1,0 +1,121 @@
+---
+import "../../../styles/form.css";
+---
+
+<section class="relative min-h-screen">
+    <!-- Imagen de fondo -->
+    <picture class="absolute inset-0 z-0">
+        <img
+            src="contact/form.webp"
+            alt="Fondo del formulario"
+            class="w-full h-full object-cover object-center"
+            loading="eager"
+        />
+    </picture>
+
+    <!-- Formulario flotante -->
+    <div
+        id="form-container"
+        class="absolute right-0 top-0 bottom-0 z-10 w-full md:w-1/2 lg:w-1/3 p-8 mt-8 lg:mt-0 flex items-center opacity-0 transition-all duration-1000 ease-out"
+    >
+        <form
+            class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 w-full space-y-6"
+        >
+            <div class="space-y-5">
+                <!-- Campos del formulario con clases animation-delay -->
+                <div class="form-element opacity-0">
+                    <h3 class="text-2xl font-bold mb-4">Nombre</h3>
+                    <input
+                        name="nombre"
+                        type="text"
+                        class="w-full rounded-3xl px-4 bg-white focus:outline-none focus:ring-2 focus:ring-secondary"
+                    />
+                </div>
+
+                <div class="form-element opacity-0">
+                    <h3 class="text-2xl font-bold mb-4">Correo electrónico</h3>
+                    <input
+                        name="email"
+                        type="email"
+                        class="w-full rounded-3xl px-4 bg-white focus:outline-none focus:ring-2 focus:ring-secondary"
+                    />
+                </div>
+
+                <div class="form-element opacity-0">
+                    <h3 class="text-2xl font-bold mb-4">Teléfono</h3>
+                    <input
+                        name="telefono"
+                        type="text"
+                        class="w-full rounded-3xl px-4 bg-white focus:outline-none focus:ring-2 focus:ring-secondary"
+                    />
+                </div>
+
+                <div class="form-element opacity-0">
+                    <h3 class="text-2xl font-bold mb-4">Mensaje</h3>
+                    <textarea
+                        name="mensaje"
+                        class="w-full rounded-3xl px-4 bg-white focus:outline-none focus:ring-2 focus:ring-secondary"
+                    ></textarea>
+                </div>
+
+                <div class="form-element opacity-0">
+                    <button
+                        type="submit"
+                        class="w-full bg-secondary text-white py-3 px-6 rounded-3xl font-bold"
+                    >
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const formContainer = document.getElementById(
+            "form-container",
+        ) as HTMLElement | null;
+        const formElements =
+            document.querySelectorAll<HTMLElement>(".form-element");
+
+        if (!formContainer) return;
+
+        // Función para resetear animaciones
+        const resetAnimations = () => {
+            formContainer.classList.remove("opacity-100", "translate-y-0");
+            formElements.forEach((element) => {
+                element.classList.remove("opacity-100", "translate-y-0");
+            });
+        };
+
+        // Función para activar animaciones
+        const activateAnimations = () => {
+            formContainer.classList.add("opacity-100", "translate-y-0");
+            formElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add("opacity-100", "translate-y-0");
+                }, index * 150);
+            });
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        activateAnimations();
+                    } else {
+                        // Resetear animaciones después de que terminen
+                        setTimeout(resetAnimations);
+                    }
+                });
+            },
+            {
+                threshold: 0.3,
+                rootMargin: "0px",
+            },
+        );
+
+        observer.observe(formContainer);
+    });
+</script>
