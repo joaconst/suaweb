@@ -1,5 +1,4 @@
 ---
-import "../../../styles/form.css";
 ---
 
 <section class="relative min-h-screen">
@@ -16,14 +15,14 @@ import "../../../styles/form.css";
     <!-- Formulario flotante -->
     <div
         id="form-container"
-        class="absolute right-0 top-0 bottom-0 z-10 w-full md:w-1/2 lg:w-1/3 p-8 mt-8 lg:mt-0 flex items-center opacity-0 transition-all duration-1000 ease-out"
+        class="absolute right-0 top-0 bottom-0 z-10 w-full md:w-1/2 lg:w-1/3 p-8 mt-8 lg:mt-0 flex items-center  transition-all duration-1000 ease-out"
     >
         <form
             class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 w-full space-y-6"
         >
             <div class="space-y-5">
                 <!-- Campos del formulario con clases animation-delay -->
-                <div class="form-element opacity-0">
+                <div class="form-element ">
                     <h3 class="text-2xl font-bold mb-4">Nombre</h3>
                     <input
                         name="nombre"
@@ -32,7 +31,7 @@ import "../../../styles/form.css";
                     />
                 </div>
 
-                <div class="form-element opacity-0">
+                <div class="form-element ">
                     <h3 class="text-2xl font-bold mb-4">Correo electrónico</h3>
                     <input
                         name="email"
@@ -41,7 +40,7 @@ import "../../../styles/form.css";
                     />
                 </div>
 
-                <div class="form-element opacity-0">
+                <div class="form-element ">
                     <h3 class="text-2xl font-bold mb-4">Teléfono</h3>
                     <input
                         name="telefono"
@@ -50,7 +49,7 @@ import "../../../styles/form.css";
                     />
                 </div>
 
-                <div class="form-element opacity-0">
+                <div class="form-element ">
                     <h3 class="text-2xl font-bold mb-4">Mensaje</h3>
                     <textarea
                         name="mensaje"
@@ -59,7 +58,7 @@ import "../../../styles/form.css";
                     ></textarea>
                 </div>
 
-                <div class="form-element opacity-0">
+                <div class="form-element ">
                     <button
                         type="submit"
                         class="w-full bg-secondary text-white py-3 px-6 rounded-3xl font-bold"
@@ -71,52 +70,3 @@ import "../../../styles/form.css";
         </form>
     </div>
 </section>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const formContainer = document.getElementById(
-            "form-container",
-        ) as HTMLElement | null;
-        const formElements =
-            document.querySelectorAll<HTMLElement>(".form-element");
-
-        if (!formContainer) return;
-
-        // Función para resetear animaciones
-        const resetAnimations = () => {
-            formContainer.classList.remove("opacity-100", "translate-y-0");
-            formElements.forEach((element) => {
-                element.classList.remove("opacity-100", "translate-y-0");
-            });
-        };
-
-        // Función para activar animaciones
-        const activateAnimations = () => {
-            formContainer.classList.add("opacity-100", "translate-y-0");
-            formElements.forEach((element, index) => {
-                setTimeout(() => {
-                    element.classList.add("opacity-100", "translate-y-0");
-                }, index * 150);
-            });
-        };
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        activateAnimations();
-                    } else {
-                        // Resetear animaciones después de que terminen
-                        setTimeout(resetAnimations);
-                    }
-                });
-            },
-            {
-                threshold: 0.3,
-                rootMargin: "0px",
-            },
-        );
-
-        observer.observe(formContainer);
-    });
-</script>

@@ -1,5 +1,5 @@
 ---
-import '../../../styles/section.css'
+
 ---
 
 <section
@@ -8,7 +8,7 @@ import '../../../styles/section.css'
 >
     <article class="absolute inset-0 flex items-center justify-center py-8">
         <h2
-            class="text-black text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold text-center opacity-0 leading-tight md:leading-normal"
+            class="text-black text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold text-center leading-tight md:leading-normal"
             id="section-title"
         >
             DISEÑO ÚNICO <br class="hidden sm:block" />
@@ -17,29 +17,3 @@ import '../../../styles/section.css'
         </h2>
     </article>
 </section>
-
-<script>
-    const sectionSection = document.getElementById("section");
-    const sectionTitle = document.getElementById("section-title");
-
-    if (sectionSection && sectionTitle) {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        // Si entra, inicia la animación
-                        sectionTitle.classList.remove("opacity-0");
-                        sectionTitle.classList.add("animate-fade-up");
-                    } else {
-                        // Si se va, se oculta lentamente
-                        sectionTitle.classList.add("opacity-0");
-                        sectionTitle.classList.remove("animate-fade-up");
-                    }
-                });
-            },
-            { threshold: 0.3 },
-        ); // Detecta cuando al menos el 30% del contenido está visible
-
-        observer.observe(sectionSection);
-    }
-</script>
