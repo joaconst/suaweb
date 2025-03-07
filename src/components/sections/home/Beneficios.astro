@@ -1,79 +1,37 @@
 ---
-import '../../../styles/benefit.css'
+
 ---
 
-<section class="relative w-full h-screen" id="custom-cards-section">
-  <!-- Imagen de fondo -->
-  <picture class="absolute inset-0 w-full h-full">
-    <img
-      src="home/benefits.webp"
-      alt="Beneficios"
-      class="w-full h-full object-cover object-center"
-      loading="eager"
-    />
-  </picture>
+<section class="bg-secondary min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8">
+  <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto">
+    <!-- Primer círculo -->
+    <div class="bg-fourth text-white text-center rounded-full border-3 border-black 
+                w-50 h-50 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96
+                flex items-center justify-center p-4
+                hover:scale-105 transition-transform duration-300">
+      <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
+        DISEÑO 100% PERSONALIZADO
+      </span>
+    </div>
 
-  <!-- Contenedor principal -->
-  <div class="absolute inset-0 flex items-center justify-center p-4 mt-8 md:justify-start md:p-0 md:mt-8">
-    <!-- Sección de tarjetas -->
-    <section class="w-full max-w-xl md:ml-16 space-y-6 relative">
+    <!-- Segundo círculo -->
+    <div class="bg-fourth text-white text-center rounded-full border-3 border-black 
+                w-50 h-50 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96
+                flex items-center justify-center p-4
+                hover:scale-105 transition-transform duration-300">
+      <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
+        WEB DE TU PROPIEDAD
+      </span>
+    </div>
 
-      <!-- Tarjeta 1 -->
-      <article class="relative w-full h-40 group mb-8">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/8 w-[90%] h-full bg-white rounded-2xl"></div>
-        <div class="relative h-full p-6 bg-secondary rounded-xl">
-          <h2 class="font-bold text-xl text-white text-center">DISEÑO PERSONALIZADO</h2>
-        </div>
-      </article>
-
-      <!-- Tarjeta 2 -->
-      <article class="relative w-full h-40 group mb-8">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/8 w-[90%] h-full bg-white rounded-2xl"></div>
-        <div class="relative h-full p-6 bg-secondary rounded-xl">
-          <h2 class="font-bold text-xl text-white text-center">DISEÑO PERSONALIZADO</h2>
-        </div>
-      </article>
-
-      <!-- Tarjeta 3 -->
-      <article class="relative w-full h-40 group">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/8 w-[90%] h-full bg-white rounded-2xl"></div>
-        <div class="relative h-full p-6 bg-secondary rounded-xl">
-          <h2 class="font-bold text-xl text-white text-center">DISEÑO PERSONALIZADO</h2>
-        </div>
-      </article>
-    </section>
+    <!-- Tercer círculo -->
+    <div class="bg-fourth text-white text-center rounded-full border-3 border-black 
+                w-50 h-50 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96
+                flex items-center justify-center p-4
+                hover:scale-105 transition-transform duration-300">
+      <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
+        OPTIMIZADA PARA AYUDARTE A CRECER
+      </span>
+    </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const section = document.getElementById("custom-cards-section");
-    const cards = document.querySelectorAll(".card-animation");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Animación escalonada para cada tarjeta
-            cards.forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add("animate-fade-in-up");
-                card.classList.remove("opacity-0");
-              }, index * 150);
-            });
-          } else {
-            // Reset al salir de la vista
-            cards.forEach((card) => {
-              card.classList.remove("animate-fade-in-up");
-              card.classList.add("opacity-0");
-            });
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    if (section) observer.observe(section);
-  });
-</script>
-

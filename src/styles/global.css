@@ -2,27 +2,30 @@
 
 @theme {
   --color-primary: #023047;
-  --color-secondary: #78b39d;
-  --color-third: #79cbbf;
+  --color-secondary: #ffced4;
+  --color-third: #fb8501;
+  --color-fourth: #6422b8;
   --color-buttons: #292929;
   --color-muted: #b1b1b1;
+  --color-background: #fff6ed;
+  --color-background_pages: #ffc397;
 }
 
-  html {
-    font-family: system-ui, sans-serif;
-    scroll-behavior: smooth;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
+html {
+  font-family: system-ui, sans-serif;
+  scroll-behavior: smooth;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
 
-  main>* {
-    min-height: 100vh;
-    scroll-snap-align: start;
-  }
+main>* {
+  min-height: 100vh;
+  scroll-snap-align: start;
+}
 
-  main {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-  }
+main {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}

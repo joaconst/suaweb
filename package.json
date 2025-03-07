@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.10",
+    "@types/swiper": "^6.0.0",
     "aos": "^2.3.4",
     "astro": "^5.2.5",
+    "swiper": "^11.2.5",
     "tailwindcss": "^4.0.10"
   }
 }

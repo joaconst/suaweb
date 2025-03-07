@@ -1,5 +1,105 @@
 ---
-
+import '../../../styles/form.css'
 ---
 
-<section class="flex items-center">Contacto</section>
+<section
+    id="contacto"
+    class="w-full h-screen flex items-center justify-center contacto opacity-0 translate-y-10 transition-all duration-1000 ease-out"
+>
+    <article
+        class="w-[90%] h-[80%] grid grid-cols-1 md:grid-cols-2 items-center bg-fourth rounded-4xl overflow-hidden shadow-xl transform transition-transform duration-1000 ease-out"
+    >
+        <!-- Titulo -->
+        <article class="flex items-center justify-center p-8">
+            <h2
+                class="text-white text-4xl md:text-6xl lg:text-8xl font-extrabold leading-tight text-center transform transition-all duration-700 ease-out translate-y-10 opacity-0"
+            >
+                ¿ Y SI NOS CONTÁS TU IDEA ?
+            </h2>
+        </article>
+
+        <!-- Contenido -->
+        <article class="flex items-center justify-center p-8 transform transition-all duration-700 ease-out translate-y-10 opacity-0 delay-300">
+            <form
+            class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 w-full space-y-6"
+        >
+            <div class="space-y-5">
+                <div class="form-element">
+                    <h3 class="text-2xl font-bold mb-4">Nombre</h3>
+                    <input
+                        name="nombre"
+                        type="text"
+                        class="w-full rounded-3xl px-4 bg-white focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                </div>
+
+                <div class="form-element">
+                    <h3 class="text-2xl font-bold mb-4">Correo electrónico</h3>
+                    <input
+                        name="email"
+                        type="email"
+                        class="w-full rounded-3xl px-4 bg-white focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                </div>
+
+                <div class="form-element">
+                    <h3 class="text-2xl font-bold mb-4">Teléfono</h3>
+                    <input
+                        name="telefono"
+                        type="text"
+                        class="w-full rounded-3xl px-4 bg-white focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                </div>
+
+                <div class="form-element">
+                    <h3 class="text-2xl font-bold mb-4">Mensaje</h3>
+                    <textarea
+                        name="mensaje"
+                        class="w-full rounded-3xl px-4 py-1 bg-white focus:outline-none focus:ring-2 focus:ring-primary"
+                        rows="4"
+                    ></textarea>
+                </div>
+
+                <div class="form-element">
+                    <button
+                        type="submit"
+                        class="w-full bg-primary text-white py-3 px-6 rounded-3xl font-bold"
+                    >
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </div>
+        </form>
+        </article>
+    </article>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const contacto = document.getElementById('contacto');
+    if (!contacto) return;
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animación de entrada
+                contacto.classList.remove('opacity-0');
+                contacto.querySelector('h2').classList.remove('translate-y-10', 'opacity-0');
+                contacto.querySelector('form').parentElement.classList.remove('translate-y-10', 'opacity-0');
+            } else {
+                // Animación de salida (opcional)
+                contacto.classList.add('opacity-0');
+                contacto.querySelector('h2').classList.add('translate-y-10', 'opacity-0');
+                contacto.querySelector('form').parentElement.classList.add('translate-y-10', 'opacity-0');
+            }
+        });
+    }, observerOptions);
+
+    observer.observe(contacto);
+});
+</script>
