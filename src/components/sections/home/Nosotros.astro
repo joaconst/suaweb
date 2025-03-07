@@ -1,5 +1,78 @@
 ---
-
+import '../../../styles/about.css'
 ---
 
-<section id="nosotros" class="flex items-center">Quienes somos</section>
+<section id="nosotros" class="w-full h-screen flex">
+    <!-- Imagen -->
+    <picture class="w-1/2 h-full">
+        <img
+            src="home/about.webp"
+            alt="Imagen sobre nosotros"
+            class="w-full h-full object-cover object-center"
+            loading="eager"
+        />
+    </picture>
+
+    <!-- Contenido -->
+    <article class="w-1/2 h-full flex flex-col items-center p-8">
+        <h2 class="text-black text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold text-center leading-tight md:leading-normal">
+            ¿QUIÉNES SOMOS?
+        </h2>
+        <p class="text-2xl text-muted mt-4">Descripción xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+    </article>
+</section>
+
+<script>
+    // Corregimos el tipo con Type Assertion
+    const nosotrosSection = document.getElementById('nosotros') as HTMLElement | null;
+    let hasAnimated = false;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const target = entry.target as HTMLElement; // Type assertion aquí
+        
+        if (entry.isIntersecting) {
+          // Animación de entrada
+          target.classList.add('visible');
+          target.classList.remove('hidden');
+          hasAnimated = true;
+          
+          // Reiniciar animaciones con type checking
+          setTimeout(() => {
+            if (target) {
+              target.style.animation = 'none';
+              // Forzamos reflow correctamente tipado
+              void target.offsetHeight; // TypeScript ahora reconoce offsetHeight
+              target.style.animation = '';
+            }
+          }, 800);
+          
+        } else if (hasAnimated) {
+          // Animación de salida
+          target.classList.remove('visible');
+          target.classList.add('hidden');
+          
+          // Resetear estado después de la animación
+          setTimeout(() => {
+            if (target) {
+              target.classList.remove('hidden');
+            }
+          }, 800);
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px'
+    });
+    
+    if (nosotrosSection) {
+      observer.observe(nosotrosSection);
+    }
+    
+    // Reiniciar animaciones al cambiar de página
+    window.addEventListener('beforeunload', () => {
+      if (nosotrosSection) {
+        nosotrosSection.classList.remove('visible', 'hidden');
+      }
+    });
+    </script>
