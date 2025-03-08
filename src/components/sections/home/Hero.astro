@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <section id="inicio" class="relative w-full h-screen overflow-hidden bg-black">
@@ -27,10 +28,32 @@
       </h1>
     </div>
     <button
-      class="bg-buttons px-20 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in-left"
+      class="bg-buttons px-20 py-4 text-xl font-medium rounded-lg border-4 border-black animate-slide-in-left"
       style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8);"
     >
       Contáctate con nosotros
     </button>
   </article>
 </section>
+
+<style>
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 1s ease-out forwards;
+  }
+
+  /* Aseguramos visibilidad */
+  #hero-content, #hero-content > div {
+    overflow: visible !important;
+  }
+</style>

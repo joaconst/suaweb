@@ -1,28 +1,29 @@
 ---
-
 ---
 
-<section
+<section 
     id="contacto"
     class="w-full min-h-screen flex items-center justify-center contacto"
 >
-    <article
-        class="w-[90%] min-h-[80%] md:grid grid-cols-1 md:grid-cols-2 items-center bg-contact_services rounded-4xl overflow-hidden shadow-xl"
-    >
+    <article class="relative w-[90%] min-h-[80%] grid grid-cols-1 md:grid-cols-2 items-center bg-contact_services rounded-4xl overflow-hidden shadow-xl pt-12 pb-12">
+        <!-- Bordes del article -->
+        <div class="absolute top-0 left-0 w-full h-10 bg-white z-10 flex items-center gap-x-4">
+            <span class="w-6 h-6 bg-yellow-400 rounded-full ml-16"></span>
+            <span class="w-6 h-6 bg-yellow-400 rounded-full"></span>
+            <span class="w-6 h-6 bg-yellow-400 rounded-full"></span>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-10 bg-white z-10"></div>
+
         <!-- Titulo -->
-        <article class="flex items-center justify-center p-8">
-            <h2
-                class="text-white text-4xl md:text-6xl lg:text-8xl font-extrabold leading-tight text-center"
-            >
+        <div class="flex items-center justify-center p-8">
+            <h2 class="text-white text-4xl md:text-6xl lg:text-8xl font-extrabold leading-tight text-center">
                 ¿ Y SI NOS CONTÁS TU IDEA ?
             </h2>
-        </article>
+        </div>
 
         <!-- Contenido -->
-        <article class="flex items-center justify-center p-8">
-            <form
-                class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 w-full space-y-6"
-            >
+        <div class="flex items-center justify-center p-8">
+            <form class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 w-full space-y-6">
                 <div class="space-y-5">
                     <div class="form-element">
                         <h3 class="text-2xl font-bold mb-4">Nombre</h3>
@@ -34,9 +35,7 @@
                     </div>
 
                     <div class="form-element">
-                        <h3 class="text-2xl font-bold mb-4">
-                            Correo electrónico
-                        </h3>
+                        <h3 class="text-2xl font-bold mb-4">Correo electrónico</h3>
                         <input
                             name="email"
                             type="email"
@@ -64,13 +63,13 @@
                     <div class="form-element">
                         <button
                             type="submit"
-                            class="w-full bg-primary text-white py-3 px-6 rounded-3xl font-bold"
+                            class="w-full bg-contact_services text-white py-3 px-6 rounded-3xl font-bold hover:bg-contact_services/75"
                         >
                             Enviar Mensaje
                         </button>
                     </div>
                 </div>
             </form>
-        </article>
+        </div>
     </article>
 </section>
