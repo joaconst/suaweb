@@ -6,49 +6,153 @@
   data-section
 >
   <div
-    class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto opacity-0 transform translate-y-full"
+    class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto"
     data-content
   >
-    <!-- Primer círculo -->
-    <div
-      class="bg-fourth text-white text-center rounded-full border-3 border-black
-                w-50 h-50 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96
-                flex items-center justify-center p-4
-                hover:scale-105 transition-all"
-    >
-      <span
-        class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight"
-      >
-        DISEÑO 100% PERSONALIZADO
-      </span>
-    </div>
-
-    <!-- Segundo círculo -->
-    <div
-      class="bg-fourth text-white text-center rounded-full border-3 border-black
-                w-50 h-50 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96
-                flex items-center justify-center p-4
-                hover:scale-105 transition-all"
-    >
-      <span
-        class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight"
-      >
-        WEB DE TU PROPIEDAD
-      </span>
-    </div>
-
-    <!-- Tercer círculo -->
-    <div
-      class="bg-fourth text-white text-center rounded-full border-3 border-black
-                w-50 h-50 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96
-                flex items-center justify-center p-4
-                hover:scale-105 transition-all"
-    >
-      <span
-        class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight"
-      >
-        OPTIMIZADA PARA AYUDARTE A CRECER
-      </span>
+    <div class="benefits-container flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8">
+      {[
+        {
+          front: "DISEÑO 100% PERSONALIZADO",
+          back: "Cada negocio es único, por eso creamos páginas web adaptadas a tu estilo, necesidades y objetivos. Desde la paleta de colores hasta la estructura de la web.",
+          position: "left"
+        },
+        {
+          front: "WEB DE TU PROPIEDAD",
+          back: "Olvídate de las plataformas que te atan con suscripciones. Con nosotros, tu página es completamente tuya, sin depender de terceros. La registramos con tu dominio.",
+          position: "center"
+        },
+        {
+          front: "OPTIMIZADA PARA AYUDARTE A CRECER",
+          back: "Desarrollamos sitios rápidos, responsivos y optimizados para buscadores (SEO). Así, tu negocio gana visibilidad y atrae más clientes, impulsando tu crecimiento en el mundo digital.",
+          position: "right"
+        }
+      ].map((item) => (
+        <article 
+          class={`group perspective text-white text-center 
+                 w-50 h-50 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96
+                 transition-all duration-500 ease-in-out
+                 hover:scale-115 animate-fade-up article-${item.position}`}
+        >
+          <div class="relative w-full h-full transition-all duration-500 preserve-3d group-hover:rotate-y-180">
+            {/* Frente del círculo */}
+            <div class="absolute w-full h-full backface-hidden rounded-full border-3 bg-fourth border-black">
+              <div class="flex items-center justify-center h-full p-4">
+                <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
+                  {item.front}
+                </span>
+              </div>
+            </div>
+            
+            {/* Parte trasera del círculo */}
+            <div class="absolute w-full h-full backface-hidden rounded-full border-3 border-black bg-fourth rotate-y-180">
+              <div class="flex items-center justify-center h-full p-4">
+                <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-bold leading-tight">
+                  {item.back}
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>
+
+<style>
+  /* Clases de utilidad para las animaciones 3D */
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  /* Animación de fade up al hacer scroll */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Aseguramos que las animaciones sean suaves */
+  article {
+    will-change: transform;
+  }
+  
+  /* Aplicamos delays escalonados a los artículos */
+  article:nth-child(1) { animation-delay: 0.2s; }
+  article:nth-child(2) { animation-delay: 0.4s; }
+  article:nth-child(3) { animation-delay: 0.6s; }
+
+  /* Estilos para el desplazamiento en hover */
+  @media (min-width: 768px) {
+    .benefits-container {
+      position: relative;
+    }
+
+    /* Cuando se hace hover en el artículo izquierdo */
+    .article-left:hover ~ .article-center {
+      transform: translateX(2rem);
+    }
+    .article-left:hover ~ .article-right {
+      transform: translateX(2rem);
+    }
+
+    /* Cuando se hace hover en el artículo central */
+    .article-center:hover ~ .article-right {
+      transform: translateX(2rem);
+    }
+    .benefits-container:has(.article-center:hover) .article-left {
+      transform: translateX(-2rem);
+    }
+
+    /* Cuando se hace hover en el artículo derecho */
+    .benefits-container:has(.article-right:hover) .article-left,
+    .benefits-container:has(.article-right:hover) .article-center {
+      transform: translateX(-2rem);
+    }
+
+    /* Ajuste del z-index para el elemento con hover */
+    article:hover {
+      z-index: 10;
+    }
+  }
+</style>
+
+<script>
+// Intersection Observer para activar las animaciones cuando los elementos sean visibles
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-fade-up');
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '50px'
+});
+
+// Observamos todos los artículos
+document.querySelectorAll('article').forEach(article => {
+  observer.observe(article);
+});
+</script>

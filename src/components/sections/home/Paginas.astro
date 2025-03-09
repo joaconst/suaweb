@@ -1,104 +1,326 @@
 ---
 ---
+
 <section
-    class="min-h-screen flex items-center justify-center bg-background_pages py-16 px-4 sm:px-6 lg:px-8 tall-section sticky top-0"
+    class="w-full h-screen flex items-center justify-center sticky top-0 bg-background_pages"
     data-section
 >
-    <!-- Contenedor responsive -->
-    <div class="w-full max-w-7xl mx-auto opacity-0 transform translate-y-full" data-content>
-        <!-- Grid de tarjetas -->
-        <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+    <div class="w-full max-w-7xl mx-auto relative flex justify-between" data-content>
+        <!-- Controles de navegación personalizados -->
+        <button
+            class="nav-prev absolute left-0 md:-left-14 top-1/2 -translate-y-1/2 z-10 bg-black p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all"
         >
-            <!-- Tarjeta Izquierda -->
-            <article
-                class="relative group w-full h-[28rem] sm:h-[30rem] rounded-2xl shadow-lg hover:shadow-2xl md:scale-90 md:hover:scale-95 transition-all"
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
             >
-                <!-- Franja superior -->
-                <div
-                    class="absolute top-0 left-0 w-full h-14 bg-white rounded-t-2xl flex items-center justify-center"
-                >
-                    <h3 class="text-black font-bold text-xs sm:text-sm px-2">
-                        LANDING PAGE
-                    </h3>
-                </div>
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+            </svg>
+        </button>
 
-                <!-- Contenido -->
-                <div
-                    class="h-full flex flex-col justify-between pt-14 pb-4 rounded-2xl bg-third border-2"
-                >
-                    <div class="flex-grow flex items-center justify-center">
-                        <span class="text-white text-xl sm:text-2xl font-bold">
-                            <!-- Puedes agregar contenido aquí -->
-                        </span>
-                    </div>
-                    <button
-                        class="mx-4 py-3 bg-black text-white font-semibold rounded-md text-sm sm:text-base hover:bg-opacity-80"
-                    >
-                        VER MÁS
-                    </button>
-                </div>
-            </article>  
-
-            <!-- Tarjeta Central -->
-            <article
-                class="relative group w-full h-[28rem] sm:h-[30rem] rounded-2xl shadow-lg hover:shadow-2xl md:scale-105 md:hover:scale-110 order-first lg:order-none transition-all"
+        <button
+            class="nav-next absolute right-0 md:-right-14 top-1/2 -translate-y-1/2 z-10 bg-white p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
             >
-                <!-- Franja superior -->
-                <div
-                    class="absolute top-0 left-0 w-full h-14 bg-white rounded-t-2xl flex items-center justify-center"
-                >
-                    <h3 class="text-black font-bold text-xs sm:text-sm px-2">
-                        LANDING PAGE
-                    </h3>
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+            </svg>
+        </button>
+
+        <!-- Contenedor del Slider -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Card 1 -->
+                <div class="swiper-slide">
+                    <article class="card-content">
+                        <div class="card-header">
+                            <h3>1. LANDING PAGE</h3>
+                        </div>
+                        <div class="card-body">
+                            <span
+                                >Página web diseñada para captar clientes o
+                                promocionar un producto o servicio.
+                            </span>
+                            <button>VER MÁS</button>
+                        </div>
+                    </article>
                 </div>
 
-                <!-- Contenido -->
-                <div
-                    class="h-full flex flex-col justify-between pt-14 pb-4 rounded-2xl bg-third border-2"
-                >
-                    <div class="flex-grow flex items-center justify-center">
-                        <span class="text-white text-xl sm:text-2xl font-bold">
-                            <!-- Puedes agregar contenido aquí -->
-                        </span>
-                    </div>
-                    <button
-                        class="mx-4 py-3 bg-black text-white font-semibold rounded-md text-sm sm:text-base hover:bg-opacity-80"
-                    >
-                        VER MÁS
-                    </button>
-                </div>
-            </article>
-
-            <!-- Tarjeta Derecha -->
-            <article
-                class="relative group w-full h-[28rem] sm:h-[30rem] rounded-2xl shadow-lg hover:shadow-2xl md:scale-90 md:hover:scale-95 transition-all"
-            >
-                <!-- Franja superior -->
-                <div
-                    class="absolute top-0 left-0 w-full h-14 bg-white rounded-t-2xl flex items-center justify-center"
-                >
-                    <h3 class="text-black font-bold text-xs sm:text-sm px-2">
-                        LANDING PAGE
-                    </h3>
+                <!-- Card 2 -->
+                <div class="swiper-slide">
+                    <article class="card-content">
+                        <div class="card-header">
+                            <h3>2. TIENDA OLINE (E-COMMERCE)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span
+                                >Un sitio web diseñado para vender productos o
+                                servicios de manera directa, con carrito de
+                                compras y pasarelas de pago integradas.</span
+                            >
+                            <button>VER MÁS</button>
+                        </div>
+                    </article>
                 </div>
 
-                <!-- Contenido -->
-                <div
-                    class="h-full flex flex-col justify-between pt-14 pb-4 rounded-2xl bg-third border-2"
-                >
-                    <div class="flex-grow flex items-center justify-center">
-                        <span class="text-white text-xl sm:text-2xl font-bold">
-                            <!-- Puedes agregar contenido aquí -->
-                        </span>
-                    </div>
-                    <button
-                        class="mx-4 py-3 bg-black text-white font-semibold rounded-md text-sm sm:text-base hover:bg-opacity-80"
-                    >
-                        VER MÁS
-                    </button>
+                <!-- Card 3 -->
+                <div class="swiper-slide">
+                    <article class="card-content">
+                        <div class="card-header">
+                            <h3>3. SITIO WEB CORPORATIVO</h3>
+                        </div>
+                        <div class="card-body">
+                            <span
+                                >Una página web completa que refleja la
+                                identidad y valores de una empresa, diseñada
+                                para generar confianza y comunicar
+                                profesionalismo.</span
+                            >
+                            <button>VER MÁS</button>
+                        </div>
+                    </article>
                 </div>
-            </article>  
+
+                <!-- Card 4 -->
+                <div class="swiper-slide">
+                    <article class="card-content">
+                        <div class="card-header">
+                            <h3>4. BLOG PERSONAL / PORTFOLIO</h3>
+                        </div>
+                        <div class="card-body">
+                            <span>Card 4</span>
+                            <button>VER MÁS</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<style>
+    .card-content {
+        position: relative;
+        width: 100%;
+        height: 28rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .card-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3.5rem;
+        background: white;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-header h3 {
+        font-weight: bold;
+        font-size: 0.75rem;
+        padding: 0 0.5rem;
+        text-align: center;
+    }
+
+    .card-body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 3.5rem;
+        padding-bottom: 1rem;
+        border-radius: 2rem;
+        background: var(--color-third);
+        border: 2px solid black;
+    }
+
+    .card-body span {
+        color: white;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-body button {
+        margin: 0 1rem;
+        padding: 0.75rem 0;
+        background: var(--color-buttons);
+        color: white;
+        font-weight: 600;
+        border-radius: 0.375rem;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .card-body button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Estilos Swiper */
+    .swiper {
+        width: 100%;
+        overflow: hidden;
+        padding: 5rem 0;
+    }
+
+    .swiper-slide {
+        transition:
+            transform 0.6s ease,
+            opacity 0.6s ease,
+            scale 0.6s ease,
+            visibility 0.6s ease;
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.85) translateX(-100%);
+    }
+
+    .swiper-slide-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(0.95) translateX(0);
+    }
+
+    .swiper-slide-active {
+        transform: scale(1.1) translateX(0);
+        z-index: 2;
+        scale: 1.2;
+    }
+
+    .swiper-slide-prev {
+        transform: scale(0.95) translateX(-100%);
+    }
+
+    .swiper-slide-next {
+        transform: scale(0.95) translateX(100%);
+    }
+
+    /* Botones de navegación */
+    .nav-prev,
+    .nav-next {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(2px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .nav-prev:hover,
+    .nav-next:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive */
+    @media (min-width: 640px) {
+        .card-content {
+            height: 30rem;
+        }
+
+        .card-header h3 {
+            font-size: 1.25rem;
+        }
+
+        .card-body span {
+            font-size: 1.5rem;
+        }
+
+        .card-body button {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .swiper-slide {
+            transform: scale(0.75) translateX(-100%);
+            opacity: 0;
+        }
+
+        .swiper-slide-visible {
+            transform: scale(0.85) translateX(0);
+            opacity: 0.5;
+        }
+
+        .swiper-slide-active {
+            transform: scale(1) translateX(0);
+            opacity: 1;
+        }
+
+        .swiper-slide-prev {
+            transform: scale(0.85) translateX(-50%);
+        }
+
+        .swiper-slide-next {
+            transform: scale(0.85) translateX(50%);
+        }
+    }
+</style>
+
+<script>
+    import Swiper from "swiper";
+    import { Navigation } from "swiper/modules";
+    import "swiper/css";
+
+    // Inicializar Swiper
+    const swiper = new Swiper(".swiper", {
+        modules: [Navigation],
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        initialSlide: 1,
+        loop: true,
+        speed: 600,
+        watchSlidesProgress: true,
+
+        // Configuración responsive
+        breakpoints: {
+            320: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 2.2,
+                spaceBetween: 10,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+            },
+        },
+
+        // Navegación personalizada
+        navigation: {
+            nextEl: ".nav-next",
+            prevEl: ".nav-prev",
+        },
+    });
+
+    import { useScrollAnimation } from "../../../utils/useScrollAnimation";
+
+    const { initAnimation } = useScrollAnimation();
+    document.addEventListener("DOMContentLoaded", initAnimation);
+</script>
