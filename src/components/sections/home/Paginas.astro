@@ -7,7 +7,7 @@
     data-section
 >
     <div
-        class="w-full max-w-7xl mx-auto relative flex "
+        class="w-full max-w-7xl mx-auto relative flex"
         data-content
     >
         <!-- Botón de navegación anterior -->
@@ -191,7 +191,8 @@
 
     /* Estilos Swiper */
     .swiper {
-        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
         overflow: hidden;
         padding: 5rem 0;
     }
@@ -284,6 +285,21 @@
             transform: scale(0.85) translateX(50%);
         }
     }
+
+    @media (min-width: 1024px) {
+    .swiper-slide-active {
+        transform: scale(1.05) translateX(0) !important;
+        z-index: 2;
+    }
+    
+    .swiper-slide-prev {
+        transform: scale(0.95) translateX(-25%) !important;
+    }
+    
+    .swiper-slide-next {
+        transform: scale(0.95) translateX(25%) !important;
+    }
+}
 </style>
 
 <script>
@@ -301,6 +317,7 @@
         loop: true,
         speed: 600,
         watchSlidesProgress: true,
+        spaceBetween: 5,
 
         // Configuración responsive
         breakpoints: {
