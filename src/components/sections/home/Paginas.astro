@@ -6,10 +6,7 @@
     class="w-full h-screen flex items-center justify-center sticky top-0 bg-background_pages"
     data-section
 >
-    <div
-        class="w-full max-w-7xl mx-auto relative flex"
-        data-content
-    >
+    <div class="w-full max-w-7xl mx-auto relative flex" data-content>
         <!-- Botón de navegación anterior -->
         <button
             class="nav-prev absolute left-0 xl:-left-14 top-1/2 -translate-y-1/2 z-10 bg-black p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all"
@@ -287,19 +284,19 @@
     }
 
     @media (min-width: 1024px) {
-    .swiper-slide-active {
-        transform: scale(1.05) translateX(0) !important;
-        z-index: 2;
+        .swiper-slide-active {
+            transform: scale(1.05) translateX(0) !important;
+            z-index: 2;
+        }
+
+        .swiper-slide-prev {
+            transform: scale(0.95) translateX(-25%) !important;
+        }
+
+        .swiper-slide-next {
+            transform: scale(0.95) translateX(25%) !important;
+        }
     }
-    
-    .swiper-slide-prev {
-        transform: scale(0.95) translateX(-25%) !important;
-    }
-    
-    .swiper-slide-next {
-        transform: scale(0.95) translateX(25%) !important;
-    }
-}
 </style>
 
 <script>
@@ -317,21 +314,21 @@
         loop: true,
         speed: 600,
         watchSlidesProgress: true,
-        spaceBetween: 2,
+        spaceBetween: 10,
 
         // Configuración responsive
         breakpoints: {
             320: {
                 slidesPerView: 1.2,
-                spaceBetween: 5,
+                spaceBetween: 10,
             },
             768: {
                 slidesPerView: 2.2,
-                spaceBetween: 5,
+                spaceBetween: 15,
             },
             1024: {
                 slidesPerView: 3,
-                spaceBetween: 5,
+                spaceBetween: 20,
             },
         },
 
