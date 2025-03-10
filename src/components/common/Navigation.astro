@@ -40,22 +40,22 @@ import '../../styles/nav.css'
 <nav id="mobile-menu" class="fixed top-16 left-0 right-0 z-50 menu-hidden">
   <ul class="flex flex-col space-y-4 p-4">
     <li>
-      <a href="/" class="text-white font-medium transition-all duration-300 hover:scale-105">
+      <a href="/" class="text-black font-medium transition-all duration-300 hover:scale-105">
         INICIO
       </a>
     </li>
     <li>
-      <a href="/#nosotros" class="text-white font-medium transition-all duration-300 hover:scale-105">
+      <a href="/#nosotros" class="text-black font-medium transition-all duration-300 hover:scale-105">
         NOSOTROS
       </a>
     </li>
     <li>
-      <a href="/servicios" class="text-white font-medium transition-all duration-300 hover:scale-105">
+      <a href="/servicios" class="text-black font-medium transition-all duration-300 hover:scale-105">
         SERVICIOS
       </a>
     </li>
     <li>
-      <a href="/contacto" class="text-white font-medium transition-all duration-300 hover:scale-105">
+      <a href="/contacto" class="text-black font-medium transition-all duration-300 hover:scale-105">
         CONTACTO
       </a>
     </li>
@@ -63,27 +63,45 @@ import '../../styles/nav.css'
 </nav>
 
 <script>
-document.getElementById('mobile-menu-button')?.addEventListener('click', () => {
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuButton = document.getElementById('mobile-menu-button');
-
-  menuButton?.classList.toggle('open');
-
-  if (!mobileMenu) return;
-
-  if (mobileMenu.classList.contains('menu-hidden')) {
-    // Abrir el menú
-    mobileMenu.classList.remove('menu-hidden', 'menu-leave');
-    mobileMenu.classList.add('menu-visible');
-  } else {
-    // Cerrar el menú con animación de salida
-    mobileMenu.classList.remove('menu-visible');
-    mobileMenu.classList.add('menu-leave');
-    setTimeout(() => {
-      if (!mobileMenu) return;
-      mobileMenu.classList.remove('menu-leave');
-      mobileMenu.classList.add('menu-hidden');
-    }, 300);
-  }
-});
-</script>
+  document.getElementById('mobile-menu-button')?.addEventListener('click', () => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuButton = document.getElementById('mobile-menu-button');
+  
+    menuButton?.classList.toggle('open');
+  
+    if (!mobileMenu) return;
+  
+    if (mobileMenu.classList.contains('menu-hidden')) {
+      mobileMenu.classList.remove('menu-hidden', 'menu-leave');
+      mobileMenu.classList.add('menu-visible');
+    } else {
+      mobileMenu.classList.remove('menu-visible');
+      mobileMenu.classList.add('menu-leave');
+      setTimeout(() => {
+        mobileMenu.classList.remove('menu-leave');
+        mobileMenu.classList.add('menu-hidden');
+      }, 300);
+    }
+  });
+  
+  // Solución para el enlace "NOSOTROS"
+  document.querySelectorAll('a[href="/#nosotros"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (window.location.pathname === "/") {
+        e.preventDefault();
+        const target = document.getElementById('nosotros');
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
+  });
+  
+  // Cierra el menú móvil al hacer clic en un enlace
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobile-menu')?.classList.add('menu-hidden');
+    });
+  });
+  </script>
+  

@@ -1,11 +1,9 @@
 <section
   id="beneficios"
-  class="bg-secondary min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 sticky top-0"
-  data-section
+  class="bg-secondary min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 sticky"
 >
   <div
     class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto"
-    data-content
   >
     <div
       class="benefits-container flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 w-full px-4"
@@ -167,9 +165,6 @@
     .benefits-container:has(.article-right:hover) .article-center {
       transform: translateX(-1.5rem);
     }
-    article:hover {
-      z-index: 10;
-    }
   }
 
   /* Para pantallas grandes: 1024px en adelante */
@@ -194,9 +189,6 @@
     .benefits-container:has(.article-right:hover) .article-center {
       transform: translateX(-3rem);
     }
-    article:hover {
-      z-index: 10;
-    }
   }
 
   /* Para pantallas pequeñas (opcional) se puede omitir efecto hover */
@@ -211,8 +203,6 @@
 </style>
 
 <script>
-  import { useScrollAnimation } from "../../../utils/useScrollAnimation";
-
   // Intersection Observer para activar las animaciones al hacer scroll
   const observer = new IntersectionObserver(
     (entries) => {
@@ -232,7 +222,4 @@
   document.querySelectorAll("article").forEach((article) => {
     observer.observe(article);
   });
-
-  const { initAnimation } = useScrollAnimation();
-  document.addEventListener("DOMContentLoaded", initAnimation);
 </script>
