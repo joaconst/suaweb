@@ -1,48 +1,91 @@
-<section class="w-full h-screen flex items-center justify-center mt-8">
+<section class="w-full h-screen flex flex-col items-center justify-center mt-8">
     <article
         class="w-[90%] h-[80%] grid grid-cols-1 md:grid-cols-2 bg-blog_services rounded-4xl overflow-hidden shadow-xl"
     >
-        <!-- Titulo -->
-        <div class="flex flex-col items-center justify-center p-8 gap-6 md:gap-8 lg:gap-10">
-            <h2 class="text-white text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-snug md:leading-tight text-center px-4">
+        <!-- Columna de título y botón -->
+        <div
+            class="hidden md:flex flex-col items-center justify-center p-8 gap-6 md:gap-8 lg:gap-10"
+        >
+            <h2
+                class="text-white text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-snug md:leading-tight text-center px-4"
+            >
                 BLOG/PORTFOLIO PERSONAL
             </h2>
             <button
-                class="bg-buttons text-white text-lg font-medium tracking-wider py-4 px-6 md:py-4 md:px-12 rounded-lg shadow-md hover:bg-pink-200/50 transition-colors"
+                class="bg-buttons text-white text-lg font-medium tracking-wider px-6 py-4 md:px-12 rounded-lg shadow-md hover:bg-pink-200/50 transition-colors"
             >
                 SOLICITAR COTIZACIÓN
             </button>
         </div>
 
+        <!-- Columna de título -->
+        <div
+            class="md:hidden flex flex-col items-center justify-center p-8 gap-6"
+        >
+            <h2
+                class="text-white text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-snug md:leading-tight text-center px-4"
+            >
+                BLOG/PORTFOLIO PERSONAL
+            </h2>
+        </div>
+
         <!-- Contenido -->
         <div class="p-2 md:p-8 flex items-center justify-center">
-            <div class="bg-pink-200/50 rounded-4xl overflow-hidden shadow-md w-[35rem] h-[15rem] md:h-[30rem]">
-                <div class="bg-white p-4 text-black text-2xl md:text-4xl font-bold text-center">
+            <div
+                class="bg-pink-200/50 rounded-4xl overflow-hidden shadow-md w-[35rem] h-[20rem] md:h-[30rem]"
+            >
+                <div
+                    class="bg-white p-4 text-black text-2xl md:text-4xl font-bold text-center"
+                >
                     Características
                 </div>
-                <div class="p-4 md:p-8 text-center text-white font-medium text-xl md:text-3xl flex flex-col gap-15 relative"> 
-                    <div id="initial-content" class="flex flex-col items-center gap-15 transition-all duration-300 h-full">
+                <div
+                    class="p-4 md:p-8 text-center text-white font-medium text-xl md:text-3xl flex flex-col gap-15 relative"
+                >
+                    <div
+                        id="initial-content"
+                        class="flex flex-col items-center md:gap-15 transition-all duration-300 h-full"
+                    >
                         <span class="font-bold">OBJETIVO:</span>
                         <p>
-                            Un espacio en línea diseñado para mostrar proyectos, publicaciones o servicios de manera profesional y ordenada.
+                            Un espacio en línea diseñado para mostrar proyectos,
+                            publicaciones o servicios de manera profesional y
+                            ordenada.
                         </p>
-                        <button 
+                        <button
                             id="toggle-btn"
-                            class="bg-buttons text-white text-lg font-medium tracking-wider py-4 px-6 rounded-lg shadow-md hover:bg-blog_services transition-all duration-300 mt-auto relative z-20"
+                            class="bg-buttons text-white text-sm md:text-lg font-medium tracking-wider py-3 md:py-4 px-3 md:px-6 rounded-lg shadow-md hover:bg-blog_services transition-all duration-300 mt-8 relative z-20"
                         >
                             VER MÁS
                         </button>
                     </div>
-                    <div id="expanded-content" class="absolute inset-0 items-center opacity-0 transition-all duration-300 pointer-events-none h-full">
-                        <ul class="list-none text-left space-y-2 text-lg md:text-2xl mt-6 ml-8 mb-8">
-                            <li>✔ Hasta 10 entradas de blog o proyectos cargados. </li>
-                            <li>✔ Diseño limpio y minimalista, optimizado para lectura.</li>
-                            <li>✔ Formulario de contacto y enlaces a redes sociales.</li>
-                            <li>✔ Optimización SEO básica para mejorar el posicionamiento en buscadores</li>
+                    <div
+                        id="expanded-content"
+                        class="absolute inset-0 items-center opacity-0 transition-all duration-300 pointer-events-none h-full"
+                    >
+                        <ul
+                            class="list-none text-left space-y-2 text-lg md:text-2xl mt-6 ml-8 mb-8"
+                        >
+                            <li>
+                                ✔ Hasta 10 entradas de blog o proyectos
+                                cargados.
+                            </li>
+                            <li>
+                                ✔ Diseño limpio y minimalista, optimizado para
+                                lectura.
+                            </li>
+                            <li>
+                                ✔ Formulario de contacto y enlaces a redes
+                                sociales.
+                            </li>
+                            <li>
+                                ✔ Optimización SEO básica para mejorar el
+                                posicionamiento en buscadores.
+                            </li>
                         </ul>
-                        <button 
+                        <button
                             id="toggle-btn"
-                            class="bg-buttons text-white text-lg font-medium tracking-wider py-4 px-6 rounded-lg shadow-md hover:bg-blog_services transition-all duration-300 mt-auto relative z-20"
+                            class="bg-buttons text-white text-sm md:text-lg font-medium tracking-wider py-3 md:py-4 px-3 md:px-6 rounded-lg shadow-md hover:bg-blog_services transition-all duration-300 mt-8 relative z-20"
                         >
                             VOLVER
                         </button>
@@ -50,29 +93,48 @@
                 </div>
             </div>
         </div>
+
+        <!-- Botón para mobile -->
+        <button
+            class="md:hidden mt-4 mx-auto bg-buttons text-white text-lg font-medium tracking-wider w-[250px] h-[50px] items-center rounded-lg shadow-md hover:bg-pink-200/50 transition-colors"
+        >
+            SOLICITAR COTIZACIÓN
+        </button>
     </article>
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggleBtns = document.querySelectorAll('#toggle-btn');
-        const initialContent = document.getElementById('initial-content');
-        const expandedContent = document.getElementById('expanded-content');
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtns = document.querySelectorAll("#toggle-btn");
+        const initialContent = document.getElementById("initial-content");
+        const expandedContent = document.getElementById("expanded-content");
 
         // Verifica si los elementos existen
         if (initialContent && expandedContent) {
             let isExpanded = false;
 
-            toggleBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
+            toggleBtns.forEach((btn) => {
+                btn.addEventListener("click", () => {
                     isExpanded = !isExpanded;
-                    
+
                     if (isExpanded) {
-                        initialContent.classList.add('opacity-0', 'pointer-events-none');
-                        expandedContent.classList.remove('opacity-0', 'pointer-events-none');
+                        initialContent.classList.add(
+                            "opacity-0",
+                            "pointer-events-none",
+                        );
+                        expandedContent.classList.remove(
+                            "opacity-0",
+                            "pointer-events-none",
+                        );
                     } else {
-                        initialContent.classList.remove('opacity-0', 'pointer-events-none');
-                        expandedContent.classList.add('opacity-0', 'pointer-events-none');
+                        initialContent.classList.remove(
+                            "opacity-0",
+                            "pointer-events-none",
+                        );
+                        expandedContent.classList.add(
+                            "opacity-0",
+                            "pointer-events-none",
+                        );
                     }
                 });
             });
