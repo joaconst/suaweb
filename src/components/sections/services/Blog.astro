@@ -36,7 +36,7 @@
                         </button>
                     </div>
                     <div id="expanded-content" class="absolute inset-0 items-center opacity-0 transition-all duration-300 pointer-events-none h-full">
-                        <ul class="list-none text-left space-y-2 text-lg md:text-2xl mt-3 md:mt-6 ml-4 md:ml-8 mb-4 md:mb-8">
+                        <ul class="list-none text-left space-y-2 text-lg md:text-2xl mt-3 md:mt-6 ml-4 md:ml-8 mb-2 md:mb-8">
                             <li>✔ Hasta 10 entradas de blog o proyectos cargados.</li>
                             <li>✔ Diseño limpio y minimalista, optimizado para lectura.</li>
                             <li>✔ Formulario de contacto y enlaces a redes sociales.</li>
@@ -76,12 +76,12 @@
                         expandedContent.classList.remove("opacity-0", "pointer-events-none");
                         // Cambiar la altura de la card a 25rem en mobile
                         card.classList.remove("h-[20rem]");
-                        card.classList.add("h-[25rem]");
+                        card.classList.add("h-[26rem]");
                     } else {
                         initialContent.classList.remove("opacity-0", "pointer-events-none");
                         expandedContent.classList.add("opacity-0", "pointer-events-none");
                         // Volver la altura de la card a 20rem en mobile
-                        card.classList.remove("h-[25rem]");
+                        card.classList.remove("h-[26rem]");
                         card.classList.add("h-[20rem]");
                     }
                 });
