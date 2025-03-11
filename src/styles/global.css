@@ -14,10 +14,21 @@
   --color-background_pages: #ffc397;
 }
 
+@font-face {
+  font-family: 'Horizon';
+  src: url('/fonts/horizon.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   font-family: system-ui, sans-serif;
   scroll-behavior: smooth;
   margin: 0;
   width: 100%;
   height: 100%;
+}
+
+h1, h2, h3 {
+  font-family: 'Horizon', sans-serif;
 }
