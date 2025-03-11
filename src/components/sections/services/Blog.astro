@@ -18,7 +18,7 @@
             </button>
         </div>
 
-        <!-- Columna de título -->
+        <!-- Columna de título para mobile -->
         <div
             class="md:hidden flex flex-col items-center justify-center md:p-8 md:gap-6"
         >
@@ -31,8 +31,10 @@
 
         <!-- Contenido -->
         <div class="p-2 md:p-8 flex items-center justify-center">
+            <!-- Se le asigna el id "card" para poder modificar su altura -->
             <div
-                class="bg-pink-200/50 rounded-4xl overflow-hidden shadow-md w-[35rem] h-[25rem] md:h-[30rem]"
+                id="card"
+                class="bg-pink-200/50 rounded-4xl overflow-hidden shadow-md w-[35rem] h-[20rem] md:h-[30rem]"
             >
                 <div
                     class="bg-white p-4 text-black text-2xl md:text-4xl font-bold text-center"
@@ -108,9 +110,9 @@
         const toggleBtns = document.querySelectorAll("#toggle-btn");
         const initialContent = document.getElementById("initial-content");
         const expandedContent = document.getElementById("expanded-content");
+        const card = document.getElementById("card");
 
-        // Verifica si los elementos existen
-        if (initialContent && expandedContent) {
+        if (initialContent && expandedContent && card) {
             let isExpanded = false;
 
             toggleBtns.forEach((btn) => {
@@ -126,6 +128,9 @@
                             "opacity-0",
                             "pointer-events-none",
                         );
+                        // Cambiar la altura de la card a 25rem en mobile
+                        card.classList.remove("h-[20rem]");
+                        card.classList.add("h-[25rem]");
                     } else {
                         initialContent.classList.remove(
                             "opacity-0",
@@ -135,6 +140,9 @@
                             "opacity-0",
                             "pointer-events-none",
                         );
+                        // Volver la altura de la card a 20rem en mobile
+                        card.classList.remove("h-[25rem]");
+                        card.classList.add("h-[20rem]");
                     }
                 });
             });
