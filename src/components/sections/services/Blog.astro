@@ -1,30 +1,18 @@
 <section class="w-full h-screen flex flex-col items-center justify-center mt-8">
-    <article
-        class="w-[90%] h-[80%] grid grid-cols-1 md:grid-cols-2 bg-blog_services rounded-4xl overflow-hidden shadow-xl"
-    >
+    <article class="w-[90%] h-[80%] grid grid-cols-1 md:grid-cols-2 bg-blog_services rounded-4xl overflow-hidden shadow-xl">
         <!-- Columna de título y botón -->
-        <div
-            class="hidden md:flex flex-col items-center justify-center p-8 gap-6 md:gap-8 lg:gap-10"
-        >
-            <h2
-                class="text-white text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-snug md:leading-tight text-center px-4"
-            >
+        <div class="hidden md:flex flex-col items-center justify-center p-8 gap-6 md:gap-8 lg:gap-10">
+            <h2 class="text-white text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-snug md:leading-tight text-center px-4">
                 BLOG/PORTFOLIO PERSONAL
             </h2>
-            <button
-                class="bg-buttons text-white text-lg font-medium tracking-wider px-6 py-4 md:px-12 rounded-lg shadow-md hover:bg-pink-200/50 transition-colors"
-            >
+            <button class="bg-buttons text-white text-lg font-medium tracking-wider px-6 py-4 md:px-12 rounded-lg shadow-md hover:bg-pink-200/50 transition-colors">
                 SOLICITAR COTIZACIÓN
             </button>
         </div>
 
         <!-- Columna de título para mobile -->
-        <div
-            class="md:hidden flex flex-col items-center justify-center md:p-8 md:gap-6"
-        >
-            <h2
-                class="text-white text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-snug md:leading-tight text-center md:px-4"
-            >
+        <div class="md:hidden flex flex-col items-center justify-center md:p-8 md:gap-6">
+            <h2 class="text-white text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-snug md:leading-tight text-center md:px-4">
                 BLOG/PORTFOLIO PERSONAL
             </h2>
         </div>
@@ -32,63 +20,29 @@
         <!-- Contenido -->
         <div class="p-2 md:p-8 flex items-center justify-center">
             <!-- Se le asigna el id "card" para poder modificar su altura -->
-            <div
-                id="card"
-                class="bg-pink-200/50 rounded-4xl overflow-hidden shadow-md w-[35rem] h-[20rem] md:h-[30rem]"
-            >
-                <div
-                    class="bg-white p-4 text-black text-2xl md:text-4xl font-bold text-center"
-                >
+            <div id="card" class="bg-pink-200/50 rounded-4xl overflow-hidden shadow-md w-[35rem] h-[20rem] md:h-[30rem]">
+                <div class="bg-white p-4 text-black text-2xl md:text-4xl font-bold text-center">
                     Características
                 </div>
-                <div
-                    class="p-4 md:p-8 text-center text-white font-medium text-xl md:text-3xl flex flex-col gap-15 relative"
-                >
-                    <div
-                        id="initial-content"
-                        class="flex flex-col items-center md:gap-10 transition-all duration-300 h-full"
-                    >
+                <div class="p-4 md:p-8 text-center text-white font-medium text-xl md:text-3xl flex flex-col gap-15 relative">
+                    <div id="initial-content" class="flex flex-col items-center md:gap-10 transition-all duration-300 h-full">
                         <span class="font-bold">OBJETIVO:</span>
                         <p>
                             Un espacio en línea diseñado para mostrar proyectos,
-                            publicaciones o servicios de manera profesional y
-                            ordenada.
+                            publicaciones o servicios de manera profesional y ordenada.
                         </p>
-                        <button
-                            id="toggle-btn"
-                            class="bg-buttons text-white text-sm md:text-lg font-medium tracking-wider py-3 md:py-4 px-3 md:px-6 rounded-lg shadow-md hover:bg-blog_services transition-all duration-300 mt-8 relative z-20"
-                        >
+                        <button id="toggle-btn" class="bg-buttons text-white text-sm md:text-lg font-medium tracking-wider py-3 md:py-4 px-3 md:px-6 rounded-lg shadow-md hover:bg-blog_services transition-all duration-300 mt-8 relative z-20">
                             VER MÁS
                         </button>
                     </div>
-                    <div
-                        id="expanded-content"
-                        class="absolute inset-0 items-center opacity-0 transition-all duration-300 pointer-events-none h-full"
-                    >
-                        <ul
-                            class="list-none text-left space-y-2 text-lg md:text-2xl mt-3 md:mt-6 ml-4 md:ml-8 mb-4 md:mb-8"
-                        >
-                            <li>
-                                ✔ Hasta 10 entradas de blog o proyectos
-                                cargados.
-                            </li>
-                            <li>
-                                ✔ Diseño limpio y minimalista, optimizado para
-                                lectura.
-                            </li>
-                            <li>
-                                ✔ Formulario de contacto y enlaces a redes
-                                sociales.
-                            </li>
-                            <li>
-                                ✔ Optimización SEO básica para mejorar el
-                                posicionamiento en buscadores.
-                            </li>
+                    <div id="expanded-content" class="absolute inset-0 items-center opacity-0 transition-all duration-300 pointer-events-none h-full">
+                        <ul class="list-none text-left space-y-2 text-lg md:text-2xl mt-3 md:mt-6 ml-4 md:ml-8 mb-4 md:mb-8">
+                            <li>✔ Hasta 10 entradas de blog o proyectos cargados.</li>
+                            <li>✔ Diseño limpio y minimalista, optimizado para lectura.</li>
+                            <li>✔ Formulario de contacto y enlaces a redes sociales.</li>
+                            <li>✔ Optimización SEO básica para mejorar el posicionamiento en buscadores.</li>
                         </ul>
-                        <button
-                            id="toggle-btn"
-                            class="bg-buttons text-white text-sm md:text-lg font-medium tracking-wider py-3 md:py-4 px-3 md:px-6 rounded-lg shadow-md hover:bg-blog_services transition-all duration-300 relative z-20"
-                        >
+                        <button id="toggle-btn" class="bg-buttons text-white text-sm md:text-lg font-medium tracking-wider py-3 md:py-4 px-3 md:px-6 rounded-lg shadow-md hover:bg-blog_services transition-all duration-300 relative z-20">
                             VOLVER
                         </button>
                     </div>
@@ -97,9 +51,7 @@
         </div>
 
         <!-- Botón para mobile -->
-        <button
-            class="md:hidden mt-4 mx-auto bg-buttons text-white text-lg font-medium tracking-wider w-[250px] h-[50px] items-center rounded-lg shadow-md hover:bg-pink-200/50 transition-colors"
-        >
+        <button class="md:hidden mt-4 mx-auto bg-buttons text-white text-lg font-medium tracking-wider w-[250px] h-[50px] items-center rounded-lg shadow-md hover:bg-pink-200/50 transition-colors">
             SOLICITAR COTIZACIÓN
         </button>
     </article>
@@ -120,26 +72,14 @@
                     isExpanded = !isExpanded;
 
                     if (isExpanded) {
-                        initialContent.classList.add(
-                            "opacity-0",
-                            "pointer-events-none",
-                        );
-                        expandedContent.classList.remove(
-                            "opacity-0",
-                            "pointer-events-none",
-                        );
+                        initialContent.classList.add("opacity-0", "pointer-events-none");
+                        expandedContent.classList.remove("opacity-0", "pointer-events-none");
                         // Cambiar la altura de la card a 25rem en mobile
                         card.classList.remove("h-[20rem]");
                         card.classList.add("h-[25rem]");
                     } else {
-                        initialContent.classList.remove(
-                            "opacity-0",
-                            "pointer-events-none",
-                        );
-                        expandedContent.classList.add(
-                            "opacity-0",
-                            "pointer-events-none",
-                        );
+                        initialContent.classList.remove("opacity-0", "pointer-events-none");
+                        expandedContent.classList.add("opacity-0", "pointer-events-none");
                         // Volver la altura de la card a 20rem en mobile
                         card.classList.remove("h-[25rem]");
                         card.classList.add("h-[20rem]");
