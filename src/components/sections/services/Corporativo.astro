@@ -1,68 +1,105 @@
----
-
----
-
-<section
-    class="w-full min-h-screen flex items-center justify-center contacto mb-16 md:mb-0"
->
+<section class="w-full h-screen flex flex-col items-center justify-center mt-8">
     <article
-        class="w-[90%] min-h-[80%] grid grid-cols-1 md:grid-cols-2 bg-fourth rounded-4xl overflow-hidden shadow-xl"
+        class="w-[90%] h-[80%] grid grid-cols-1 md:grid-cols-2 bg-fourth rounded-4xl overflow-hidden shadow-xl"
     >
-        <!-- Titulo -->
+        <!-- Títulos y botones generales (sin cambios) -->
         <div
-            class="flex flex-col items-center justify-center p-8 gap-6 md:gap-8 lg:gap-10"
+            class="hidden md:flex flex-col items-center justify-center p-8 gap-6 md:gap-8 lg:gap-10"
         >
             <h2
-                class="text-white text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-snug md:leading-tight text-center px-4"
+                class="text-white text-2xl lg:text-4xl xl:text-5xl font-extrabold leading-snug md:leading-tight text-center px-4"
             >
-                SITIO WEB CORPORATIVO
+                Sitio Web Corporativo
             </h2>
             <button
-                class="bg-buttons text-white text-lg font-medium tracking-wider py-4 px-6 md:py-4 md:px-12 rounded-lg shadow-md hover:bg-opacity-80 transition"
+                class="bg-buttons text-white text-lg font-medium tracking-wider px-6 py-4 md:px-12 rounded-lg shadow-md hover:bg-purple-200/50 transition-colors"
             >
                 SOLICITAR COTIZACIÓN
             </button>
         </div>
-
-        <!-- Contenedor de ambas cards -->
-        <div class="flex flex-col items-center justify-center p-2 md:p-8 gap-8">
-            <!-- Card 1 -->
-            <div
-                class="bg-purple-200 rounded-4xl overflow-hidden shadow-md w-full max-w-[35rem] h-[15rem]"
+        <div
+            class="md:hidden flex flex-col items-center justify-center md:p-8 md:gap-6"
+        >
+            <h2
+                class="text-white text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-snug md:leading-tight text-center md:px-4"
             >
-                <div
-                    class="bg-white p-4 text-black text-2xl md:text-4xl font-bold text-center"
-                >
-                    Sitio Corporativo Básico
-                </div>
-                <div
-                    class="p-2 md:p-4 text-center text-white font-medium text-xl md:text-2xl"
-                >
-                    <span class="font-bold">OBJETIVO:</span>
-                    <br />
-                    Informar sobre la empresa, su equipo y servicios, fortaleciendo
-                    la credibilidad.
-                </div>
-            </div>
+                Sitio Web Corporativo
+            </h2>
+        </div>
 
-            <!-- Card 2 -->
-            <div
-                class="bg-purple-200 rounded-4xl overflow-hidden shadow-md w-full max-w-[35rem] h-[15rem]"
-            >
+        <!-- Contenido de la tarjeta -->
+        <div class="p-2 md:p-8 flex items-center justify-center">
+            <!-- Contenedor de la tarjeta -->
+            <div class="card-container">
                 <div
-                    class="bg-white p-4 text-black text-2xl md:text-4xl font-bold text-center"
+                    class="card bg-purple-200/50 rounded-4xl overflow-hidden shadow-md w-[35rem] h-[20rem] md:h-[30rem]"
                 >
-                    Sitio Corporativo Avanzado
-                </div>
-                <div
-                    class="p-2 md:p-4 text-center text-white font-medium text-xl md:text-2xl"
-                >
-                    <span class="font-bold">OBJETIVO:</span>
-                    <br />
-                    Facilitar procesos internos (reservas o área privada para clientes)
-                    y mejorar la experiencia del usuario.
+                    <!-- Título de la tarjeta -->
+                    <div
+                        class="card-title bg-white p-4 text-black text-2xl lg:text-3xl font-bold text-center transition-all duration-300"
+                    >
+                        Objetivo
+                    </div>
+                    <div
+                        class="card-content p-4 md:p-8 text-center text-white font-medium text-xl sm:text-2xl lg:text-3xl flex flex-col gap-15 relative"
+                    >
+                        <!-- Contenido inicial -->
+                        <div
+                            class="initial-content flex flex-col items-center gap-2 md:gap-8 lg:gap-8 xl:gap-10 transition-all duration-300 h-full"
+                        >
+                            <p class="mt-8 lg:mt-10 xl:mt-15">
+                                Un espacio en línea diseñado para mostrar
+                                proyectos, publicaciones o servicios de manera
+                                profesional y ordenada.
+                            </p>
+                            <button
+                                class="toggle-btn bg-buttons text-white text-sm md:text-lg font-medium tracking-wider py-3 md:py-4 px-3 md:px-6 rounded-lg shadow-md hover:bg-fourth transition-all duration-300 mt-8 relative z-20"
+                            >
+                                VER MÁS
+                            </button>
+                        </div>
+                        <!-- Contenido expandido -->
+                        <div
+                            class="expanded-content absolute inset-0 items-center opacity-0 transition-all duration-300 pointer-events-none h-full"
+                        >
+                            <ul
+                                class="list-none text-left space-y-2 text-lg md:text-2xl mt-3 md:mt-6 ml-4 md:ml-8 mb-2 md:mb-8"
+                            >
+                                <li>
+                                    ✔ Hasta 10 entradas de blog o proyectos
+                                    cargados.
+                                </li>
+                                <li>
+                                    ✔ Diseño limpio y minimalista, optimizado
+                                    para lectura.
+                                </li>
+                                <li>
+                                    ✔ Formulario de contacto y enlaces a redes
+                                    sociales.
+                                </li>
+                                <li>
+                                    ✔ Optimización SEO básica para mejorar el
+                                    posicionamiento en buscadores.
+                                </li>
+                            </ul>
+                            <button
+                                class="toggle-btn bg-buttons text-white text-sm md:text-lg font-medium tracking-wider py-3 md:py-4 px-3 md:px-6 rounded-lg shadow-md hover:bg-fourth transition-all duration-300 relative z-20"
+                            >
+                                VOLVER
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Botón para mobile -->
+        <button
+            class="md:hidden mt-4 mx-auto bg-buttons text-white text-lg font-medium tracking-wider w-[250px] h-[50px] items-center rounded-lg shadow-md hover:bg-purple-200/50 transition-colors"
+        >
+            SOLICITAR COTIZACIÓN
+        </button>
     </article>
 </section>
+
+<script src="../../../utils/button.ts"></script>

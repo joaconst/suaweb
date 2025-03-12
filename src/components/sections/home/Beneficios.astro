@@ -1,225 +1,171 @@
-<section
-  id="beneficios"
-  class="bg-secondary min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 sticky"
->
-  <div
-    class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto"
-  >
-    <div
-      class="benefits-container flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 w-full px-4"
-    >
-      {
-        [
-          {
-            front: "DISEÑO 100% PERSONALIZADO",
-            back: "Cada negocio es único, por eso creamos páginas web adaptadas a tu estilo, necesidades y objetivos. Desde la paleta de colores hasta la estructura de la web.",
-            position: "left",
-          },
-          {
-            front: "WEB DE TU PROPIEDAD",
-            back: "Olvídate de las plataformas que te atan con suscripciones. Con nosotros, tu página es completamente tuya, sin depender de terceros. La registramos con tu dominio.",
-            position: "center",
-          },
-          {
-            front: "OPTIMIZADA PARA AYUDARTE A CRECER",
-            back: "Desarrollamos sitios rápidos, responsivos y optimizados para buscadores (SEO). Así, tu negocio gana visibilidad y atrae más clientes, impulsando tu crecimiento en el mundo digital.",
-            position: "right",
-          },
-        ].map((item) => (
-          <article
-            class={`group perspective text-white text-center 
-            w-[200px] h-[200px] 
-            sm:w-[220px] sm:h-[220px]
-            md:w-[240px] md:h-[240px]
-            lg:w-[280px] lg:h-[280px]
-            xl:w-[350px] xl:h-[350px]
-            transition-all duration-500 ease-in-out
-            hover:scale-150 hover:z-50 animate-fade-up article-${item.position}`}
-          >
-            <div class="relative w-full h-full transition-all duration-500 preserve-3d group-hover:rotate-y-180">
-              {/* Frente del círculo */}
-              <div class="absolute w-full h-full backface-hidden rounded-full border-3 bg-fourth border-black">
-                <div class="flex items-center justify-center h-full p-4">
-                  <h3 class="text-sm md:text-2xl font-bold leading-tight">
-                    {item.front}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Parte trasera del círculo */}
-              <div class="absolute w-full h-full backface-hidden rounded-full border-3 border-black bg-fourth rotate-y-180 overflow-hidden transition-all">
-                <div class="h-full flex flex-col justify-center p-2 md:p-4 relative">
-                  <div class="text-container overflow-y-auto scrollbar-hide">
-                    <span class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-bold leading-snug">
-                      {item.back}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        ))
-      }
+<section class="bg-secondary flex items-center justify-center min-h-screen sticky">
+  <div class="p-8 max-w-6xl mx-auto w-full">
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+      
+      <!-- Título principal (sin efecto hover con iconos) -->
+      <div class="col-span-2 row-span-1 bg-white rounded-2xl shadow-lg flex items-center justify-center p-4 transition-all hover:shadow-xl order-1">
+        <h2 class="text-blue-600 text-2xl font-bold text-center">
+          Impulso digital para tu negocio
+        </h2>
+      </div>
+      
+      <!-- Destacado Principal (Card Grande) -->
+      <div class="group col-span-2 row-span-1 md:row-span-3 bg-white h-[305px] rounded-2xl shadow-lg p-6 relative overflow-hidden transition-all hover:shadow-xl order-2 lg:order-5">
+        <!-- Icono principal en la esquina inferior derecha -->
+        <div class="absolute bottom-2 right-2 z-10">
+          <i class="fas fa-rocket text-purple-600 text-4xl"></i>
+        </div>
+        <!-- Contenido por defecto centrado -->
+        <div class="transition-opacity duration-500 flex items-center justify-center h-full">
+          <div class="text-center">
+            <span class="text-purple-600 text-4xl font-semibold mb-2">
+              Potencia tu Crecimiento
+            </span>
+            <p class="text-purple-600 text-sm opacity-90 mt-4">
+              Soluciones integrales para escalar tu negocio online
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Integración Redes Sociales -->
+      <div class="group col-span-1 row-span-1 sm:row-span-2 bg-white h-[200px] rounded-2xl shadow-lg p-6 relative overflow-hidden transition-all hover:shadow-xl order-3 sm:order-2">
+        <!-- Icono toggle en la esquina superior derecha -->
+        <div class="absolute top-2 right-2 z-10 w-6 h-6">
+          <i class="fas fa-plus text-xl text-purple-600 transition-opacity duration-500 opacity-100 group-hover:opacity-0"></i>
+          <i class="fas fa-times text-xl text-purple-600 transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute inset-0"></i>
+        </div>
+        <!-- Icono principal en la esquina inferior derecha -->
+        <div class="absolute bottom-2 right-2 z-10">
+          <i class="fas fa-share-nodes text-purple-300 text-3xl"></i>
+        </div>
+        <!-- Contenido por defecto centrado -->
+        <div class="transition-opacity duration-500 flex items-center justify-center h-full group-hover:opacity-0">
+          <span class="text-purple-600 text-lg font-semibold text-center">
+            Integración con Redes Sociales
+          </span>
+        </div>
+        <!-- Overlay en hover -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-white bg-opacity-90">
+          <span class="text-xl font-bold text-purple-600 text-center">Conecta y comparte</span>
+        </div>
+      </div>
+      
+      <!-- Diseño Personalizado -->
+      <div class="group col-span-1 row-span-1 sm:row-span-2 bg-white h-[200px] rounded-2xl shadow-lg p-6 relative overflow-hidden transition-all hover:shadow-xl order-4 sm:order-3">
+        <!-- Icono toggle en la esquina superior derecha -->
+        <div class="absolute top-2 right-2 z-10 w-6 h-6">
+          <i class="fas fa-plus text-xl text-blue-600 transition-opacity duration-500 opacity-100 group-hover:opacity-0"></i>
+          <i class="fas fa-times text-xl text-blue-600 transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute inset-0"></i>
+        </div>
+        <!-- Icono principal en la esquina inferior derecha -->
+        <div class="absolute bottom-2 right-2 z-10">
+          <i class="fas fa-palette text-blue-300 text-3xl"></i>
+        </div>
+        <!-- Contenido por defecto centrado -->
+        <div class="transition-opacity duration-500 flex items-center justify-center h-full group-hover:opacity-0">
+          <span class="text-blue-600 text-lg font-semibold text-center">
+            Diseño 100% Personalizado
+          </span>
+        </div>
+        <!-- Overlay en hover -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-white bg-opacity-90">
+          <span class="text-xl font-bold text-blue-600 text-center">Diseño único</span>
+        </div>
+      </div>
+      
+      <!-- Web de tu Propiedad -->
+      <div class="group col-span-1 row-span-1 sm:row-span-2 bg-white h-[200px] rounded-2xl shadow-lg p-6 relative overflow-hidden transition-all hover:shadow-xl order-5 sm:order-4">
+        <!-- Icono toggle en la esquina superior derecha -->
+        <div class="absolute top-2 right-2 z-10 w-6 h-6">
+          <i class="fas fa-plus text-xl text-purple-600 transition-opacity duration-500 opacity-100 group-hover:opacity-0"></i>
+          <i class="fas fa-times text-xl text-purple-600 transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute inset-0"></i>
+        </div>
+        <!-- Icono principal en la esquina inferior derecha -->
+        <div class="absolute bottom-2 right-2 z-10">
+          <i class="fas fa-globe text-purple-300 text-3xl"></i>
+        </div>
+        <!-- Contenido por defecto centrado -->
+        <div class="transition-opacity duration-500 flex items-center justify-center h-full group-hover:opacity-0">
+          <span class="text-purple-600 text-lg font-semibold text-center">
+            Web de tu Propiedad
+          </span>
+        </div>
+        <!-- Overlay en hover -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-white bg-opacity-90">
+          <span class="text-xl font-bold text-purple-600 text-center">Tu web, tu marca</span>
+        </div>
+      </div>
+      
+      <!-- Optimización SEO -->
+      <div class="group col-span-1 row-span-1 sm:row-span-2 bg-white h-[200px] rounded-2xl shadow-lg p-6 relative overflow-hidden transition-all hover:shadow-xl order-6">
+        <!-- Icono toggle en la esquina superior derecha -->
+        <div class="absolute top-2 right-2 z-10 w-6 h-6">
+          <i class="fas fa-plus text-xl text-blue-600 transition-opacity duration-500 opacity-100 group-hover:opacity-0"></i>
+          <i class="fas fa-times text-xl text-blue-600 transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute inset-0"></i>
+        </div>
+        <!-- Icono principal en la esquina inferior derecha -->
+        <div class="absolute bottom-2 right-2 z-10">
+          <i class="fas fa-chart-line text-blue-300 text-3xl"></i>
+        </div>
+        <!-- Contenido por defecto centrado -->
+        <div class="transition-opacity duration-500 flex items-center justify-center h-full group-hover:opacity-0">
+          <span class="text-blue-600 text-lg font-semibold text-center">
+            Optimización SEO
+          </span>
+        </div>
+        <!-- Overlay en hover -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-white bg-opacity-90">
+          <span class="text-xl font-bold text-blue-600 text-center">Sube tu ranking</span>
+        </div>
+      </div>
+      
+      <!-- Tienda Online -->
+      <div class="group col-span-1 row-span-1 sm:row-span-2 bg-white h-[200px] rounded-2xl shadow-lg p-6 relative overflow-hidden transition-all hover:shadow-xl order-7">
+        <!-- Icono toggle en la esquina superior derecha -->
+        <div class="absolute top-2 right-2 z-10 w-6 h-6">
+          <i class="fas fa-plus text-xl text-purple-600 transition-opacity duration-500 opacity-100 group-hover:opacity-0"></i>
+          <i class="fas fa-times text-xl text-purple-600 transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute inset-0"></i>
+        </div>
+        <!-- Icono principal en la esquina inferior derecha -->
+        <div class="absolute bottom-2 right-2 z-10">
+          <i class="fas fa-cart-shopping text-purple-300 text-3xl"></i>
+        </div>
+        <!-- Contenido por defecto centrado -->
+        <div class="transition-opacity duration-500 flex items-center justify-center h-full group-hover:opacity-0">
+          <span class="text-purple-600 text-lg font-semibold text-center">
+            Tienda Online
+          </span>
+        </div>
+        <!-- Overlay en hover -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-white bg-opacity-90">
+          <span class="text-xl font-bold text-purple-600 text-center">Vende más</span>
+        </div>
+      </div>
+      
+      <!-- Analítica Avanzada -->
+      <div class="group col-span-1 row-span-1 sm:row-span-2 bg-white h-[200px] rounded-2xl shadow-lg p-6 relative overflow-hidden transition-all hover:shadow-xl order-8">
+        <!-- Icono toggle en la esquina superior derecha -->
+        <div class="absolute top-2 right-2 z-10 w-6 h-6">
+          <i class="fas fa-plus text-xl text-blue-600 transition-opacity duration-500 opacity-100 group-hover:opacity-0"></i>
+          <i class="fas fa-times text-xl text-blue-600 transition-opacity duration-500 opacity-0 group-hover:opacity-100 absolute inset-0"></i>
+        </div>
+        <!-- Icono principal en la esquina inferior derecha -->
+        <div class="absolute bottom-2 right-2 z-10">
+          <i class="fas fa-chart-pie text-blue-300 text-3xl"></i>
+        </div>
+        <!-- Contenido por defecto centrado -->
+        <div class="transition-opacity duration-500 flex items-center justify-center h-full group-hover:opacity-0">
+          <span class="text-blue-600 text-lg font-semibold text-center">
+            Analítica en Tiempo Real
+          </span>
+        </div>
+        <!-- Overlay en hover -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-white bg-opacity-90">
+          <span class="text-xl font-bold text-blue-600 text-center">Datos en vivo</span>
+        </div>
+      </div>
+      
     </div>
   </div>
 </section>
-
-<style>
-  .text-container {
-    max-height: calc(100% - 2rem);
-    padding: 0 1rem;
-    scroll-behavior: smooth;
-  }
-
-  .fade-effect {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 30px;
-    background: linear-gradient(
-      to top,
-      rgba(41, 37, 36, 1) 20%,
-      rgba(41, 37, 36, 0) 100%
-    );
-    pointer-events: none;
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Ajustes de tamaño de texto responsivo */
-  @media (max-width: 640px) {
-    .text-container span {
-      font-size: 0.875rem !important;
-      line-height: 1.4;
-    }
-  }
-
-  /* Resto de estilos permanecen igual */
-  /* Utilidades 3D */
-  .perspective {
-    perspective: 1000px;
-  }
-  .preserve-3d {
-    transform-style: preserve-3d;
-  }
-  .backface-hidden {
-    backface-visibility: hidden;
-  }
-  .rotate-y-180 {
-    transform: rotateY(180deg);
-  }
-
-  /* Animación de fade up al hacer scroll */
-  .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
-    opacity: 0;
-  }
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  article {
-    will-change: transform;
-  }
-  /* Delays escalonados */
-  article:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-  article:nth-child(2) {
-    animation-delay: 0.4s;
-  }
-  article:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-
-  /* Efecto hover: separación y escalado */
-  /* Para pantallas intermedias: 768px a 1023px */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .benefits-container {
-      position: relative;
-    }
-    /* Cuando se hace hover en el artículo izquierdo */
-    .article-left:hover ~ .article-center,
-    .article-left:hover ~ .article-right {
-      transform: translateX(1.5rem);
-    }
-    /* Cuando se hace hover en el artículo central */
-    .article-center:hover ~ .article-right {
-      transform: translateX(1.5rem);
-    }
-    .benefits-container:has(.article-center:hover) .article-left {
-      transform: translateX(-1.5rem);
-    }
-    /* Cuando se hace hover en el artículo derecho */
-    .benefits-container:has(.article-right:hover) .article-left,
-    .benefits-container:has(.article-right:hover) .article-center {
-      transform: translateX(-1.5rem);
-    }
-  }
-
-  /* Para pantallas grandes: 1024px en adelante */
-  @media (min-width: 1024px) {
-    .benefits-container {
-      position: relative;
-    }
-    /* Cuando se hace hover en el artículo izquierdo */
-    .article-left:hover ~ .article-center,
-    .article-left:hover ~ .article-right {
-      transform: translateX(3rem);
-    }
-    /* Cuando se hace hover en el artículo central */
-    .article-center:hover ~ .article-right {
-      transform: translateX(3rem);
-    }
-    .benefits-container:has(.article-center:hover) .article-left {
-      transform: translateX(-3rem);
-    }
-    /* Cuando se hace hover en el artículo derecho */
-    .benefits-container:has(.article-right:hover) .article-left,
-    .benefits-container:has(.article-right:hover) .article-center {
-      transform: translateX(-3rem);
-    }
-  }
-
-  /* Para pantallas pequeñas (opcional) se puede omitir efecto hover */
-  @media (max-width: 767px) {
-    /* Sin separación para evitar solapamientos en mobile */
-    .benefits-container {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-  }
-</style>
-
-<script>
-  // Intersection Observer para activar las animaciones al hacer scroll
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fade-up");
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "50px",
-    },
-  );
-
-  // Observamos todos los artículos
-  document.querySelectorAll("article").forEach((article) => {
-    observer.observe(article);
-  });
-</script>

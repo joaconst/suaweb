@@ -12,6 +12,9 @@
   --color-buttons: #292929;
   --color-background: #fff6ed;
   --color-background_pages: #ffc397;
+  --color-background_contact_wsp: #caabcd;
+  --color-background_contact_email: #d6e7f7;
+  --color-background_contact_form: #fec104;
 }
 
 @font-face {
@@ -22,7 +25,7 @@
 }
 
 html {
-  font-family: system-ui, sans-serif;
+  font-family: 'Archivo', sans-serif;
   scroll-behavior: smooth;
   margin: 0;
   width: 100%;
