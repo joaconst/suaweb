@@ -1,10 +1,10 @@
-<section class="h-20 flex items-center justify-center md:p-4">
-    <div class="w-full max-w-3xl mx-auto">
+<section class="flex items-center justify-center md:pt-4">
+    <div class="w-full max-w-3xl mx-auto pb-4">
         <div class="grid grid-cols-2 md:grid-rows-4 gap-4 p-2 rounded-lg">
             <!-- Teléfono -->
             <article
                 class="col-span-1 md:row-span-2 flex flex-col items-center justify-center p-4 bg-background_contact_wsp rounded-3xl shadow order-1"
-                style="box-shadow: 7px 7px 0 black;"
+                style="box-shadow: 7px 7px 0 #d9d9d9;"
             >
                 <div class="rounded-full border-2 p-2 mb-4">
                     <svg
@@ -21,36 +21,39 @@
                         ></path>
                     </svg>
                 </div>
-                <p class="text-sm sm:text-xl md:text-2xl font-semibold text-white">
+                <p
+                    class="text-sm sm:text-xl md:text-2xl font-semibold text-white"
+                >
                     +54 9 3512225555
                 </p>
             </article>
 
             <!-- Gmail -->
             <article
-            class="col-span-1 md:row-span-2 flex flex-col items-center justify-center p-4 bg-background_contact_email rounded-3xl order-2 md:order-3"
-            style="box-shadow: 7px 7px 0 black;"
-        >
-            <div class="rounded-full border-2 p-3 mb-4">
-                <svg
-                    class="w-8 sm:w-11 h-8 sm:h-11 text-black"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1"
+                class="col-span-1 md:row-span-2 flex flex-col items-center justify-center p-4 bg-background_contact_email rounded-3xl order-2 md:order-3"
+                style="box-shadow: 7px 7px 0 #d9d9d9;"
+            >
+                <div class="rounded-full border-2 p-3 mb-4">
+                    <svg
+                        class="w-8 sm:w-11 h-8 sm:h-11 text-black"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        ></path>
+                    </svg>
+                </div>
+                <p
+                    class="text-sm sm:text-xl md:text-2xl font-semibold text-white"
                 >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    ></path>
-                </svg>
-            </div>
-            <p class="text-sm sm:text-xl md:text-2xl font-semibold text-white">
-                juanjoseperez@gmail.com
-            </p>
-        </article>
-        
+                    juanjoseperez@gmail.com
+                </p>
+            </article>
 
             <!-- Formulario -->
             <article
@@ -81,40 +84,47 @@
                 <form class="w-full max-w-xs">
                     <!-- Grupo Nombre -->
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="min-w-[85px] text-white text-xl font-bold">Nombre</span>
+                        <span class="min-w-[85px] text-white text-xl font-bold"
+                            >Nombre</span
+                        >
                         <input
                             type="text"
                             class="flex-1 bg-white rounded-full pl-4"
                         />
                     </div>
-                
+
                     <!-- Grupo Teléfono -->
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="min-w-[85px] text-white text-xl font-bold">Teléfono</span>
+                        <span class="min-w-[85px] text-white text-xl font-bold"
+                            >Teléfono</span
+                        >
                         <input
                             type="text"
                             class="flex-1 bg-white rounded-full pl-4"
                         />
                     </div>
-                
+
                     <!-- Grupo Email -->
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="min-w-[85px] text-white text-xl font-bold">Email</span>
+                        <span class="min-w-[85px] text-white text-xl font-bold"
+                            >Email</span
+                        >
                         <input
                             type="text"
                             class="flex-1 bg-white rounded-full pl-4"
                         />
                     </div>
-                
+
                     <!-- Grupo Mensaje -->
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="min-w-[85px] text-white text-xl font-bold">Mensaje</span>
+                        <span class="min-w-[85px] text-white text-xl font-bold"
+                            >Mensaje</span
+                        >
                         <textarea
                             class="flex-1 bg-white rounded-2xl p-4"
-                            rows="4"
-                        ></textarea>
+                            rows="4"></textarea>
                     </div>
-                
+
                     <!-- Botón -->
                     <button
                         type="submit"
