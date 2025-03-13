@@ -1,0 +1,30 @@
+---
+import '../../styles/nav.css'
+---
+
+<header class="sticky mt-4 h-16 flex items-center justify-center gap-8">
+  <!-- Logo -->
+  <a href="#" class="text-2xl font-bold text-black flex items-center space-x-2">
+    <span>LOGO</span>
+  </a>
+
+  <!-- Menú para desktop -->
+  <nav class="flex items-center space-x-8 p-3 bg-white rounded-full shadow-lg shadow-black/50">
+    <a href="/" class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
+      INICIO
+      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="/#nosotros" class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
+      NOSOTROS  
+      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="/servicios" class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
+      SERVICIOS
+      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="/contacto" class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
+      CONTACTO
+      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+    </a>
+  </nav>
+</header>

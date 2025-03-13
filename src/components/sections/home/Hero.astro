@@ -2,58 +2,17 @@
 
 ---
 
-<section id="inicio" class="relative w-full h-screen overflow-hidden bg-black">
-  <!-- Imagen de fondo -->
-  <picture class="absolute inset-0 z-0">
-    <img
-      src="home/hero.webp"
-      alt=""
-      class="w-full h-full object-cover object-center"
-      id="hero-img"
-      loading="eager"
-    >
-  </picture>
-
-  <!-- Contenido -->
-  <article
-    id="hero-content"
-    class="absolute inset-0 flex flex-col items-center justify-center z-20 overflow-visible space-y-8 text-white"
-  >
-    <div class="relative w-full max-w-screen-xl px-4">
-      <h1
-        class="text-4xl md:text-6xl xl:text-7xl font-bold text-center mx-auto animate-slide-in-left"
-        style="text-shadow: 3px 3px 8px rgba(0,0,0,0.8);"
-      >
-        Tu negocio, tu web
-      </h1>
+<section
+    class="flex flex-col items-center justify-center text-center px-6 py-8 space-y-6"
+>
+    <h1 class="text-7xl font-extrabold mb-4">Tu negocio, tu web</h1>
+    <div class="text-2xl mb-8">
+        <p>Diseño y programación de páginas web,</p>
+        <p>la presencia online que tu negocio necesita.</p>
     </div>
-    <button
-      class="bg-eccomerce_services px-10 md:px-20 py-2 md:py-4 text-xl items-cenetr font-medium rounded-lg animate-slide-in-left hover:bg-yellow-400 transition-colors"
-      style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8);"
+        <button
+        class="bg-primary hover:bg-primary/50 transition-colors uppercase text-white font-semibold rounded-full px-6 py-3 shadow-lg shadow-black/50"
     >
-      Contáctate con nosotros
+        Comunicate con nosotros
     </button>
-  </article>
 </section>
-
-<style>
-  @keyframes slide-in-left {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  .animate-slide-in-left {
-    animation: slide-in-left 1s ease-out forwards;
-  }
-
-  /* Aseguramos visibilidad */
-  #hero-content, #hero-content > div {
-    overflow: visible !important;
-  }
-</style>

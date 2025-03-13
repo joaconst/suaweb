@@ -1,37 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #023047;
-  --color-secondary: #ffced4;
-  --color-third: #fb8501;
-  --color-fourth: #6422b8;
-  --color-blog_services: #ff738e;
-  --color-landing_services: #ffa53c;
-  --color-eccomerce_services: #ffd83b;
-  --color-contact_services: #b9dacf;
-  --color-buttons: #292929;
-  --color-background: #fff6ed;
-  --color-background_pages: #ffc397;
-  --color-background_contact_wsp: #caabcd;
-  --color-background_contact_email: #d6e7f7;
-  --color-background_contact_form: #fec104;
-}
-
-@font-face {
-  font-family: 'Horizon';
-  src: url('/fonts/horizon.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+  --color-primary: #cd99ff;
+  --color-background: #c5eaf0;
 }
 
 html {
-  font-family: 'Archivo', sans-serif;
+  font-family: sans-serif;
   scroll-behavior: smooth;
   margin: 0;
   width: 100%;
   height: 100%;
-}
-
-h1, h2, h3 {
-  font-family: 'Horizon', sans-serif;
 }
