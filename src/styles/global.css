@@ -3,6 +3,7 @@
 @theme {
   --color-primary: #cd99ff;
   --color-background: #c5eaf0;
+  --color-background_secondary: #fde6a3;
 }
 
 html {
