@@ -1,18 +1,111 @@
 ---
-
+const titleText = "Desarrollo Web Profesional";
+const seoText = "optimizados para SEO";
+const responsiveText = "diseños responsive";
 ---
+<section class="w-full mx-auto text-center px-4 py-12 sm:py-16 space-y-6">
+  <!-- Encabezado principal -->
+  <div class="max-w-sm md:max-w-3xl mx-auto space-y-6">
+    <h1 class="text-2xl sm:text-5xl font-extrabold mb-4">
+      <span class="wave-text inline-block relative" data-text={titleText}>
+        {titleText}
+      </span>
+      <br>
+      Para impulsar tu negocio
+    </h1>
 
-<section
-    class="flex flex-col items-center justify-center text-center px-6 py-8 space-y-6 w-full"
->
-    <h1 class="text-7xl font-extrabold mb-4">Tu negocio, tu web</h1>
-    <div class="text-2xl mb-8">
-        <p>Diseño y programación de páginas web,</p>
-        <p>la presencia online que tu negocio necesita.</p>
+    <!-- Texto descriptivo -->
+    <div class="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+      <p>
+        Creamos sitios web 
+        <span class="wave-text inline-block relative" data-text={seoText}>
+          {seoText}
+        </span>
+        y 
+        <span class="wave-text inline-block relative" data-text={responsiveText}>
+          {responsiveText}
+        </span>
+        que generan más clientes para tu negocio.
+      </p>
     </div>
-        <button
-        class="bg-primary hover:bg-primary/50 transition-colors uppercase text-white font-semibold rounded-full px-6 py-3 shadow-lg shadow-black/50"
+  </div>
+
+  <!-- Botón CTA -->
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+    <a
+      href="/contacto"
+      role="button"
+      aria-label="Solicitar presupuesto gratuito"
+      class="inline-block bg-primary hover:bg-primary/90 transition-all duration-300 uppercase text-white font-semibold rounded-full px-6 py-3 text-lg md:px-10 md:py-4 md:text-xl shadow-lg hover:shadow-xl shadow-primary/30 hover:shadow-primary/40"
     >
-        Comunicate con nosotros
-    </button>
+      Solicitar Presupuesto
+    </a>
+  </div>
 </section>
+
+<script>
+  // Selecciona cada elemento con clase "wave-text" individualmente
+  const waveTextElements = document.querySelectorAll<HTMLElement>('.wave-text');
+
+  waveTextElements.forEach(el => {
+    // Actualiza la posición del mouse en variables CSS para definir el punto de origen de la animación
+    el.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      el.style.setProperty('--mouse-x', `${x}px`);
+      el.style.setProperty('--mouse-y', `${y}px`);
+    });
+
+    // Al entrar con el mouse, agrega la clase que dispara la animación (solo a ese elemento)
+    el.addEventListener('mouseenter', () => {
+      el.classList.add('animate');
+    });
+
+    // Al salir, remueve la clase para reiniciar la animación en el siguiente hover
+    el.addEventListener('mouseleave', () => {
+      el.classList.remove('animate');
+    });
+  });
+</script>
+
+<style>
+  .wave-text {
+    position: relative;
+    display: inline-block;
+    color: white; /* Texto base en blanco */
+  }
+  /* Pseudo-elemento que muestra el texto en color primary */
+  .wave-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--color-primary);
+    /* Inicialmente se oculta con un círculo de 0% y un desenfoque */
+    clip-path: circle(0% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+    filter: blur(4px);
+    pointer-events: none;
+  }
+  /* Al activar la clase animate, se ejecuta una animación suave tipo onda */
+  .wave-text.animate::after {
+    animation: waveExpand 0.8s ease-out forwards;
+  }
+  /* Keyframes para la animación de expansión en forma de onda */
+  @keyframes waveExpand {
+    0% {
+      clip-path: circle(0% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+      filter: blur(4px);
+    }
+    70% {
+      clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+      filter: blur(0);
+    }
+    100% {
+      clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+      filter: blur(0);
+    }
+  }
+</style>

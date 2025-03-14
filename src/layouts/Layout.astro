@@ -1,13 +1,228 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Landing Page</title>
-  </head>
-  <body class="bg-background flex flex-col items-center justify-center">
-    <slot />
-  </body>
+---
+
+---
+
+<html lang="es" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+        />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Primary Meta Tags -->
+        <title>Nombre de la Empresa | Soluciones Digitales Innovadoras</title>
+        <meta
+            name="title"
+            content="Nombre de la Empresa | Soluciones Digitales Innovadoras"
+        />
+        <meta
+            name="description"
+            content="Descripción clara de 150-160 caracteres que explique tu propuesta de valor principal y palabras clave relevantes."
+        />
+        <meta
+            name="keywords"
+            content="palabra clave 1, palabra clave 2, palabra clave 3, industria relevante"
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://tudominio.com/" />
+        <meta
+            property="og:title"
+            content="Nombre de la Empresa | Soluciones Digitales Innovadoras"
+        />
+        <meta
+            property="og:description"
+            content="Descripción clara de 150-160 caracteres que explique tu propuesta de valor principal y palabras clave relevantes."
+        />
+        <meta
+            property="og:image"
+            content="https://tudominio.com/images/og-image.jpg"
+        />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://tudominio.com/" />
+        <meta
+            property="twitter:title"
+            content="Nombre de la Empresa | Soluciones Digitales Innovadoras"
+        />
+        <meta
+            property="twitter:description"
+            content="Descripción clara de 150-160 caracteres que explique tu propuesta de valor principal y palabras clave relevantes."
+        />
+        <meta
+            property="twitter:image"
+            content="https://tudominio.com/images/og-image.jpg"
+        />
+
+        <!-- Favicon y Web App Manifest -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <!-- Preconexión y precarga de recursos críticos -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <!-- Estilos personalizados para puntero -->
+        <style>
+            /* Cambiar el puntero a un círculo violento */
+            * {
+                cursor: none;
+            }
+
+            body {
+                position: relative;
+            }
+
+            .custom-cursor {
+                position: fixed;
+                width: 16px;
+                height: 16px;
+                background-color: var(--color-primary);
+                border-radius: 50%;
+                pointer-events: none;
+                left: 0;
+                top: 0;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                transition: transform 0.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+            }
+
+            /* Puntero de texto (I-beam) */
+            .custom-cursor.-text {
+                width: 4px;
+                height: 20px;
+                border-radius: 1px;
+                background-color: #ffffff;
+                mix-blend-mode: difference;
+            }
+        </style>
+    </head>
+
+    <body
+        class="bg-background flex flex-col items-center justify-center max-w-4xl w-full mx-auto overflow-x-hidden px-4 sm:px-6 lg:px-8 min-h-screen"
+    >
+        <div class="custom-cursor" id="cursor"></div>
+        <slot />
+
+        <!-- Script para mover el puntero con el mouse -->
+        <script>
+            const cursor = document.getElementById("cursor");
+
+            // Tipos de cursor
+            const cursorTypes = {
+                default: () => {
+                    cursor.classList.remove("-text", "-pointer", "-loading");
+                },
+                text: () => {
+                    cursor.classList.add("-text");
+                    cursor.classList.remove("-pointer", "-loading");
+                },
+                pointer: () => {
+                    cursor.classList.add("-pointer");
+                    cursor.classList.remove("-text", "-loading");
+                },
+                loading: () => {
+                    cursor.classList.add("-loading");
+                    cursor.classList.remove("-text", "-pointer");
+                },
+            };
+
+            // Detectar elementos interactivos
+            document
+                .querySelectorAll(
+                    "a, button, input, textarea, [contenteditable], [data-cursor]",
+                )
+                .forEach((element) => {
+                    // Puntero de texto
+                    if (
+                        ["input", "textarea", "contenteditable"].some((type) =>
+                            element.matches(type),
+                        )
+                    ) {
+                        element.addEventListener("mouseenter", () =>
+                            cursorTypes.text(),
+                        );
+                        element.addEventListener(
+                            "mouseleave",
+                            cursorTypes.default,
+                        );
+                    }
+
+                    // Puntero de mano
+                    if (element.matches('a, button, [data-cursor="pointer"]')) {
+                        element.addEventListener("mouseenter", () =>
+                            cursorTypes.pointer(),
+                        );
+                        element.addEventListener(
+                            "mouseleave",
+                            cursorTypes.default,
+                        );
+                    }
+                });
+
+            // Ejemplo: Cambiar a cursor de carga al hacer clic
+            document.addEventListener("click", () => {
+                cursorTypes.loading();
+                setTimeout(cursorTypes.default, 1000); // Simular carga de 1seg
+            });
+
+            // Sistema de seguimiento (mantener del código anterior)
+            let mouseX = 0,
+                mouseY = 0,
+                cursorX = 0,
+                cursorY = 0;
+
+            function updateCursor() {
+                cursorX = mouseX;
+                cursorY = mouseY;
+                cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+                requestAnimationFrame(updateCursor);
+            }
+
+            document.addEventListener("mousemove", (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            updateCursor();
+        </script>
+
+        <!-- Schema Markup para SEO -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Nombre de la Empresa",
+                "url": "https://tudominio.com",
+                "logo": "https://tudominio.com/images/logo.png",
+                "description": "Breve descripción de la empresa",
+                "sameAs": [
+                    "https://facebook.com/tuempresa",
+                    "https://twitter.com/tuempresa",
+                    "https://linkedin.com/company/tuempresa"
+                ]
+            }
+        </script>
+    </body>
 </html>

@@ -5,27 +5,15 @@ interface Image {
 }
 
 const images: Image[] = [
-  {
-    src: "/home/image_1.webp",
-    alt: "Rocket illustration"
-  },
-  {
-    src: "/home/image_2.webp",
-    alt: "Palette illustration"
-  },
-  {
-    src: "/home/image_3.webp",
-    alt: "Globe illustration"
-  },
-  {
-    src: "/home/image_4.webp",
-    alt: "Globe illustration"
-  }
+  { src: "/home/image_1.webp", alt: "Rocket illustration" },
+  { src: "/home/image_2.webp", alt: "Palette illustration" },
+  { src: "/home/image_3.webp", alt: "Globe illustration" },
+  { src: "/home/image_4.webp", alt: "Globe illustration" }
 ];
 ---
 
 <section class="relative w-full max-w-2xl mx-auto h-[150px] overflow-hidden bg-white rounded-4xl">
-  <div class="flex w-[200%] items-center h-full" id="slider">
+  <div class="flex w-[200%] items-center h-full slider">
     {[...images, ...images].map((image) => (
       <div class="w-[25%] flex items-center justify-center h-full p-2">
         <img
@@ -39,27 +27,35 @@ const images: Image[] = [
 </section>
 
 <script>
-  const slider = document.getElementById('slider');
-  let currentPosition = 0;
-  let animationFrameId;
-  const baseSpeed = 0.8;
+  document.addEventListener("DOMContentLoaded", () => {
+    const sliders = document.querySelectorAll(".slider");
+    let animationFrameIds = [];
 
-  function animateSlider() {
-    if (slider && slider.parentElement) {
-      const containerWidth = slider.parentElement.offsetWidth;
-      const speed = (baseSpeed * containerWidth) / 1000;
-      currentPosition -= speed;
+    sliders.forEach((slider) => {
+      let currentPosition = 0;
+      let animationFrameId;
+      const baseSpeed = 0.8;
 
-      const totalWidth = slider.scrollWidth / 2;
-      
-      if (Math.abs(currentPosition) >= totalWidth) {
-        currentPosition = 0;
+      function animateSlider() {
+        const sliderElement = slider as HTMLElement;
+        if (sliderElement && sliderElement.parentElement) {
+          const containerWidth = sliderElement.parentElement.offsetWidth;
+          const speed = (baseSpeed * containerWidth) / 1000;
+          currentPosition -= speed;
+
+          const totalWidth = sliderElement.scrollWidth / 2;
+
+          if (Math.abs(currentPosition) >= totalWidth) {
+            currentPosition = 0;
+          }
+
+          sliderElement.style.transform = `translateX(${currentPosition}px)`;
+        }
+        animationFrameId = requestAnimationFrame(animateSlider);
       }
-      
-      slider.style.transform = `translateX(${currentPosition}px)`;
-    }
-    animationFrameId = requestAnimationFrame(animateSlider);
-  }
 
-  document.addEventListener('DOMContentLoaded', animateSlider);
+      animateSlider();
+      animationFrameIds.push(animationFrameId);
+    });
+  });
 </script>

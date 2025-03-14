@@ -2,28 +2,120 @@
 
 ---
 
-<section class="relative">
-  <!-- Contenedor de imagen decorativa -->
+<section
+  class="relative max-w-sm md:max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8"
+>
+  <!-- Imagen decorativa -->
   <img
     src="/home/1.webp"
-    alt=""
-    class="absolute top-4 left-20 w-24 md:w-42 opacity-20 z-0"
-    aria-hidden="true"
+    alt="Patrón decorativo abstracto"
+    class="absolute top-4 -left-20 sm:-left-32 md:-left-40 w-24 md:w-36 lg:w-42 opacity-20 z-0 pointer-events-none"
+    loading="lazy"
+    decoding="async"
+    width="168"
+    height="168"
   />
 
-  <artcile
-    class="flex flex-col items-center justify-center text-center py-25 space-y-6 relative z-10"
+  <article
+    class="flex flex-col items-center justify-center text-center py-16 md:py-24 lg:py-32 space-y-6 md:space-y-8 relative z-10"
+    itemscope
+    itemtype="https://schema.org/Service"
   >
-    <header class="text-6xl font-extrabold">
-      <h2>¿Por qué nosotros?</h2>
+    <header class="space-y-2">
+      <h2
+        class="text-4xl md:text-5xl lg:text-6xl font-extrabold"
+        itemprop="name"
+      >
+        <!-- Se envuelve el título en un span con clase "wave-text" para aplicar la animación -->
+        <span
+          class="wave-text inline-block relative"
+          data-text="¿Por qué elegirnos?"
+        >
+          ¿Por qué elegirnos?
+        </span>
+      </h2>
+      <meta itemprop="serviceType" content="Desarrollo Web Profesional" />
     </header>
-    <article class="max-w-2xl px-4">
-      <p class="text-xl text-center mx-auto leading-relaxed">
-        Cada negocio merece su propio espacio, sin depender de plataformas.
-        Diseñamos páginas web únicas, fáciles de administrar y 100% adaptadas a
-        tu negocio. Nos encargamos de todo para que tengas una web funcional,
-        sin limitaciones. Tu web es tuya.
+
+    <div class="max-w-2xl mx-auto" itemprop="description">
+      <p
+        class="text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose text-gray-600"
+      >
+        <span
+          class="font-medium wave-text"
+          data-text="Cada negocio merece su identidad digital única."
+        >
+          Cada negocio merece su identidad digital única.</span
+        >
+        Creamos sitios web autogestionables, 100% adaptados a tus necesidades y
+        <span
+          class="font-medium wave-text"
+          data-text="optimizados para resultados."
+          >optimizados para resultados.</span
+        >Tu web será totalmente propia, sin depender de plataformas externas,
+        con máximo rendimiento y control.
       </p>
-    </article>
-  </artcile>
+    </div>
+
+    <!-- Schema Markup para SEO Local -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Desarrollo Web Personalizado",
+        "description": "Creación de sitios web únicos y autogestionables adaptados a cada negocio",
+        "provider": {
+          "@type": "Organization",
+          "name": "Nombre de tu Empresa"
+        },
+        "serviceOutput": "Website",
+        "areaServed": "País/Región"
+      }
+    </script>
+  </article>
 </section>
+
+<!-- Importa el script de animación -->
+<script></script>
+
+<style>
+  /* Estilos base para el efecto de onda */
+  .wave-text {
+    position: relative;
+    display: inline-block;
+    color: white; /* Texto base */
+  }
+  /* Pseudo-elemento que muestra el mismo contenido en color primary */
+  .wave-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--color-primary);
+    /* Oculto inicialmente con un clip-path circular en 0% y desenfoque */
+    clip-path: circle(0% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+    filter: blur(4px);
+    pointer-events: none;
+  }
+  /* Al activarse la clase "animate", se dispara la animación de la onda */
+  .wave-text.animate::after {
+    animation: waveExpand 0.8s ease-out forwards;
+  }
+  /* Keyframes de la animación: la "onda" se expande suavemente desde el punto del mouse */
+  @keyframes waveExpand {
+    0% {
+      clip-path: circle(0% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+      filter: blur(4px);
+    }
+    70% {
+      clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+      filter: blur(0);
+    }
+    100% {
+      clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+      filter: blur(0);
+    }
+  }
+</style>
