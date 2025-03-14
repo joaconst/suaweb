@@ -2,13 +2,11 @@
 
 ---
 
-<section
-    class="w-full h-screen flex items-center justify-center sticky top-0 z-0"
-    data-section
->
-    <div class="absolute inset-0 backdrop-blur-md"></div>
+<section class="w-full h-screen flex flex-col items-center justify-center">
 
-    <div class="relative z-10 w-full max-w-7xl mx-auto flex" data-content>
+    <h2 class="text-6xl font-extrabold">¡Elegí la que más se adapte a vos!</h2>
+
+    <div class="relative z-10 w-full max-w-7xl mx-auto flex">
         <!-- Botón de navegación anterior -->
         <button
             class="nav-prev absolute left-0 xl:-left-14 top-1/2 -translate-y-1/2 z-10 bg-black p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all"
@@ -54,14 +52,16 @@
                 <div class="swiper-slide">
                     <article class="card-content">
                         <div class="card-header">
-                            <h3 class="text-orange-300">1. LANDING PAGE</h3>
+                            <h3>1. LANDING PAGE</h3>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body bg-background_secondary">
                             <span
                                 >Página web diseñada para captar clientes o
                                 promocionar un producto o servicio.
                             </span>
-                            <button class="bg-orange-300 hover:bg-landing_services">VER MÁS</button>
+                            <button class="bg-black"
+                                >VER MÁS</button
+                            >
                         </div>
                     </article>
                 </div>
@@ -70,15 +70,19 @@
                 <div class="swiper-slide">
                     <article class="card-content">
                         <div class="card-header">
-                            <h3 class="text-yellow-300">2. TIENDA OLINE (E-COMMERCE)</h3>
+                            <h3>
+                                2. TIENDA OLINE (E-COMMERCE)
+                            </h3>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body bg-primary">
                             <span
                                 >Un sitio web diseñado para vender productos o
                                 servicios de manera directa, con carrito de
                                 compras y pasarelas de pago integradas.</span
                             >
-                            <button class="bg-yellow-300 hover:bg-landing_services">VER MÁS</button>
+                            <button class="bg-black"
+                                >VER MÁS</button
+                            >
                         </div>
                     </article>
                 </div>
@@ -87,16 +91,20 @@
                 <div class="swiper-slide">
                     <article class="card-content">
                         <div class="card-header">
-                            <h3 class="text-purple-300">3. SITIO WEB CORPORATIVO</h3>
+                            <h3>
+                                3. SITIO WEB CORPORATIVO
+                            </h3>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body bg-pages_secondary">
                             <span
                                 >Una página web completa que refleja la
                                 identidad y valores de una empresa, diseñada
                                 para generar confianza y comunicar
                                 profesionalismo.</span
                             >
-                            <button class="bg-purple-300 hover:bg-fourth">VER MÁS</button>
+                            <button class="bg-black"
+                                >VER MÁS</button
+                            >
                         </div>
                     </article>
                 </div>
@@ -105,15 +113,19 @@
                 <div class="swiper-slide">
                     <article class="card-content">
                         <div class="card-header">
-                            <h3 class="text-pink-300">4. BLOG PERSONAL / PORTFOLIO</h3>
+                            <h3>
+                                4. BLOG PERSONAL / PORTFOLIO
+                            </h3>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body bg-pages_primary">
                             <span
                                 >Un espacio en línea diseñado para mostrar
                                 proyectos, publicaciones o servicios de manera
                                 profesional y ordenada.</span
                             >
-                            <button class="bg-pink-300 hover:bg-blog_services">VER MÁS</button>
+                            <button class="bg-black"
+                                >VER MÁS</button
+                            >
                         </div>
                     </article>
                 </div>
@@ -125,7 +137,7 @@
 <style>
     .card-content {
         position: relative;
-        width: 90%;
+        width: 85%;
         height: 28rem;
         border-radius: 1rem;
         transition: all 0.3s ease;
@@ -146,6 +158,7 @@
     }
 
     .card-header h3 {
+        color: white;
         font-weight: bold;
         font-size: 1rem;
         padding: 0 0.5rem;
@@ -159,12 +172,11 @@
         padding-top: 3.5rem;
         padding-bottom: 1rem;
         border-radius: 2rem;
-        background: white;
         box-shadow: 7px 7px black;
     }
 
     .card-body span {
-        color: black;
+        color: white;
         font-size: 1.25rem;
         font-weight: 700;
         text-align: center;
@@ -212,12 +224,6 @@
         opacity: 1;
         visibility: visible;
         transform: scale(0.95) translateX(0);
-    }
-
-    .swiper-slide-active {
-        transform: scale(1.1) translateX(0);
-        z-index: 2;
-        scale: 1.2;
     }
 
     .swiper-slide-prev {
@@ -272,11 +278,6 @@
             opacity: 0.5;
         }
 
-        .swiper-slide-active {
-            transform: scale(1);
-            opacity: 1;
-        }
-
         .swiper-slide-prev {
             transform: scale(0.85);
         }
@@ -287,11 +288,6 @@
     }
 
     @media (min-width: 1024px) {
-        .swiper-slide-active {
-            transform: scale(1.05);
-            z-index: 2;
-        }
-
         .swiper-slide-prev {
             transform: scale(0.95);
         }

@@ -4,36 +4,6 @@
 
 <section class="relative w-screen min-h-[50vh] bg-background_secondary mt-32 overflow-hidden">
     <div class="absolute inset-0">
-        <img src="https://via.placeholder.com/100" class="image absolute top-10 left-10 w-24">
-        <img src="https://via.placeholder.com/100" class="image absolute top-20 left-40 w-32">
-        <img src="https://via.placeholder.com/100" class="image absolute top-40 left-80 w-20">
-        <img src="https://via.placeholder.com/100" class="image absolute top-60 left-32 w-28">
+        <!--21 imagenes distinas, distribuidas "al azar" sin que salgan de la pantalla -->
     </div>
 </section>
-
-<script>
-const images = document.querySelectorAll(".image");
-let mouseX = 0, mouseY = 0;
-
-document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
-
-function animateImages() {
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-
-    images.forEach((img, index) => {
-        const depth = (index + 1) * 5; // Ajusta el nivel de movimiento
-        const moveX = (mouseX - centerX) / depth;
-        const moveY = (mouseY - centerY) / depth;
-
-        img.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    });
-
-    requestAnimationFrame(animateImages);
-}
-
-animateImages(); // Inicia la animación
-</script>
