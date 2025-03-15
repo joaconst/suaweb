@@ -2,19 +2,18 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/common/Header.astro";
-import Titulo from "../components/sections/services/Titulo.astro";
-import Blog from "../components/sections/services/Blog.astro";
-import Landing from "../components/sections/services/Landing.astro"
-import Corporativo from "../components/sections/services/Corporativo.astro"
-import Eccomerce from "../components/sections/services/Ecommerce.astro"
-import Contacto from "../components/sections/services/Contacto.astro";
+import Hero from "../components/sections/services/Hero.astro";
+import Landing from "../components/sections/services/Landing.astro";
+import BlogCorporativo from "../components/sections/services/Blog-Corporativo.astro";
+import Ecommerce from "../components/sections/services/Ecommerce.astro"
 ---
 
 <Layout>
   <Header />
   <main>
-    <Titulo />
-    <Blog />
-
+    <Hero />
+    <Landing />
+    <BlogCorporativo />
+    <Ecommerce />
   </main>
 </Layout>
