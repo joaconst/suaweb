@@ -4,8 +4,6 @@
   --color-primary: #cd99ff;
   --color-background: #c5eaf0;
   --color-background_secondary: #fde6a3;
-  --color-pages_primary: #9ea8d9;
-  --color-pages_secondary: #ffecb3;
 }
 
 html {
@@ -14,4 +12,47 @@ html {
   margin: 0;
   width: 100%;
   height: 100%;
+}
+
+* {
+  cursor: none;
+}
+
+body {
+  position: relative;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  border: solid 1px black;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.1s cubic-bezier(0.22, 0.61, 0.36, 1),
+  width 0.3s ease,
+  height 0.3s ease,
+  border-radius 0.3s ease,
+  background-color 0.3s ease;
+}
+
+/* Puntero de texto (I-beam) */
+.custom-cursor.-text {
+  width: 4px;
+  height: 20px;
+  border-radius: 1px;
+  background-color: var(--color-primary);
+}
+
+/* Puntero de pointer (hand) */
+.custom-cursor.-pointer {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  transform: translate(-50%, -50%) scale(1.1);
 }

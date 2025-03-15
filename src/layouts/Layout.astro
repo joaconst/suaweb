@@ -82,41 +82,6 @@
         <!-- Preconexión y precarga de recursos críticos -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-        <!-- Estilos personalizados para puntero -->
-        <style>
-            /* Cambiar el puntero a un círculo violento */
-            * {
-                cursor: none;
-            }
-
-            body {
-                position: relative;
-            }
-
-            .custom-cursor {
-                position: fixed;
-                width: 16px;
-                height: 16px;
-                background-color: var(--color-primary);
-                border-radius: 50%;
-                pointer-events: none;
-                left: 0;
-                top: 0;
-                transform: translate(-50%, -50%);
-                z-index: 9999;
-                transition: transform 0.1s cubic-bezier(0.22, 0.61, 0.36, 1);
-            }
-
-            /* Puntero de texto (I-beam) */
-            .custom-cursor.-text {
-                width: 4px;
-                height: 20px;
-                border-radius: 1px;
-                background-color: #ffffff;
-                mix-blend-mode: difference;
-            }
-        </style>
     </head>
 
     <body
@@ -127,24 +92,30 @@
 
         <!-- Script para mover el puntero con el mouse -->
         <script>
-            const cursor = document.getElementById("cursor");
+            const cursor = document.getElementById(
+                "cursor",
+            ) as HTMLElement | null;
+
+            if (!cursor) {
+                throw new Error("No se encontró el elemento con id 'cursor'.");
+            }
 
             // Tipos de cursor
             const cursorTypes = {
                 default: () => {
-                    cursor.classList.remove("-text", "-pointer", "-loading");
+                    cursor?.classList.remove("-text", "-pointer", "-loading");
                 },
                 text: () => {
-                    cursor.classList.add("-text");
-                    cursor.classList.remove("-pointer", "-loading");
+                    cursor?.classList.add("-text");
+                    cursor?.classList.remove("-pointer", "-loading");
                 },
                 pointer: () => {
-                    cursor.classList.add("-pointer");
-                    cursor.classList.remove("-text", "-loading");
+                    cursor?.classList.add("-pointer");
+                    cursor?.classList.remove("-text", "-loading");
                 },
                 loading: () => {
-                    cursor.classList.add("-loading");
-                    cursor.classList.remove("-text", "-pointer");
+                    cursor?.classList.add("-loading");
+                    cursor?.classList.remove("-text", "-pointer");
                 },
             };
 
@@ -184,23 +155,25 @@
             // Ejemplo: Cambiar a cursor de carga al hacer clic
             document.addEventListener("click", () => {
                 cursorTypes.loading();
-                setTimeout(cursorTypes.default, 1000); // Simular carga de 1seg
+                setTimeout(cursorTypes.default, 1000); // Simular carga de 1 seg
             });
 
-            // Sistema de seguimiento (mantener del código anterior)
+            // Sistema de seguimiento del cursor
             let mouseX = 0,
                 mouseY = 0,
                 cursorX = 0,
                 cursorY = 0;
 
-            function updateCursor() {
-                cursorX = mouseX;
-                cursorY = mouseY;
-                cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+            function updateCursor(): void {
+                if (cursor) {
+                    cursorX = mouseX;
+                    cursorY = mouseY;
+                    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+                }
                 requestAnimationFrame(updateCursor);
             }
 
-            document.addEventListener("mousemove", (e) => {
+            document.addEventListener("pointermove", (e: MouseEvent) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
             });
