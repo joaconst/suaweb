@@ -1,70 +1,108 @@
-<section class="relative max-w-4xl w-full mx-auto">
+<section class="relative max-w-xs sm:max-w-lg md:max-w-4xl xl:max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Imágenes decorativas -->
   <img
     src="/home/2.webp"
     alt=""
-    class="absolute top-4 -right-5 sm:-right-60 w-30 md:w-42 opacity-20 z-0"
+    class="absolute -top-20 sm:-top-10 right-0 sm:-right-10 md:-right-28 lg:-right-36 xl:-right-40 w-20 sm:w-28 md:w-36 lg:w-40 opacity-20 z-0 pointer-events-none"
     aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    width="168"
+    height="168"
   />
   
   <img
     src="/home/3.webp"
     alt=""
-    class="absolute -bottom-30 sm:top-16 -left-5 sm:-left-50 w-24 md:w-42 opacity-20 z-0"
+    class="absolute -bottom-20 sm:-bottom-10 left-0 sm:-left-10 md:-left-28 lg:-left-36 xl:-left-40 w-20 sm:w-28 md:w-36 lg:w-40 opacity-20 z-0 pointer-events-none"
     aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    width="168"
+    height="168"
   />
 
-  <div class="grid grid-cols-3 md:grid-cols-5 grid-rows-3 md:grid-rows-4 gap-4 h-[350px]">
-    <!-- Card 1 - Mobile full width -->
-    <div class="col-span-3 md:col-span-2 row-span-1 md:row-span-2 p-4 rounded-lg flex items-center justify-center">
+  <!-- Grid Container -->
+  <div class="grid grid-cols-3 md:grid-cols-5 grid-rows-3 md:grid-rows-4 gap-2 sm:gap-3 md:gap-4 min-h-[300px] sm:min-h-[400px] md:h-[480px]">
+    <!-- Card 1 -->
+    <div class="col-span-3 md:col-span-2 row-span-1 md:row-span-2 p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl flex items-center justify-center text-2xl sm:text-3xl md:text-4xl bg-white shadow-lg">
       1
     </div>
 
-    <!-- Cards 2-4 - Primera fila mobile -->
-    <div class="row-span-1 md:row-span-2 col-start-1 md:col-start-3 row-start-2 p-1 rounded-3xl group relative h-full w-full">
+    <!-- Card 2 -->
+    <div class="row-span-1 md:row-span-2 col-start-1 md:col-start-3 row-start-2 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
-        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">2</div>
-        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 2</div>
+        <div class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl">
+          2
+        </div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg">
+          Back 2
+        </div>
       </div>
     </div>
 
-    <div class="row-span-1 md:row-span-2 col-start-2 md:col-start-4 row-start-2 p-1 rounded-3xl group relative h-full w-full">
+    <!-- Card 3 -->
+    <div class="row-span-1 md:row-span-2 col-start-2 md:col-start-4 row-start-2 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
-        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">3</div>
-        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 3</div>
+        <div class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl">
+          3
+        </div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg">
+          Back 3
+        </div>
       </div>
     </div>
 
-    <div class="row-span-1 md:row-span-2 col-start-3 md:col-start-5 row-start-2 p-1 rounded-3xl group relative h-full w-full">
+    <!-- Card 4 -->
+    <div class="row-span-1 md:row-span-2 col-start-3 md:col-start-5 row-start-2 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
-        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">4</div>
-        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 4</div>
+        <div class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl">
+          4
+        </div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg">
+          Back 4
+        </div>
       </div>
     </div>
 
-    <!-- Cards 5-7 - Segunda fila mobile -->
-    <div class="col-span-1 md:col-span-2 row-span-1 md:row-span-2 row-start-3 bg-white p-4 rounded-3xl flex items-center justify-center">
+    <!-- Card 5 -->
+    <div class="col-span-1 md:col-span-2 row-span-1 md:row-span-2 row-start-3 bg-white p-4 rounded-3xl flex items-center justify-center text-lg sm:text-xl md:text-2xl shadow-lg">
       5
     </div>
 
-    <div class="col-span-1 row-span-1 md:row-span-2 row-start-3 md:col-start-3 p-1 rounded-3xl group relative h-full w-full">
+    <!-- Card 6 -->
+    <div class="col-span-1 row-span-1 md:row-span-2 row-start-3 md:col-start-3 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
-        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">6</div>
-        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 6</div>
+        <div class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl">
+          6
+        </div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg">
+          Back 6
+        </div>
       </div>
     </div>
 
-    <div class="col-span-1 row-span-1 md:row-span-2 row-start-3 md:col-start-4 p-1 rounded-3xl group relative h-full w-full">
+    <!-- Card 7 -->
+    <div class="col-span-1 row-span-1 md:row-span-2 row-start-3 md:col-start-4 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
-        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">7</div>
-        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 7</div>
+        <div class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl">
+          7
+        </div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg">
+          Back 7
+        </div>
       </div>
     </div>
 
-    <!-- Card 8 - Solo en desktop -->
+    <!-- Card 8 (Desktop only) -->
     <div class="hidden md:block row-span-2 col-start-5 row-start-3 p-1 rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
-        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">8</div>
-        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 8</div>
+        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4 text-2xl">
+          8
+        </div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4 text-lg">
+          Back 8
+        </div>
       </div>
     </div>
   </div>
@@ -74,8 +112,9 @@
 .flip-container {
   perspective: 1000px;
   transform-style: preserve-3d;
-  transition: transform 0.6s;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
+  will-change: transform;
 }
 
 .group:hover .flip-container {
@@ -89,6 +128,8 @@
   backface-visibility: hidden;
   display: flex;
   transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .back {
@@ -96,18 +137,84 @@
   background-color: #f0f9ff;
 }
 
-.group {
-  transform-style: preserve-3d;
-}
-
-/* Mejoras para mobile */
+/* Mobile Optimization */
 @media (max-width: 767px) {
-  .group .flip-container {
-    transform: none !important;
+  .flip-container {
+    perspective: 600px;
   }
   
   .group:active .flip-container {
-    transform: rotateY(180deg) !important;
+    transform: rotateY(180deg);
+  }
+  
+  .front, .back {
+    padding: 0.75rem;
+    font-size: 0.875rem;
   }
 }
+
+@media (hover: hover) and (pointer: fine) {
+  .group:hover .flip-container {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Mejora de accesibilidad */
+[aria-hidden="true"] {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.flip-container:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
 </style>
+
+<script>
+document.querySelectorAll('.group').forEach(card => {
+  let touchStartTime = 0;
+  let lastTap = 0;
+  const doubleTapDelay = 300;
+
+  const handleTap = () => {
+    const currentTime = Date.now();
+    const timeSinceLastTap = currentTime - lastTap;
+
+    if (timeSinceLastTap < doubleTapDelay) {
+      card.classList.toggle('flipped');
+      const flipContainer = card.querySelector('.flip-container');
+      flipContainer.style.transform = card.classList.contains('flipped') 
+        ? 'rotateY(180deg)'
+        : 'rotateY(0deg)';
+    }
+    
+    lastTap = currentTime;
+  };
+
+  // Eventos táctiles
+  card.addEventListener('touchstart', (e) => {
+    touchStartTime = Date.now();
+    if (e.cancelable) e.preventDefault();
+  }, { passive: false });
+
+  card.addEventListener('touchend', (e) => {
+    if (Date.now() - touchStartTime < 200) {
+      handleTap();
+    }
+  });
+
+  // Eventos de teclado para accesibilidad
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleTap();
+    }
+  });
+
+  // Añadir rol y tabindex para accesibilidad
+  card.setAttribute('role', 'button');
+  card.setAttribute('tabindex', '0');
+  card.querySelector('.flip-container').setAttribute('aria-label', 'Tarjeta interactiva');
+});
+</script>

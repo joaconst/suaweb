@@ -3,19 +3,19 @@
 ---
 
 <section
-    class="relative w-full flex flex-col items-center justify-center text-center mt-16"
+    class="relative w-full max-w-sm md:max-w-7xl mx-auto flex flex-col items-center justify-center text-center mt-16"
 >
     <img
         src="/home/4.webp"
         alt=""
-        class="absolute top-20 left-0 sm:top-2 sm:left-0 w-24 md:w-60 opacity-20 -z-0"
+        class="absolute top-35 sm:-top-10 sm:-left-25 left-0 w-24 md:w-60 opacity-20 -z-0"
         aria-hidden="true"
     />
 
     <img
         src="/home/5.webp"
         alt=""
-        class="absolute bottom-2 right-0 w-24 md:w-60 opacity-20 -z-0"
+        class="absolute bottom-0 sm:bottom-20 right-0 sm:-right-25 w-24 md:w-60 opacity-20 -z-0"
         aria-hidden="true"
     />
 
@@ -23,7 +23,7 @@
         ¡Elegí la que más se adapte a vos!
     </h2>
 
-    <div class="relative z-10 w-full max-w-sm sm:max-w-7xl mx-auto flex">
+    <div class="relative z-10 w-full mx-auto flex">
         <!-- Botón de navegación anterior -->
         <button
             class="nav-prev absolute left-0 xl:-left-14 top-1/2 -translate-y-1/2 z-10 bg-black p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all"
@@ -328,16 +328,16 @@
         // Configuración responsive
         breakpoints: {
             320: {
-                slidesPerView: 1.2,
-                spaceBetween: -20,
+                slidesPerView: 1,
+                spaceBetween: -50,
             },
             768: {
                 slidesPerView: 2.2,
-                spaceBetween: -30,
+                spaceBetween: -20,
             },
             1024: {
                 slidesPerView: 3,
-                spaceBetween: -30,
+                spaceBetween: -20,
             },
         },
 
