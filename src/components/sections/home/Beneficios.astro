@@ -12,52 +12,56 @@
     class="absolute top-16 -left-50 w-24 md:w-42 opacity-20 z-0"
     aria-hidden="true"
   />
-  
-  <div class="grid grid-cols-5 grid-rows-4 gap-4 max-w-4xl w-full h-[350px]">
-    <!-- Elementos estáticos -->
-    <div class="col-span-2 row-span-2 p-4 rounded-lg flex items-center justify-center">1</div>
-    
-    <!-- Cards flip -->
-    <div class="row-span-2 col-start-3 p-1 rounded-3xl group relative h-full w-full">
+
+  <div class="grid grid-cols-3 md:grid-cols-5 grid-rows-3 md:grid-rows-4 gap-4 h-[350px]">
+    <!-- Card 1 - Mobile full width -->
+    <div class="col-span-3 md:col-span-2 row-span-1 md:row-span-2 p-4 rounded-lg flex items-center justify-center">
+      1
+    </div>
+
+    <!-- Cards 2-4 - Primera fila mobile -->
+    <div class="row-span-1 md:row-span-2 col-start-1 md:col-start-3 row-start-2 p-1 rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
         <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">2</div>
         <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 2</div>
       </div>
     </div>
-    
-    <div class="row-span-2 col-start-4 p-1 rounded-3xl group relative h-full w-full">
+
+    <div class="row-span-1 md:row-span-2 col-start-2 md:col-start-4 row-start-2 p-1 rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
         <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">3</div>
         <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 3</div>
       </div>
     </div>
-    
-    <div class="row-span-2 col-start-5 p-1 rounded-3xl group relative h-full w-full">
+
+    <div class="row-span-1 md:row-span-2 col-start-3 md:col-start-5 row-start-2 p-1 rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
         <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">4</div>
         <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 4</div>
       </div>
     </div>
-    
-    <!-- Elemento estático -->
-    <div class="col-span-2 row-span-2 row-start-3 bg-white p-4 rounded-3xl flex items-center justify-center">5</div>
-    
-    <!-- Cards flip -->
-    <div class="row-span-2 col-start-3 row-start-3 p-1 rounded-3xl group relative h-full w-full">
+
+    <!-- Cards 5-7 - Segunda fila mobile -->
+    <div class="col-span-1 md:col-span-2 row-span-1 md:row-span-2 row-start-3 bg-white p-4 rounded-3xl flex items-center justify-center">
+      5
+    </div>
+
+    <div class="col-span-1 row-span-1 md:row-span-2 row-start-3 md:col-start-3 p-1 rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
         <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">6</div>
         <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 6</div>
       </div>
     </div>
-    
-    <div class="row-span-2 col-start-4 row-start-3 p-1 rounded-3xl group relative h-full w-full">
+
+    <div class="col-span-1 row-span-1 md:row-span-2 row-start-3 md:col-start-4 p-1 rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
         <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">7</div>
         <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 7</div>
       </div>
     </div>
-    
-    <div class="row-span-2 col-start-5 row-start-3 p-1 rounded-3xl group relative h-full w-full">
+
+    <!-- Card 8 - Solo en desktop -->
+    <div class="hidden md:block row-span-2 col-start-5 row-start-3 p-1 rounded-3xl group relative h-full w-full">
       <div class="flip-container w-full h-full">
         <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">8</div>
         <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 8</div>
@@ -94,5 +98,16 @@
 
 .group {
   transform-style: preserve-3d;
+}
+
+/* Mejoras para mobile */
+@media (max-width: 767px) {
+  .group .flip-container {
+    transform: none !important;
+  }
+  
+  .group:active .flip-container {
+    transform: rotateY(180deg) !important;
+  }
 }
 </style>
