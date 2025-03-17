@@ -1,7 +1,3 @@
----
-
----
-
 <section class="relative max-w-4xl w-full mx-auto">
   <img
     src="/home/2.webp"
@@ -18,15 +14,85 @@
   />
   
   <div class="grid grid-cols-5 grid-rows-4 gap-4 max-w-4xl w-full h-[350px]">
-    <!-- Elementos del grid con sombra sólida negra -->
+    <!-- Elementos estáticos -->
     <div class="col-span-2 row-span-2 p-4 rounded-lg flex items-center justify-center">1</div>
-    <div class="row-span-2 col-start-3 bg-white p-4 rounded-3xl flex items-center justify-center shadow-[8px_8px_0px_#d9d9d9] aspect-square">2</div>
-    <div class="row-span-2 col-start-4 bg-white p-4 rounded-3xl flex items-center justify-center shadow-[8px_8px_0px_#d9d9d9] aspect-square">3</div>
-    <div class="row-span-2 col-start-5 bg-white p-4 rounded-3xl flex items-center justify-center shadow-[8px_8px_0px_#d9d9d9] aspect-square">4</div>
+    
+    <!-- Cards flip -->
+    <div class="row-span-2 col-start-3 p-1 rounded-3xl group relative h-full w-full">
+      <div class="flip-container w-full h-full">
+        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">2</div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 2</div>
+      </div>
+    </div>
+    
+    <div class="row-span-2 col-start-4 p-1 rounded-3xl group relative h-full w-full">
+      <div class="flip-container w-full h-full">
+        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">3</div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 3</div>
+      </div>
+    </div>
+    
+    <div class="row-span-2 col-start-5 p-1 rounded-3xl group relative h-full w-full">
+      <div class="flip-container w-full h-full">
+        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">4</div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 4</div>
+      </div>
+    </div>
+    
+    <!-- Elemento estático -->
     <div class="col-span-2 row-span-2 row-start-3 bg-white p-4 rounded-3xl flex items-center justify-center">5</div>
-    <div class="row-span-2 col-start-3 row-start-3 bg-white p-4 rounded-3xl flex items-center justify-center shadow-[8px_8px_0px_#d9d9d9] aspect-square">6</div>
-    <div class="row-span-2 col-start-4 row-start-3 bg-white p-4 rounded-3xl flex items-center justify-center shadow-[8px_8px_0px_#d9d9d9] aspect-square">7</div>
-    <div class="row-span-2 col-start-5 row-start-3 bg-white p-4 rounded-3xl flex items-center justify-center shadow-[8px_8px_0px_#d9d9d9] aspect-square">8</div>
-</div>
-
+    
+    <!-- Cards flip -->
+    <div class="row-span-2 col-start-3 row-start-3 p-1 rounded-3xl group relative h-full w-full">
+      <div class="flip-container w-full h-full">
+        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">6</div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 6</div>
+      </div>
+    </div>
+    
+    <div class="row-span-2 col-start-4 row-start-3 p-1 rounded-3xl group relative h-full w-full">
+      <div class="flip-container w-full h-full">
+        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">7</div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 7</div>
+      </div>
+    </div>
+    
+    <div class="row-span-2 col-start-5 row-start-3 p-1 rounded-3xl group relative h-full w-full">
+      <div class="flip-container w-full h-full">
+        <div class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">8</div>
+        <div class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4">Back 8</div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+.flip-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  height: 100%;
+}
+
+.group:hover .flip-container {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  transform-style: preserve-3d;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: #f0f9ff;
+}
+
+.group {
+  transform-style: preserve-3d;
+}
+</style>
