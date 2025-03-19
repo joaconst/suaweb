@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+import Header from "../components/common/Header.astro";
 
 ---
 
@@ -90,6 +92,7 @@
         class="bg-background flex flex-col items-center justify-center max-w-4xl w-full mx-auto overflow-x-hidden px-4 sm:px-6 lg:px-8 min-h-screen"
     >
         <div class="custom-cursor" id="cursor"></div>
+        <Header />
         <slot />
 
         <!-- Script para mover el puntero con el mouse -->

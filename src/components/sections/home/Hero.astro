@@ -4,9 +4,9 @@ const seoText = "optimizados para SEO";
 const responsiveText = "diseños responsive";
 ---
 
-<section class="text-center px-4 py-8 sm:py-12 md:py-16 lg:py-20 space-y-4 sm:space-y-6">
+<section class="text-center px-4 py-8 sm:py-12 md:py-16 lg:py-20 mt-16 md:mt-8 space-y-4 sm:space-y-6">
   <div class="max-w-xs sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto space-y-4 sm:space-y-6">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-2 sm:mb-4 text-white drop-shadow-lg">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-2 sm:mb-4 text-white drop-shadow-lg">
       <span class="wave-text inline-block relative" data-text={titleText}>
         {titleText}
       </span>
@@ -62,23 +62,7 @@ const responsiveText = "diseños responsive";
     -webkit-text-stroke: 0px transparent;
   }
 
-  .wave-text.animate::after {
-    animation: waveExpand 0.8s ease-out forwards;
-  }
-
-  @keyframes waveExpand {
-    0% {
-      clip-path: circle(0% at var(--mouse-x, 50%) var(--mouse-y, 50%));
-    }
-    70% {
-      clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
-    }
-    100% {
-      clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
-    }
-  }
-
-    .underline-animation {
+  .underline-animation {
     position: relative;
     display: inline-block;
   }
@@ -96,50 +80,81 @@ const responsiveText = "diseños responsive";
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  .underline-animation.active::after {
-    transform: scaleX(1);
+  /* Animaciones desktop */
+  @media (min-width: 768px) {
+    .wave-text.animate::after {
+      animation: waveExpand 0.8s ease-out forwards;
+    }
+
+    @keyframes waveExpand {
+      0% {
+        clip-path: circle(0% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+      }
+      70% {
+        clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+      }
+      100% {
+        clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
+      }
+    }
+
+    .underline-animation.active::after {
+      transform: scaleX(1);
+    }
   }
 
-  @media (max-width: 640px) {
+  /* Animación mobile mejorada */
+  @media (max-width: 767px) {
     .wave-text {
-      -webkit-text-stroke: 0px transparent;
-      color: white;
-      font-size: 2.25rem;
-      -webkit-text-stroke: 0px transparent;
-      color: white;
+      color: transparent;
+      -webkit-text-stroke: 0;
+      background: linear-gradient(
+        to right,
+        var(--color-primary) 50%,
+        transparent 50%
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: textReveal 2s ease-out forwards;
     }
-        
+
+    @keyframes textReveal {
+      0% {
+        background-position: 100% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    .wave-text::after {
+      display: none;
+    }
+
     .underline-animation::after {
-      bottom: -2px;
-      height: 1.5px;
-    }
-  }
-
-  @media (min-width: 641px) and (max-width: 1024px) {
-    .wave-text {
-      -webkit-text-stroke: 0.5px black;
+      display: none;
     }
   }
 </style>
 
 <script>
-  // Animación wave con tipos TypeScript
-  document.querySelectorAll<HTMLElement>(".wave-text").forEach((el) => {
-    el.addEventListener("mousemove", (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-      el.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+  // Animaciones solo en desktop
+  if (window.innerWidth >= 768) {
+    document.querySelectorAll(".wave-text").forEach((el) => {
+      el.addEventListener("mousemove", (e) => {
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+        el.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+      });
+
+      el.addEventListener("mouseenter", () => el.classList.add("animate"));
+      el.addEventListener("mouseleave", () => el.classList.remove("animate"));
     });
 
-    el.addEventListener("mouseenter", () => el.classList.add("animate"));
-    el.addEventListener("mouseleave", () => el.classList.remove("animate"));
-  });
-
-  // Animación subrayado con tipos TypeScript
-  document
-    .querySelectorAll<HTMLElement>(".underline-animation")
-    .forEach((el) => {
+    document.querySelectorAll(".underline-animation").forEach((el) => {
       el.addEventListener("mouseenter", () => el.classList.add("active"));
       el.addEventListener("mouseleave", () => el.classList.remove("active"));
     });
+  }
 </script>

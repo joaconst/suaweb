@@ -1,76 +1,165 @@
----
----
-
-<header class="sticky mt-4 h-16 flex items-center justify-between px-4 md:justify-center md:gap-8">
+<!-- Header para PC -->
+<header
+  class="hidden md:flex fixed top-0 left-0 right-0 mt-0 h-16 items-center justify-center px-4 md:gap-8 z-50"
+>
   <!-- Logo -->
   <a href="#" class="text-2xl font-bold text-black flex items-center space-x-2">
     <span>LOGO</span>
   </a>
 
-  <!-- Botón Hamburguesa (Mobile) -->
-  <button id="menuBtn" class="p-2 md:hidden">
-    <div class="w-6 h-0.5 bg-black mb-1 transition-all duration-300"></div>
-    <div class="w-6 h-0.5 bg-black mb-1 transition-all duration-300"></div>
-    <div class="w-6 h-0.5 bg-black transition-all duration-300"></div>
-  </button>
-
-  <!-- Menú para desktop (Mismo que original) -->
-  <nav class="hidden md:flex items-center space-x-8 p-3 bg-white rounded-full shadow-lg shadow-black/50">
-    <a href="/" class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
+  <!-- Menú para Desktop -->
+  <nav
+    class="flex items-center space-x-8 p-3 bg-white rounded-full shadow-lg shadow-black/50"
+  >
+    <a
+      href="/"
+      class="text-black font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
       INICIO
-      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
     </a>
-    <a href="/#nosotros" class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
-      NOSOTROS  
-      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+    <a
+      href="/#nosotros"
+      class="text-black font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
+      NOSOTROS
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
     </a>
-    <a href="/servicios" class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
+    <a
+      href="/servicios"
+      class="text-black font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
       SERVICIOS
-      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
     </a>
-    <a href="/contacto" class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
+    <a
+      href="/contacto"
+      class="text-black font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
       CONTACTO
-      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
     </a>
   </nav>
+</header>
 
-  <!-- Menú Mobile -->
-  <div id="mobileMenu" class="hidden md:hidden absolute top-16 left-0 w-full bg-white shadow-lg py-4 px-6">
-    <div class="flex flex-col space-y-4">
-      <a href="/" class="text-black font-medium py-2 hover:text-primary transition-all">INICIO</a>
-      <a href="/#nosotros" class="text-black font-medium py-2 hover:text-primary transition-all">NOSOTROS</a>
-      <a href="/servicios" class="text-black font-medium py-2 hover:text-primary transition-all">SERVICIOS</a>
-      <a href="/contacto" class="text-black font-medium py-2 hover:text-primary transition-all">CONTACTO</a>
-    </div>
+<!-- Header para Mobile -->
+<header
+  class="md:hidden fixed top-0 left-0 right-0 mt-0 h-16 flex items-center justify-center z-50"
+>
+  <div class="flex items-center justify-center bg-white rounded-4xl p-2 px-4 space-x-5 shadow-[4px_4px_0px_#000000]">
+    <!-- Logo -->
+    <a
+      href="#"
+      class="text-2xl font-bold text-black flex items-center space-x-2"
+    >
+      <span>LOGO</span>
+    </a>
+
+    <a
+      href="#"
+      class="text-2xl font-bold text-black flex items-center space-x-2"
+    >
+      <span>Nombre</span>
+    </a>
+
+    <!-- Botón Hamburguesa -->
+    <button id="menuBtn" class="p-2 bg-primary rounded-full">
+      <div class="w-6 h-1 bg-white mb-1 transition-all duration-300 rounded-full"></div>
+      <div class="w-6 h-1 bg-white mb-1 transition-all duration-300 rounded-full"></div>
+      <div class="w-6 h-1 bg-white transition-all duration-300 rounded-full"></div>
+    </button>
   </div>
 </header>
 
+<!-- Menú Mobile -->
+<div
+  id="mobileMenu"
+  class="hidden md:hidden fixed top-16 left-1/2 -translate-x-1/2 w-11/12 max-w-sm bg-white shadow-lg py-4 px-6 rounded-lg z-50"
+>
+  <div class="flex flex-col space-y-4 text-center">
+    <a
+      href="/"
+      class="text-black font-medium py-2 hover:text-primary transition-all"
+      >INICIO</a
+    >
+    <a
+      href="/#nosotros"
+      class="text-black font-medium py-2 hover:text-primary transition-all"
+      >NOSOTROS</a
+    >
+    <a
+      href="/servicios"
+      class="text-black font-medium py-2 hover:text-primary transition-all"
+      >SERVICIOS</a
+    >
+    <a
+      href="/contacto"
+      class="text-black font-medium py-2 hover:text-primary transition-all"
+      >CONTACTO</a
+    >
+  </div>
+</div>
+
 <script>
-// Mismo script que antes
-const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const bars = menuBtn.querySelectorAll('div');
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-let menuOpen = false;
+  if (!menuBtn || !mobileMenu) return;
 
-menuBtn.addEventListener('click', () => {
-  menuOpen = !menuOpen;
+  const menuBtnElement = menuBtn;
+  const mobileMenuElement = mobileMenu as HTMLDivElement;
+  const bars = menuBtnElement.querySelectorAll<HTMLDivElement>("div");
   
-  bars[0].style.transform = menuOpen ? 'rotate(45deg) translate(4px, 6px)' : '';
-  bars[1].style.opacity = menuOpen ? '0' : '1';
-  bars[2].style.transform = menuOpen ? 'rotate(-45deg) translate(4px, -6px)' : '';
-  
-  mobileMenu.classList.toggle('hidden');
-});
+  let menuOpen = false;
 
-document.querySelectorAll('#mobileMenu a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
-    menuOpen = false;
-    bars.forEach(bar => {
-      bar.style.transform = '';
-      bar.style.opacity = '1';
-    });
+  // Función para alternar el menú
+  const toggleMenu = () => {
+    menuOpen = !menuOpen;
+
+    // Animación de las barras
+    if (menuOpen) {
+      bars[0].style.transform = "rotate(45deg) translate(5px, 6px)";
+      bars[1].style.opacity = "0";
+      bars[2].style.transform = "rotate(-45deg) translate(5px, -6px)";
+    } else {
+      bars.forEach(bar => {
+        bar.style.transform = "";
+        bar.style.opacity = "1";
+      });
+    }
+
+    mobileMenuElement.classList.toggle("hidden");
+  };
+
+  // Cerrar menú al hacer clic fuera
+  document.addEventListener("click", (e) => {
+    const target = e.target as Node;
+    const clickOutside = !menuBtnElement.contains(target) && 
+                        !mobileMenuElement.contains(target);
+    
+    if (clickOutside && menuOpen) {
+      toggleMenu();
+    }
+  });
+
+  // Evento del botón hamburguesa
+  menuBtnElement.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Cerrar menú al seleccionar enlace
+  mobileMenuElement.querySelectorAll<HTMLAnchorElement>("a").forEach(link => {
+    link.addEventListener("click", () => menuOpen && toggleMenu());
   });
 });
 </script>
