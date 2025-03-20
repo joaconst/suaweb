@@ -1,454 +1,24 @@
 ---
-
+import BeneficiosPc from "../home/beneficios/BeneficiosPc.astro"
+import BeneficiosMobile from "../home/beneficios/BeneficiosMobile.astro"
 ---
 
-<style>
-  /* Estilos de la grid y las tarjetas */
-  .flip-container {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 100%;
-    will-change: transform;
-  }
+<section>
+  <BeneficiosPc />
+  <BeneficiosMobile />
+</section>
 
-  /* Hover horizontal */
-  .group:hover .flip-container {
-    transform: rotateY(180deg);
-  }
+<!-- Interacción y animación -->
+<script>
+  // Lógica para interacción en móvil y desktop
+  document.querySelectorAll(".group").forEach((card: Element) => {
+    const cardElement = card as HTMLElement;
 
-  .front,
-  .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    transform-style: preserve-3d;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-  }
-
-  .back {
-    transform: rotateY(180deg);
-    background-color: #f0f9ff;
-  }
-
-  /* Animación automática vertical */
-  @keyframes autoFlipVertical {
-    0% {
-      transform: rotateX(0);
-    }
-    25% {
-      transform: rotateX(180deg);
-    }
-    75% {
-      transform: rotateX(180deg);
-    }
-    100% {
-      transform: rotateX(0);
-    }
-  }
-
-  .animate-auto-flip-vertical {
-    animation: autoFlipVertical 1.2s ease-in-out 1;
-  }
-
-  /* Clase adicional para animación vertical */
-  .vertical-flip .back {
-    transform: rotateX(180deg);
-  }
-
-  @media (max-width: 767px) {
-    .flip-container {
-      perspective: 600px;
-    }
-    .group:active .flip-container {
-      transform: rotateY(180deg);
-    }
-    .front,
-    .back {
-      padding: 0.75rem;
-      font-size: 0.875rem;
-    }
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .group:hover .flip-container {
-      transform: rotateY(180deg);
-    }
-  }
-
-  [aria-hidden="true"] {
-    user-select: none;
-    -webkit-user-select: none;
-  }
-
-  .flip-container:focus-visible {
-    outline: 2px solid #3b82f6;
-    outline-offset: 2px;
-  }
-</style>
-
-<body>
-  <!-- Versión PC: Se muestra en md y superiores -->
-  <section
-    class="hidden md:block relative max-w-md sm:max-w-lg md:max-w-4xl xl:max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8"
-  >
-    <!-- Imágenes decorativas -->
-    <img
-      src="/home/2.webp"
-      alt=""
-      class="absolute -top-20 sm:-top-10 right-0 sm:-right-10 md:-right-28 lg:-right-36 xl:-right-40 w-20 sm:w-28 md:w-36 lg:w-40 opacity-20 z-0 pointer-events-none"
-      aria-hidden="true"
-      loading="lazy"
-      decoding="async"
-      width="168"
-      height="168"
-    />
-    <img
-      src="/home/3.webp"
-      alt=""
-      class="absolute -bottom-20 sm:-bottom-10 left-0 sm:-left-10 md:-left-28 lg:-left-36 xl:-left-40 w-20 sm:w-28 md:w-36 lg:w-40 opacity-20 z-0 pointer-events-none"
-      aria-hidden="true"
-      loading="lazy"
-      decoding="async"
-      width="168"
-      height="168"
-    />
-
-    <!-- Grid Container (PC) -->
-    <div
-      class="grid grid-cols-3 md:grid-cols-5 grid-rows-3 md:grid-rows-4 gap-2 sm:gap-3 md:gap-4 min-h-[300px] sm:min-h-[400px] md:h-[480px]"
-    >
-      <!-- Card 1 -->
-      <div
-        class="col-span-3 md:col-span-2 row-span-1 md:row-span-2 p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl flex items-center justify-center text-2xl sm:text-3xl md:text-4xl"
-      >
-        1
-      </div>
-
-      <!-- Card 2 -->
-      <div
-        class="row-span-1 md:row-span-2 col-start-1 md:col-start-3 row-start-2 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            2
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 2
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div
-        class="row-span-1 md:row-span-2 col-start-2 md:col-start-4 row-start-2 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            3
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 3
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div
-        class="row-span-1 md:row-span-2 col-start-3 md:col-start-5 row-start-2 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            4
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 4
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div
-        class="col-span-1 md:col-span-2 row-span-1 md:row-span-2 row-start-3 bg-white p-4 rounded-3xl flex items-center justify-center text-lg sm:text-xl md:text-2xl shadow-lg"
-      >
-        5
-      </div>
-
-      <!-- Card 6 -->
-      <div
-        class="col-span-1 row-span-1 md:row-span-2 row-start-3 md:col-start-3 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            6
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 6
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 7 -->
-      <div
-        class="col-span-1 row-span-1 md:row-span-2 row-start-3 md:col-start-4 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            7
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 7
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 8 (solo en PC) -->
-      <div
-        class="hidden md:block row-span-2 col-start-5 row-start-3 p-1 rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4 text-2xl"
-          >
-            8
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[8px_8px_0px_#d9d9d9] rounded-3xl p-4 text-lg"
-          >
-            Back 8
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Grid para version en mobile -->
-  <section
-    class="block md:hidden relative max-w-lg md:max-w-4xl xl:max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8"
-  >
-    <!-- Imágenes decorativas -->
-    <img
-      src="/home/2.webp"
-      alt=""
-      class="absolute -top-20 sm:-top-10 right-0 sm:-right-10 md:-right-28 lg:-right-36 xl:-right-40 w-20 sm:w-28 md:w-36 lg:w-40 opacity-20 z-0 pointer-events-none"
-      aria-hidden="true"
-      loading="lazy"
-      decoding="async"
-      width="168"
-      height="168"
-    />
-    <img
-      src="/home/3.webp"
-      alt=""
-      class="absolute -bottom-20 sm:-bottom-10 left-0 sm:-left-10 md:-left-28 lg:-left-36 xl:-left-40 w-20 sm:w-28 md:w-36 lg:w-40 opacity-20 z-0 pointer-events-none"
-      aria-hidden="true"
-      loading="lazy"
-      decoding="async"
-      width="168"
-      height="168"
-    />
-
-    <!-- Grid Container modificado para mobile -->
-    <div
-      class="grid grid-cols-2 md:grid-cols-5 grid-rows-5 md:grid-rows-4 gap-2 sm:gap-3 md:gap-4 min-h-[800px]"
-    >
-      <!-- Card 1 -->
-      <div
-        class="col-span-2 md:col-span-2 row-span-1 md:row-span-2 p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl flex items-center justify-center text-2xl sm:text-3xl md:text-4xl"
-      >
-        1
-      </div>
-
-      <!-- Card 5 movida a segunda posición en mobile -->
-      <div
-        class="col-span-2 md:col-span-2 row-span-1 md:row-span-2 row-start-2 bg-white p-4 rounded-3xl flex items-center justify-center text-lg sm:text-xl md:text-2xl shadow-lg"
-      >
-        5
-      </div>
-
-      <!-- Card 2 -->
-      <div
-        class="row-span-1 md:row-span-2 row-start-3 md:col-start-3 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            2
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 2
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div
-        class="row-span-1 md:row-span-2 row-start-3 md:col-start-4 col-start-2 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            3
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 3
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div
-        class="row-span-1 md:row-span-2 row-start-4 md:col-start-5 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            4
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 4
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div
-        class="col-start-2 row-span-1 md:row-span-2 row-start-4 md:col-start-3 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            6
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 6
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 7 -->
-      <div
-        class="row-span-1 md:row-span-2 row-start-5 md:col-start-4 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            7
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 7
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 8 (Ahora visible en mobile) -->
-      <div
-        class="row-span-1 md:row-span-2 row-start-5 col-start-2 md:col-start-5 p-1 rounded-2xl md:rounded-3xl group relative h-full w-full"
-      >
-        <div class="flip-container w-full h-full">
-          <div
-            class="front flex items-center justify-center bg-white shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-lg sm:text-xl md:text-2xl"
-          >
-            8
-          </div>
-          <div
-            class="back flex items-center justify-center bg-blue-50 shadow-[4px_4px_0px_#d9d9d9] sm:shadow-[6px_6px_0px_#d9d9d9] md:shadow-[8px_8px_0px_#d9d9d9] rounded-2xl md:rounded-3xl p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg"
-          >
-            Back 8
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Script común: interacción y animación -->
-  <script>
-    // Lógica para interacción en móvil y desktop
-    document.querySelectorAll(".group").forEach((card: Element) => {
-      const cardElement = card as HTMLElement;
-
-      if (window.innerWidth <= 767) {
-        cardElement.addEventListener(
-          "touchstart",
-          (e: TouchEvent) => {
-            if (e.cancelable) e.preventDefault();
-            cardElement.classList.toggle("flipped");
-            const flipContainer = cardElement.querySelector(
-              ".flip-container",
-            ) as HTMLElement | null;
-            if (flipContainer) {
-              flipContainer.style.transform = cardElement.classList.contains(
-                "flipped",
-              )
-                ? "rotateY(180deg)"
-                : "rotateY(0deg)";
-            }
-          },
-          { passive: false },
-        );
-      } else {
-        cardElement.addEventListener("mouseenter", () => {
-          cardElement.classList.add("flipped");
-          const flipContainer = cardElement.querySelector(
-            ".flip-container",
-          ) as HTMLElement | null;
-          if (flipContainer) {
-            flipContainer.style.transform = "rotateY(180deg)";
-          }
-        });
-        cardElement.addEventListener("mouseleave", () => {
-          cardElement.classList.remove("flipped");
-          const flipContainer = cardElement.querySelector(
-            ".flip-container",
-          ) as HTMLElement | null;
-          if (flipContainer) {
-            flipContainer.style.transform = "rotateY(0deg)";
-          }
-        });
-      }
-
-      // Permitir interacción con teclado
-      cardElement.addEventListener("keydown", (e: KeyboardEvent) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
+    if (window.innerWidth <= 767) {
+      cardElement.addEventListener(
+        "touchstart",
+        (e: TouchEvent) => {
+          if (e.cancelable) e.preventDefault();
           cardElement.classList.toggle("flipped");
           const flipContainer = cardElement.querySelector(
             ".flip-container",
@@ -460,71 +30,106 @@
               ? "rotateY(180deg)"
               : "rotateY(0deg)";
           }
+        },
+        { passive: false },
+      );
+    } else {
+      cardElement.addEventListener("mouseenter", () => {
+        cardElement.classList.add("flipped");
+        const flipContainer = cardElement.querySelector(
+          ".flip-container",
+        ) as HTMLElement | null;
+        if (flipContainer) {
+          flipContainer.style.transform = "rotateY(180deg)";
         }
       });
+      cardElement.addEventListener("mouseleave", () => {
+        cardElement.classList.remove("flipped");
+        const flipContainer = cardElement.querySelector(
+          ".flip-container",
+        ) as HTMLElement | null;
+        if (flipContainer) {
+          flipContainer.style.transform = "rotateY(0deg)";
+        }
+      });
+    }
 
-      // Atributos de accesibilidad
-      cardElement.setAttribute("role", "button");
-      cardElement.setAttribute("tabindex", "0");
-      const flipContainer = cardElement.querySelector(
-        ".flip-container",
-      ) as HTMLElement | null;
-      if (flipContainer) {
-        flipContainer.setAttribute("aria-label", "Tarjeta interactiva");
+    // Permitir interacción con teclado
+    cardElement.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        cardElement.classList.toggle("flipped");
+        const flipContainer = cardElement.querySelector(
+          ".flip-container",
+        ) as HTMLElement | null;
+        if (flipContainer) {
+          flipContainer.style.transform = cardElement.classList.contains(
+            "flipped",
+          )
+            ? "rotateY(180deg)"
+            : "rotateY(0deg)";
+        }
       }
     });
 
-    // Animación automática vertical al visualizar el componente
-    const observerOptions: IntersectionObserverInit = {
-      threshold: 0.5,
-    };
+    // Atributos de accesibilidad
+    cardElement.setAttribute("role", "button");
+    cardElement.setAttribute("tabindex", "0");
+    const flipContainer = cardElement.querySelector(
+      ".flip-container",
+    ) as HTMLElement | null;
+    if (flipContainer) {
+      flipContainer.setAttribute("aria-label", "Tarjeta interactiva");
+    }
+  });
 
-    const observerCallback: IntersectionObserverCallback = (
-      entries: IntersectionObserverEntry[],
-      observer: IntersectionObserver,
-    ) => {
-      entries.forEach((entry: IntersectionObserverEntry) => {
-        if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement;
-          const flipCards = target.querySelectorAll(".group");
-          flipCards.forEach((card: Element) => {
-            const cardElement = card as HTMLElement;
-            const flipContainer = cardElement.querySelector(
-              ".flip-container",
-            ) as HTMLElement | null;
-            if (flipContainer) {
-              flipContainer.classList.add(
-                "vertical-flip",
-                "animate-auto-flip-vertical",
-              );
+  // Animación automática vertical al visualizar el componente
+  const observerOptions: IntersectionObserverInit = {
+    threshold: 0.5,
+  };
 
-              flipContainer.addEventListener(
-                "animationend",
-                () => {
-                  flipContainer.classList.remove(
-                    "vertical-flip",
-                    "animate-auto-flip-vertical",
-                  );
-                },
-                { once: true },
-              );
-            }
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    };
+  const observerCallback: IntersectionObserverCallback = (
+    entries: IntersectionObserverEntry[],
+    observer: IntersectionObserver,
+  ) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
+      if (entry.isIntersecting) {
+        const target = entry.target as HTMLElement;
+        const flipCards = target.querySelectorAll(".group");
+        flipCards.forEach((card: Element) => {
+          const cardElement = card as HTMLElement;
+          const flipContainer = cardElement.querySelector(
+            ".flip-container",
+          ) as HTMLElement | null;
+          if (flipContainer) {
+            flipContainer.classList.add(
+              "vertical-flip",
+              "animate-auto-flip-vertical",
+            );
 
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions,
-    );
-
-    const gridSections = document.querySelectorAll(
-      "section.hidden.md\\:block, section.block.md\\:hidden",
-    );
-    gridSections.forEach((section: Element) => {
-      observer.observe(section as HTMLElement);
+            flipContainer.addEventListener(
+              "animationend",
+              () => {
+                flipContainer.classList.remove(
+                  "vertical-flip",
+                  "animate-auto-flip-vertical",
+                );
+              },
+              { once: true },
+            );
+          }
+        });
+        observer.unobserve(entry.target);
+      }
     });
-  </script>
-</body>
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  const gridSections = document.querySelectorAll(
+    "section.hidden.md\\:block, section.block.md\\:hidden",
+  );
+  gridSections.forEach((section: Element) => {
+    observer.observe(section as HTMLElement);
+  });
+</script>
