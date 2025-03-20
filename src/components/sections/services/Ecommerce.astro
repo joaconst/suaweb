@@ -2,25 +2,104 @@
 
 ---
 
+<div class="landing-component">
+    <section
+        class="max-w-5xl w-[95%] mx-auto h-auto md:h-[400px] bg-white shadow-lg rounded-3xl px-4 md:px-6 py-3 md:py-6 mt-8 sm:mt-4 flex flex-col md:flex-row items-stretch gap-4 md:gap-6"
+    >
+        <!-- Sección Izquierda -->
+        <article
+            class="flex-1 flex flex-col justify-center items-center text-center p-4 md:p-6"
+        >
+            <h2 class="text-4xl md:text-5xl font-bold">
+                <span class="block">Tienda Online</span>
+                <span class="block">E-Commerce</span>
+            </h2>
+            <button
+                class="mt-4 md:mt-8 px-6 py-3 bg-primary text-white rounded-lg text-base hover:bg-primary/90 transition-colors"
+            >
+                Solicitar cotización
+            </button>
+        </article>
 
-<section class="max-w-5xl w-[95%] mx-auto h-auto md:h-[400px] bg-white shadow-lg rounded-3xl px-4 md:px-6 py-3 md:py-6 mt-8 sm:mt-4 mb-8 flex flex-col md:flex-row items-stretch gap-4 md:gap-6">
-    <!-- Sección Izquierda -->
-    <article class="flex-1 flex flex-col justify-center items-center text-center p-4 md:p-6">
-        <h2 class="text-4xl md:text-5xl font-bold">
-          <span class="block">Tienda Online</span>
-          <span class="block">E-Commerce</span>
-        </h2>
-        <button class="mt-4 md:mt-8 px-6 py-3 bg-primary text-white rounded-lg text-base">
-            Solicitar cotización
-        </button>
-    </article>
+        <!-- Sección Derecha con información técnica -->
+        <article
+            class="w-full md:w-[40%] h-[400px] sm:h-auto flex flex-col justify-between items-center text-center bg-background_secondary p-6 md:p-4 md:mr-8 rounded-2xl space-y-4 group"
+            style="box-shadow: 3px 3px black;"
+        >
+            <div class="w-full">
+                <p
+                    class="text-gray-700 text-base mb-4 mt-4 transition-all"
+                    data-info="original"
+                >
+                    Tu tienda online 24/7 con catálogo ilimitado, gestión de
+                    pedidos y pagos seguros. Ideal para vender productos físicos
+                    o digitales en cualquier momento y lugar. Incluye:
+                    <br /><br />
+                    • Panel de control fácil de usar<br />
+                    • Soporte para múltiples métodos de pago<br />
+                    • Gestión automática de inventario
+                </p>
+                <div
+                    class="hidden text-left text-gray-700 text-base space-y-3 transition-all"
+                    data-info="alternativo"
+                >
+                    <p class="font-semibold">Características Principales:</p>
+                    <ul class="space-y-2">
+                        <li class="border-l-4 border-primary pl-2">
+                            • Diseño móvil primero (Mobile-First)
+                        </li>
+                        <li class="border-l-4 border-primary pl-2">
+                            • Pasarela de pagos (Tarjetas, PayPal, Efectivo)
+                        </li>
+                        <li class="border-l-4 border-primary pl-2">
+                            • Control de inventario en tiempo real
+                        </li>
+                        <li class="border-l-4 border-primary pl-2">
+                            • Cálculo automático de envíos
+                        </li>
+                        <li class="border-l-4 border-primary pl-2">
+                            • Galería de productos con zoom HD
+                        </li>
+                        <li class="border-l-4 border-primary pl-2">
+                            • Protección anti-fraude certificada
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button
+                class="toggle-button px-6 md:px-5 py-2 md:py-1.5 bg-white rounded-3xl text-sm md:text-base shadow-md md:shadow-none hover:bg-white/75 transition-all"
+                aria-expanded="false"
+            >
+                Ver más
+            </button>
+        </article>
+    </section>
 
-    <!-- Sección Derecha -->
-    <article class="w-full md:w-[40%] h-[400px] sm:h-auto flex flex-col justify-between items-center text-center bg-background_secondary p-6 md:p-4 md:mr-8 rounded-2xl space-y-4"
-            style="box-shadow: 3px 3px black;">
-        <p class="text-gray-700 text-sm md:text-base">Texto aaaaaaaaaaaaaa</p>
-        <button class="px-6 md:px-5 py-2 md:py-1.5 bg-white rounded-3xl text-sm md:text-base shadow-md md:shadow-none hover:bg-white/75 transition-all">
-            Ver más
-        </button>
-    </article>
-</section>
+    <!-- Script para alternar el contenido dentro de este componente -->
+    <script client:load>
+        (function () {
+            const container = document.currentScript.parentElement;
+            const btn = container.querySelector(".toggle-button");
+            const original = container.querySelector('[data-info="original"]');
+            const alternativo = container.querySelector(
+                '[data-info="alternativo"]',
+            );
+            if (!btn || !original || !alternativo) return;
+
+            btn.addEventListener("click", () => {
+                const isHidden = alternativo.classList.contains("hidden");
+                if (isHidden) {
+                    original.classList.add("hidden");
+                    alternativo.classList.remove("hidden");
+                    btn.textContent = "Ver menos";
+                    btn.setAttribute("aria-expanded", "true");
+                } else {
+                    original.classList.remove("hidden");
+                    alternativo.classList.add("hidden");
+                    btn.textContent = "Ver más";
+                    btn.setAttribute("aria-expanded", "false");
+                }
+            });
+        })();
+    </script>
+</div>
