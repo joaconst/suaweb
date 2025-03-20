@@ -1,8 +1,8 @@
 ---
-import BeneficiosPc from "../home/beneficios/BeneficiosPc.astro"
-import BeneficiosMobile from "../home/beneficios/BeneficiosMobile.astro"
+import BeneficiosPc from "../home/beneficios/BeneficiosPc.astro";
+import BeneficiosMobile from "../home/beneficios/BeneficiosMobile.astro";
 
-import "../../../styles/flip-cards.css"
+import "../../../styles/flip-cards.css";
 ---
 
 <section>
@@ -15,26 +15,45 @@ import "../../../styles/flip-cards.css"
   // Lógica para interacción en móvil y desktop
   document.querySelectorAll(".group").forEach((card: Element) => {
     const cardElement = card as HTMLElement;
+    let touchStartTime: number;
+    let touchTimeout: number;
+    let isScrolling = false;
 
     if (window.innerWidth <= 767) {
       cardElement.addEventListener(
         "touchstart",
         (e: TouchEvent) => {
-          if (e.cancelable) e.preventDefault();
-          cardElement.classList.toggle("flipped");
-          const flipContainer = cardElement.querySelector(
-            ".flip-container",
-          ) as HTMLElement | null;
-          if (flipContainer) {
-            flipContainer.style.transform = cardElement.classList.contains(
-              "flipped",
-            )
-              ? "rotateY(180deg)"
-              : "rotateY(0deg)";
-          }
+          touchStartTime = Date.now();
+          isScrolling = false;
+
+          // Timeout para detectar toque corto
+          touchTimeout = window.setTimeout(() => {
+            if (!isScrolling) {
+              cardElement.classList.toggle("flipped");
+              const flipContainer = cardElement.querySelector(
+                ".flip-container",
+              ) as HTMLElement | null;
+              if (flipContainer) {
+                flipContainer.style.transform = cardElement.classList.contains(
+                  "flipped",
+                )
+                  ? "rotateY(180deg)"
+                  : "rotateY(0deg)";
+              }
+            }
+          }, 100);
         },
-        { passive: false },
+        { passive: true },
       );
+
+      cardElement.addEventListener("touchmove", () => {
+        isScrolling = true;
+        clearTimeout(touchTimeout);
+      });
+
+      cardElement.addEventListener("touchend", () => {
+        clearTimeout(touchTimeout);
+      });
     } else {
       cardElement.addEventListener("mouseenter", () => {
         cardElement.classList.add("flipped");
@@ -45,6 +64,7 @@ import "../../../styles/flip-cards.css"
           flipContainer.style.transform = "rotateY(180deg)";
         }
       });
+
       cardElement.addEventListener("mouseleave", () => {
         cardElement.classList.remove("flipped");
         const flipContainer = cardElement.querySelector(
