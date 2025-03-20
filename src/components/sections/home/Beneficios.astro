@@ -17,7 +17,7 @@ import "../../../styles/flip-cards.css";
     const cardElement = card as HTMLElement;
     let touchTimeout: number;
     let isScrolling = false;
-    
+
     const HOLD_DURATION = 75;
 
     if (window.innerWidth <= 767) {
@@ -25,9 +25,24 @@ import "../../../styles/flip-cards.css";
         "touchstart",
         (e: TouchEvent) => {
           isScrolling = false;
-          
+
           touchTimeout = window.setTimeout(() => {
             if (!isScrolling) {
+              // Cerrar todas las demás tarjetas
+              document.querySelectorAll(".group").forEach((otherCard) => {
+                const otherCardElement = otherCard as HTMLElement;
+                if (otherCardElement !== cardElement) {
+                  otherCardElement.classList.remove("flipped");
+                  const otherFlipContainer = otherCardElement.querySelector(
+                    ".flip-container",
+                  ) as HTMLElement | null;
+                  if (otherFlipContainer) {
+                    otherFlipContainer.style.transform = "rotateY(0deg)";
+                  }
+                }
+              });
+
+              // Toggle la tarjeta actual
               cardElement.classList.toggle("flipped");
               const flipContainer = cardElement.querySelector(
                 ".flip-container",
@@ -42,7 +57,7 @@ import "../../../styles/flip-cards.css";
             }
           }, HOLD_DURATION);
         },
-        { passive: true }
+        { passive: true },
       );
 
       cardElement.addEventListener("touchmove", () => {
@@ -53,7 +68,6 @@ import "../../../styles/flip-cards.css";
       cardElement.addEventListener("touchend", () => {
         clearTimeout(touchTimeout);
       });
-
     } else {
       cardElement.addEventListener("mouseenter", () => {
         cardElement.classList.add("flipped");
@@ -80,6 +94,20 @@ import "../../../styles/flip-cards.css";
     cardElement.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
+        // Cerrar otras tarjetas también en teclado
+        document.querySelectorAll(".group").forEach((otherCard) => {
+          const otherCardElement = otherCard as HTMLElement;
+          if (otherCardElement !== cardElement) {
+            otherCardElement.classList.remove("flipped");
+            const otherFlipContainer = otherCardElement.querySelector(
+              ".flip-container",
+            ) as HTMLElement | null;
+            if (otherFlipContainer) {
+              otherFlipContainer.style.transform = "rotateY(0deg)";
+            }
+          }
+        });
+
         cardElement.classList.toggle("flipped");
         const flipContainer = cardElement.querySelector(
           ".flip-container",
@@ -139,12 +167,12 @@ import "../../../styles/flip-cards.css";
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.5 },
   );
 
-  document.querySelectorAll(
-    "section.hidden.md\\:block, section.block.md\\:hidden",
-  ).forEach((section: Element) => {
-    observer.observe(section as HTMLElement);
-  });
+  document
+    .querySelectorAll("section.hidden.md\\:block, section.block.md\\:hidden")
+    .forEach((section: Element) => {
+      observer.observe(section as HTMLElement);
+    });
 </script>
