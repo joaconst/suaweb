@@ -15,18 +15,17 @@ import "../../../styles/flip-cards.css";
   // Lógica para interacción en móvil y desktop
   document.querySelectorAll(".group").forEach((card: Element) => {
     const cardElement = card as HTMLElement;
-    let touchStartTime: number;
     let touchTimeout: number;
     let isScrolling = false;
+    
+    const HOLD_DURATION = 75;
 
     if (window.innerWidth <= 767) {
       cardElement.addEventListener(
         "touchstart",
         (e: TouchEvent) => {
-          touchStartTime = Date.now();
           isScrolling = false;
-
-          // Timeout para detectar toque corto
+          
           touchTimeout = window.setTimeout(() => {
             if (!isScrolling) {
               cardElement.classList.toggle("flipped");
@@ -41,9 +40,9 @@ import "../../../styles/flip-cards.css";
                   : "rotateY(0deg)";
               }
             }
-          }, 100);
+          }, HOLD_DURATION);
         },
-        { passive: true },
+        { passive: true }
       );
 
       cardElement.addEventListener("touchmove", () => {
@@ -54,6 +53,7 @@ import "../../../styles/flip-cards.css";
       cardElement.addEventListener("touchend", () => {
         clearTimeout(touchTimeout);
       });
+
     } else {
       cardElement.addEventListener("mouseenter", () => {
         cardElement.classList.add("flipped");
@@ -76,7 +76,7 @@ import "../../../styles/flip-cards.css";
       });
     }
 
-    // Permitir interacción con teclado
+    // Interacción con teclado
     cardElement.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
@@ -94,7 +94,7 @@ import "../../../styles/flip-cards.css";
       }
     });
 
-    // Atributos de accesibilidad
+    // Accesibilidad
     cardElement.setAttribute("role", "button");
     cardElement.setAttribute("tabindex", "0");
     const flipContainer = cardElement.querySelector(
@@ -105,53 +105,46 @@ import "../../../styles/flip-cards.css";
     }
   });
 
-  // Animación automática vertical al visualizar el componente
-  const observerOptions: IntersectionObserverInit = {
-    threshold: 0.5,
-  };
+  // Animación automática al aparecer
+  const observer = new IntersectionObserver(
+    (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+          const flipCards = target.querySelectorAll(".group");
+          flipCards.forEach((card: Element) => {
+            const cardElement = card as HTMLElement;
+            const flipContainer = cardElement.querySelector(
+              ".flip-container",
+            ) as HTMLElement | null;
+            if (flipContainer) {
+              flipContainer.classList.add(
+                "vertical-flip",
+                "animate-auto-flip-vertical",
+              );
 
-  const observerCallback: IntersectionObserverCallback = (
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver,
-  ) => {
-    entries.forEach((entry: IntersectionObserverEntry) => {
-      if (entry.isIntersecting) {
-        const target = entry.target as HTMLElement;
-        const flipCards = target.querySelectorAll(".group");
-        flipCards.forEach((card: Element) => {
-          const cardElement = card as HTMLElement;
-          const flipContainer = cardElement.querySelector(
-            ".flip-container",
-          ) as HTMLElement | null;
-          if (flipContainer) {
-            flipContainer.classList.add(
-              "vertical-flip",
-              "animate-auto-flip-vertical",
-            );
-
-            flipContainer.addEventListener(
-              "animationend",
-              () => {
-                flipContainer.classList.remove(
-                  "vertical-flip",
-                  "animate-auto-flip-vertical",
-                );
-              },
-              { once: true },
-            );
-          }
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  };
-
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-  const gridSections = document.querySelectorAll(
-    "section.hidden.md\\:block, section.block.md\\:hidden",
+              flipContainer.addEventListener(
+                "animationend",
+                () => {
+                  flipContainer.classList.remove(
+                    "vertical-flip",
+                    "animate-auto-flip-vertical",
+                  );
+                },
+                { once: true },
+              );
+            }
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
   );
-  gridSections.forEach((section: Element) => {
+
+  document.querySelectorAll(
+    "section.hidden.md\\:block, section.block.md\\:hidden",
+  ).forEach((section: Element) => {
     observer.observe(section as HTMLElement);
   });
 </script>
