@@ -1,27 +1,52 @@
 ---
+
 ---
 
-<section class="w-full mx-auto mt-16 mb-25">
-    <section class="flex flex-col md:flex-row justify-between items-center bg-background_secondary w-full h-auto md:h-[65vh] p-8 border-2 rounded-2xl relative">
-        <!-- Imagen en la esquina superior izquierda -->
-        <img src="/home/image_4.webp" alt="Icono" class="absolute top-4 left-4 w-24 h-24">
+<section class="w-full max-w-sm sm:max-w-4xl mx-auto mt-16 mb-25 px-4 md:px-6">
+    <h2 class="text-5xl lg:text-6xl font-extrabold text-center mb-8">
+        ¿Trabajamos Juntos?
+    </h2>
 
-        <!-- Formulario -->
-        <form action="" class="relative w-full md:w-1/2 flex flex-col gap-4 pr-6 mt-32">
+    <section
+        class="flex flex-col md:flex-row justify-between items-center bg-background_secondary w-full h-auto md:h-[75vh] p-8 border-2 rounded-2xl relative"
+    >
+        <!-- Imagen mantenida en ambos modos -->
+        <img
+            src="/home/image_4.webp"
+            alt="Icono"
+            class="absolute top-4 left-4 w-24 h-24"
+        />
+
+        <!-- Formulario principal -->
+        <form
+            action=""
+            class="relative w-full md:w-1/2 flex flex-col gap-4 pr-6 mt-25 sm:mt-32"
+        >
+            <!-- Campos del formulario -->
             <label class="font-semibold">
                 Nombre
-                <input type="text" placeholder="Tu nombre" class="w-full p-3 bg-white rounded-2xl">
+                <input
+                    type="text"
+                    placeholder="Tu nombre"
+                    class="w-full p-3 bg-white rounded-2xl"
+                />
             </label>
 
             <label class="font-semibold">
                 Correo electrónico
-                <input type="email" placeholder="Tu correo" class="w-full p-3 bg-white rounded-2xl">
+                <input
+                    type="email"
+                    placeholder="Tu correo"
+                    class="w-full p-3 bg-white rounded-2xl"
+                />
             </label>
 
             <label class="font-semibold">
                 Elije un paquete
                 <select class="w-full p-3 bg-white rounded-2xl">
-                    <option value="" disabled selected>¿Qué tipo de página buscas?</option>
+                    <option value="" disabled selected
+                        >¿Qué tipo de página buscas?</option
+                    >
                     <option value="basico">Blog / Portfolio</option>
                     <option value="intermedio">Landing Page</option>
                     <option value="premium">Sitio web corporativo</option>
@@ -29,18 +54,34 @@
                 </select>
             </label>
 
-            <!-- Botón de enviar -->
-            <button type="submit" class="w-full bg-white hover:bg-primary transition-colors font-bold py-3 rounded-xl">
+            <!-- Botón de escritorio -->
+            <button
+                type="submit"
+                class="hidden md:block w-full bg-white hover:bg-primary transition-colors font-bold py-3 rounded-xl"
+            >
                 Enviar
             </button>
         </form>
 
-        <!-- Área de texto grande -->
-        <div class="w-full md:w-1/2 mt-6 md:mt-0 pl-6 flex flex-col h-full border-l-2">
+        <!-- Área de texto -->
+        <div
+            class="w-full md:w-1/2 mt-6 md:mt-0 pt-6 xs:pt-0 md:pl-6 flex flex-col h-full border-t-2 md:border-t-0 md:border-l-2"
+        >
             <label class="font-semibold w-full flex-1">
                 Cuéntanos de tu proyecto
-                <textarea placeholder="Escribe sobre él aquí..." class="w-full p-3 rounded-xl h-[calc(100%-1rem)] resize-none bg-white"></textarea>
             </label>
+            <textarea
+                placeholder="Escribe sobre él aquí..."
+                class="w-full p-3 rounded-xl h-[calc(100%-1rem)] resize-none bg-white"
+            ></textarea>
         </div>
+
+        <!-- Botón móvil -->
+        <button
+            type="submit"
+            class="md:hidden w-full bg-white hover:bg-primary transition-colors font-bold py-3 rounded-xl mt-6"
+        >
+            Enviar
+        </button>
     </section>
 </section>
