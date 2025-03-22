@@ -108,19 +108,15 @@ import Header from "../components/common/Header.astro";
             // Tipos de cursor
             const cursorTypes = {
                 default: () => {
-                    cursor?.classList.remove("-text", "-pointer", "-loading");
+                    cursor?.classList.remove("-text", "-pointer");
                 },
                 text: () => {
                     cursor?.classList.add("-text");
-                    cursor?.classList.remove("-pointer", "-loading");
+                    cursor?.classList.remove("-pointer");
                 },
                 pointer: () => {
                     cursor?.classList.add("-pointer");
-                    cursor?.classList.remove("-text", "-loading");
-                },
-                loading: () => {
-                    cursor?.classList.add("-loading");
-                    cursor?.classList.remove("-text", "-pointer");
+                    cursor?.classList.remove("-text");
                 },
             };
 
