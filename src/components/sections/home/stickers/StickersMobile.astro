@@ -4,7 +4,7 @@
 
 <section
     id="anim-mobile-section"
-    class="relative md:hidden flex items-center justify-center w-screen min-h-[50vh] bg-primary mt-32 px-4 overflow-hidden"
+    class="relative lg:hidden flex items-center justify-center w-screen min-h-[50vh] bg-primary mt-32 px-4 overflow-hidden"
 >
     <!-- Componente de fondo -->
     <div class="animated-bg absolute inset-0 pointer-events-none">
@@ -151,6 +151,12 @@
         right: 5%;
         animation: fadeInSlide 2s ease forwards;
         animation-delay: 1.3s;
+    }
+
+    @media (max-width: 800px) {
+        .bg-element {
+            width: 300px;
+        }
     }
 
     @media (max-width: 640px) {
