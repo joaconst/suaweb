@@ -1,12 +1,11 @@
 ---
-import "../../../../styles/stickers.css"
+import "../../../../styles/stickers.css";
 ---
 
 <section
   id="anim-section"
-  class="relative hidden lg:flex items-center justify-center w-screen min-h-[50vh] bg-primary mt-32 px-4 overflow-hidden"
+  class="relative flex items-center justify-center w-screen min-h-[50vh] bg-primary mt-32 px-4 overflow-hidden"
 >
-  <!-- Componente de fondo -->
   <div class="animated-bg absolute inset-0 pointer-events-none">
     <div class="bg-element bg-element-1" data-text="Responsive"></div>
     <div class="bg-element bg-element-2" data-text="Moderno"></div>
@@ -16,9 +15,10 @@ import "../../../../styles/stickers.css"
     <div class="bg-element bg-element-6" data-text="Personalizable"></div>
     <div class="bg-element bg-element-7" data-text="Escalable"></div>
     <div class="bg-element bg-element-8" data-text="Profesional"></div>
+    <div class="bg-element bg-element-9" data-text="Accesible"></div>
+    <div class="bg-element bg-element-10" data-text="Funcional"></div>
   </div>
 
-  <!-- Botón principal -->
   <button
     class="animated-rectangle relative z-10 cursor-pointer w-full max-w-[440px] h-[60px] bg-white border-4 border-[#d9d9d9] rounded-[50px] shadow-[8px_8px_0_0_#d9d9d9] overflow-hidden transition-all duration-300 ease-in-out"
     data-text="Impulsa tu negocio online"
@@ -29,28 +29,49 @@ import "../../../../styles/stickers.css"
   </button>
 </section>
 
-<link rel="stylesheet" href="stickers.css">
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function() {
     const section = document.getElementById("anim-section");
     if (!section) return;
 
-    const animatedRect = section.querySelector(".animated-rectangle");
-    if (!animatedRect) return;
+    // Bloqueo inicial de elementos
+    const bgElements = section.querySelectorAll(".bg-element");
+    bgElements.forEach(element => {
+      element.style.cssText = "opacity:0 !important; visibility:hidden !important;";
+    });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animatedRect.classList.add("animate");
-            observer.unobserve(entry.target);
+    const animatedRect = section.querySelector(".animated-rectangle");
+    
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry?.isIntersecting) {
+        // Resetear estilos forzados
+        bgElements.forEach(element => {
+          element.style.cssText = "";
+          // Resetear el texto
+          const before = element.querySelector('::before');
+          if (before) {
+            before.style.width = '0';
           }
         });
-      },
-      { threshold: 0.5 }
-    );
+        
+        requestAnimationFrame(() => {
+          // Reiniciar animaciones
+          animatedRect.classList.remove("animate");
+          bgElements.forEach(el => {
+            el.classList.remove("animate");
+            // Forzar reflow del elemento
+            void el.offsetWidth;
+          });
+          
+          void section.offsetWidth; // Trigger reflow
+          
+          // Activar animaciones
+          animatedRect.classList.add("animate");
+          bgElements.forEach(el => el.classList.add("animate"));
+        });
+      }
+    }, { threshold: 0.1 });
 
     observer.observe(section);
   });
-</script>
+</script> 

@@ -150,72 +150,59 @@
     }
   }
 
-  /* Grupo Izquierdo */
+  /* Grupo Superior */
   .bg-element-1 {
-    top: 10%;
-    left: 5%;
+    top: 8%;
+    left: 30%;
     animation: fadeInSlide 2s ease forwards;
-    animation-delay: 1s;
+    animation-delay: 0.4s;
   }
 
   .bg-element-1::before {
     animation: typeText 1.8s steps(10, end) forwards;
-    animation-delay: 1.5s;
-  }
-
-  .bg-element-2 {
-    bottom: 40%;
-    left: 10%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 3.5s;
-  }
-
-  .bg-element-2::before {
-    animation: typeText 1.5s steps(7, end) forwards;
-    animation-delay: 4s;
-  }
-
-  .bg-element-3 {
-    bottom: 10%;
-    left: 25%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 2.5s;
-  }
-
-  .bg-element-3::before {
-    animation: typeText 1.2s steps(4, end) forwards;
-    animation-delay: 3s;
-  }
-
-  /* Grupo Central */
-  .bg-element-4 {
-    top: 20%;
-    left: 50%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 2s;
-  }
-
-  .bg-element-4::before {
-    animation: typeText 1.5s steps(7, end) forwards;
-    animation-delay: 2.5s;
+    animation-delay: 0.9s;
   }
 
   .bg-element-5 {
-    top: 5%;
-    left: 30%;
+    top: 8%;
+    right: 30%;
     animation: fadeInSlide 2s ease forwards;
-    animation-delay: 0s;
+    animation-delay: 1.3s;
   }
 
   .bg-element-5::before {
     animation: typeText 1.5s steps(7, end) forwards;
-    animation-delay: 0.5s;
+    animation-delay: 1.8s;
   }
 
-  /* Grupo Derecho */
+  /* Grupo Izquierdo */
+  .bg-element-3 {
+    top: 15%;
+    left: 5%;
+    animation: fadeInSlide 2s ease forwards;
+    animation-delay: 0.7s;
+  }
+
+  .bg-element-3::before {
+    animation: typeText 1.2s steps(4, end) forwards;
+    animation-delay: 1.2s;
+  }
+
+  .bg-element-9 {
+    top: 45%;
+    left: 15%;
+    animation: fadeInSlide 2s ease forwards;
+    animation-delay: 1.1s;
+  }
+
+  .bg-element-9::before {
+    animation: typeText 1.8s steps(9, end) forwards;
+    animation-delay: 1.6s;
+  }
+
   .bg-element-6 {
-    top: 10%;
-    right: 5%;
+    top: 75%;
+    left: 6%;
     animation: fadeInSlide 2s ease forwards;
     animation-delay: 1.5s;
   }
@@ -225,26 +212,113 @@
     animation-delay: 2s;
   }
 
-  .bg-element-7 {
-    bottom: 40%;
-    right: 10%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 3.5s;
-  }
-
-  .bg-element-7::before {
-    animation: typeText 1.8s steps(10, end) forwards;
-    animation-delay: 4s;
-  }
-
+  /* Grupo Derecho */
   .bg-element-8 {
-    bottom: 10%;
-    right: 25%;
+    top: 15%;
+    right: 5%;
     animation: fadeInSlide 2s ease forwards;
-    animation-delay: 2.5s;
+    animation-delay: 1.7s;
   }
 
   .bg-element-8::before {
     animation: typeText 2.2s steps(12, end) forwards;
-    animation-delay: 3s;
+    animation-delay: 2.2s;
+  }
+
+  .bg-element-4 {
+    top: 45%;
+    right: 15%;
+    animation: fadeInSlide 2s ease forwards;
+    animation-delay: 0.8s;
+  }
+
+  .bg-element-4::before {
+    animation: typeText 1.5s steps(7, end) forwards;
+    animation-delay: 1.3s;
+  }
+
+  .bg-element-10 {
+    top: 75%;
+    right: 6%;
+    animation: fadeInSlide 2s ease forwards;
+    animation-delay: 0.9s;
+  }
+
+  .bg-element-10::before {
+    animation: typeText 1.8s steps(9, end) forwards;
+    animation-delay: 1.4s;
+  }
+
+  /* Grupo Inferior */
+  .bg-element-2 {
+    bottom: 8%;
+    left: 30%;
+    animation: fadeInSlide 2s ease forwards;
+    animation-delay: 0.6s;
+  }
+
+  .bg-element-2::before {
+    animation: typeText 1.5s steps(7, end) forwards;
+    animation-delay: 1.1s;
+  }
+
+  .bg-element-7 {
+    bottom: 8%;
+    right: 30%;
+    animation: fadeInSlide 2s ease forwards;
+    animation-delay: 1.2s;
+  }
+
+  .bg-element-7::before {
+    animation: typeText 1.8s steps(10, end) forwards;
+    animation-delay: 1.7s;
+  }
+
+  @media (max-width: 1280px) {
+    .bg-element-4, .bg-element-9 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .bg-element-5, .bg-element-7 {
+      display: none;
+    }
+    
+    .bg-element-1 {
+      left: 50%;
+      transform: translateX(-50%) !important;
+    }
+
+    .bg-element-2 {
+      left: 50%;
+      transform: translateX(-50%) !important;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .bg-element-1, .bg-element-2 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .animated-rectangle {
+      height: 50px;
+    }
+
+    .animated-rectangle::before {
+      font-size: 15px;
+    }
+
+    .bg-element {
+      width: 140px;
+      height: 36px;
+    }
+
+    .bg-element::before {
+      font-size: 14px;
+    }
+    
+    
   }
