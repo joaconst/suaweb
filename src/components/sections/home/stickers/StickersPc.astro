@@ -1,17 +1,21 @@
+---
+import "../../../../styles/stickers.css"
+---
+
 <section
   id="anim-section"
   class="relative hidden lg:flex items-center justify-center w-screen min-h-[50vh] bg-primary mt-32 px-4 overflow-hidden"
 >
   <!-- Componente de fondo -->
   <div class="animated-bg absolute inset-0 pointer-events-none">
-    <div class="bg-element bg-element-1">Responsive</div>
-    <div class="bg-element bg-element-2">Moderno</div>
-    <div class="bg-element bg-element-3">SEO</div>
-    <div class="bg-element bg-element-4">Rápido</div>
-    <div class="bg-element bg-element-5">Seguro</div>
-    <div class="bg-element bg-element-6">Personalizable</div>
-    <div class="bg-element bg-element-7">Escalable</div>
-    <div class="bg-element bg-element-8">Profesional</div>
+    <div class="bg-element bg-element-1" data-text="Responsive"></div>
+    <div class="bg-element bg-element-2" data-text="Moderno"></div>
+    <div class="bg-element bg-element-3" data-text="SEO"></div>
+    <div class="bg-element bg-element-4" data-text="Rápido"></div>
+    <div class="bg-element bg-element-5" data-text="Seguro"></div>
+    <div class="bg-element bg-element-6" data-text="Personalizable"></div>
+    <div class="bg-element bg-element-7" data-text="Escalable"></div>
+    <div class="bg-element bg-element-8" data-text="Profesional"></div>
   </div>
 
   <!-- Botón principal -->
@@ -25,165 +29,7 @@
   </button>
 </section>
 
-<style>
-  /* Estado animado del botón principal */
-  .animated-rectangle.animate {
-    transform: translate(-2px, -2px);
-    box-shadow: 10px 10px 0 #000;
-  }
-
-  .animated-rectangle::before {
-    content: attr(data-text);
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: "Courier New", monospace;
-    font-size: 18px;
-    color: #000;
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    pointer-events: none;
-  }
-
-  .animated-rectangle::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    transform: translateX(-100%);
-    z-index: -1;
-  }
-
-  .animated-rectangle.animate::before {
-    animation: typing 2s steps(30, end) forwards;
-  }
-
-  .animated-rectangle.animate::after {
-    animation: slide 1.5s ease-in-out forwards;
-  }
-
-  .animated-rectangle.animate .cursor {
-    opacity: 1;
-  }
-
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: calc(100% - 24px);
-    }
-  }
-
-  @keyframes slide {
-    to {
-      transform: translateX(100%);
-    }
-  }
-
-  @keyframes blink {
-    50% {
-      opacity: 0;
-    }
-  }
-
-  .cursor {
-    animation: blink 1.5s step-end infinite;
-  }
-
-  /* Componente de fondo */
-  .animated-bg {
-    z-index: 0;
-  }
-
-  .bg-element {
-    position: absolute;
-    width: 300px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(217, 217, 217, 0.5);
-    border-radius: 50px;
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @keyframes fadeInSlide {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 0.5;
-      transform: translateY(0);
-    }
-  }
-
-  /* Grupo Izquierdo */
-  .bg-element-1 {
-    top: 10%;
-    left: 5%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 1s;
-  }
-
-  .bg-element-2 {
-    bottom: 40%;
-    left: 10%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 3.5s;
-  }
-
-  .bg-element-3 {
-    bottom: 10%;
-    left: 25%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 2.5s;
-  }
-
-  /* Grupo Central */
-  .bg-element-4 {
-    top: 20%;
-    left: 50%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 2s;
-  }
-
-  .bg-element-5 {
-    top: 5%;
-    left: 30%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 0s;
-  }
-
-  /* Grupo Derecho */
-  .bg-element-6 {
-    top: 10%;
-    right: 5%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 1.5s;
-  }
-
-  .bg-element-7 {
-    bottom: 40%;
-    right: 10%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 3.5s;
-  }
-
-  .bg-element-8 {
-    bottom: 10%;
-    right: 25%;
-    animation: fadeInSlide 2s ease forwards;
-    animation-delay: 2.5s;
-  }
-</style>
+<link rel="stylesheet" href="stickers.css">
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
