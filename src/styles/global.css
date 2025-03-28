@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap'); /* Para textos */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); /* Para botone */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); /* Para titulos */
 @import 'tailwindcss';
 
 @theme {
@@ -7,7 +10,6 @@
 }
 
 html {
-  font-family: sans-serif;
   scroll-behavior: smooth;
   margin: 0;
   width: 100%;
@@ -20,6 +22,15 @@ html {
 
 body {
   position: relative;
+  font-family: 'Inter Tight', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
 }
 
 .custom-cursor {
