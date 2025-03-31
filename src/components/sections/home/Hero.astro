@@ -2,6 +2,9 @@
 const titleText = "Desarrollo Web Profesional";
 const seoText = "optimizados para SEO";
 const responsiveText = "diseños responsive";
+const whatsappNumber = "+5493517647623";
+const whatsappMessage = "Hola! Me interesa solicitar un presupuesto para mi sitio web";
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 ---
 
 <section class="text-center px-4 py-8 sm:py-12 md:py-16 lg:py-20 mt-16 md:mt-8 space-y-4 sm:space-y-6">
@@ -31,9 +34,11 @@ const responsiveText = "diseños responsive";
 
   <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
     <a
-      href="/contacto"
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
       role="button"
-      aria-label="Solicitar presupuesto gratuito"
+      aria-label="Solicitar presupuesto gratuito por WhatsApp"
       class="inline-block bg-primary hover:bg-primary/90 transition-all duration-300 uppercase text-white font-semibold rounded-full px-6 py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl shadow-primary/30 hover:shadow-primary/40"
     >
       Solicitar Presupuesto
