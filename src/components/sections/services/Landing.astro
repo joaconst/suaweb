@@ -1,5 +1,10 @@
 ---
+import { createWhatsappUrl } from '../../../constants/contact';
+
+const whatsappMessage = "Hola, estoy interesado en obtener más información sobre una Landding Page. ¿Podrían brindarme más información? ¡Gracias!";
+const whatsappUrl = createWhatsappUrl(whatsappMessage);
 ---
+
 <div class="landing-component">
     <section
       class="max-w-5xl w-[95%] mx-auto h-auto md:h-[400px] bg-white shadow-lg rounded-3xl px-4 md:px-6 py-3 md:py-6 mt-8 sm:mt-4 flex flex-col md:flex-row items-stretch gap-4 md:gap-6"
@@ -10,11 +15,14 @@
         class="flex-1 flex flex-col justify-center items-center text-center p-4 md:p-6"
       >
         <h2 class="text-4xl md:text-5xl font-bold">Landing Page Profesional</h2>
-        <button
-          class="mt-4 md:mt-8 px-6 py-3 bg-primary text-white rounded-full text-base hover:bg-primary/90 transition-colors"
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 md:mt-8 px-6 py-3 bg-primary text-white rounded-full text-base hover:bg-primary/90 transition-colors inline-block"
         >
           Solicitar cotización
-        </button>
+        </a>
       </article>
   
       <!-- Sección Derecha con información técnica -->

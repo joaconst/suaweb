@@ -1,10 +1,11 @@
 ---
+import { createWhatsappUrl } from '../../../constants/contact';
+
 const titleText = "Desarrollo Web Profesional";
 const seoText = "optimizados para SEO";
 const responsiveText = "diseños responsive";
-const whatsappNumber = "+5493517647623";
 const whatsappMessage = "Hola! Me interesa solicitar un presupuesto para mi sitio web";
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappUrl = createWhatsappUrl(whatsappMessage);
 ---
 
 <section class="text-center px-4 py-8 sm:py-12 md:py-16 lg:py-20 mt-16 md:mt-8 space-y-4 sm:space-y-6">
@@ -146,8 +147,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
 <script>
   // Animaciones solo en desktop
   if (window.innerWidth >= 768) {
-    document.querySelectorAll(".wave-text").forEach((el) => {
-      el.addEventListener("mousemove", (e) => {
+    document.querySelectorAll<HTMLElement>(".wave-text").forEach((el) => {
+      el.addEventListener("mousemove", (e: MouseEvent) => {
         const rect = el.getBoundingClientRect();
         el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
         el.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
@@ -157,7 +158,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
       el.addEventListener("mouseleave", () => el.classList.remove("animate"));
     });
 
-    document.querySelectorAll(".underline-animation").forEach((el) => {
+    document.querySelectorAll<HTMLElement>(".underline-animation").forEach((el) => {
       el.addEventListener("mouseenter", () => el.classList.add("active"));
       el.addEventListener("mouseleave", () => el.classList.remove("active"));
     });

@@ -1,0 +1,167 @@
+---
+//- Sección de contacto optimizada
+---
+
+<section class="w-full max-w-sm sm:max-w-4xl mx-auto mt-16 mb-8 px-4 md:px-6">
+    <!-- Mejor jerarquía de encabezados (verificar si necesita ser H1) -->
+    <h1 class="text-5xl lg:text-6xl font-extrabold text-center mb-8">
+        ¿Trabajamos Juntos?
+    </h1>
+
+    <div class="flex flex-col md:flex-row justify-between items-center bg-background_secondary w-full h-auto md:h-[80vh] p-8 border-2 rounded-2xl relative">
+        <!-- Imagen optimizada con lazy loading y dimensiones explícitas -->
+        <img
+            src="/home/image_4.webp"
+            alt="Ilustración decorativa de colaboración"
+            width="96"
+            height="96"
+            loading="lazy"
+            decoding="async"
+            class="absolute top-4 left-4 w-24 h-24"
+        />
+
+        <!-- Formulario con mejor semántica y accesibilidad -->
+        <form
+            id="contact-form"
+            class="relative w-full md:w-1/2 flex flex-col gap-4 pr-6 mt-24 lg:mt-32"
+            aria-label="Formulario de contacto"
+        >
+            <!-- Campos con IDs únicos y asociación adecuada -->
+            <div class="font-semibold">
+                <label for="nombre">Nombre</label>
+                <input
+                    id="nombre"
+                    type="text"
+                    name="nombre"
+                    required
+                    placeholder="Tu nombre"
+                    class="w-full p-3 bg-white rounded-2xl"
+                    aria-required="true"
+                />
+            </div>
+
+            <div class="font-semibold">
+                <label for="email">Correo electrónico</label>
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="Tu correo"
+                    class="w-full p-3 bg-white rounded-2xl"
+                    inputmode="email"
+                    aria-required="true"
+                />
+            </div>
+
+            <div class="font-semibold">
+                <label for="telefono">Teléfono</label>
+                <input
+                    id="telefono"
+                    type="tel"
+                    name="telefono"
+                    required
+                    placeholder="Tu teléfono"
+                    class="w-full p-3 bg-white rounded-2xl"
+                    inputmode="tel"
+                    aria-required="true"
+                />
+            </div>
+
+            <div class="font-semibold">
+                <label for="paquete">Elije un paquete</label>
+                <select
+                    id="paquete"
+                    name="paquete"
+                    required
+                    class="w-full p-3 bg-white rounded-2xl"
+                    aria-required="true"
+                >
+                    <option value="" disabled selected>¿Qué tipo de página buscas?</option>
+                    <option value="blog-portfolio">Blog / Portfolio</option>
+                    <option value="landing">Landing Page</option>
+                    <option value="corporativo">Sitio web corporativo</option>
+                    <option value="ecommerce">E-commerce (Tienda Online)</option>
+                    <option value="asesoramiento">Necesito asesoramiento (gratis)</option>
+                </select>
+            </div>
+
+            <!-- Botón con estado de carga accesible -->
+            <button
+                type="submit"
+                class="hidden md:block w-full bg-white hover:bg-primary transition-colors font-bold py-3 rounded-xl"
+                aria-live="polite"
+            >
+                Enviar
+            </button>
+        </form>
+
+        <!-- Textarea con asociación adecuada -->
+        <div class="w-full md:w-1/2 mt-6 md:mt-0 pt-6 xs:pt-0 md:pl-6 flex flex-col h-full border-t-2 md:border-t-0 md:border-l-2">
+            <label for="mensaje" class="font-semibold w-full flex-1 mb-2">
+                Cuéntanos de tu proyecto
+            </label>
+            <textarea
+                id="mensaje"
+                name="mensaje"
+                required
+                placeholder="Escribe sobre él aquí..."
+                class="w-full p-3 rounded-xl h-[calc(100%-1rem)] resize-none bg-white"
+                aria-required="true"
+            ></textarea>
+        </div>
+
+        <!-- Botón móvil con accesibilidad -->
+        <button
+            type="submit"
+            form="contact-form"
+            class="md:hidden w-full bg-white hover:bg-primary transition-colors font-bold py-3 rounded-xl mt-8"
+            aria-live="polite"
+        >
+            Enviar
+        </button>
+    </div>
+</section>
+
+<!-- Script optimizado para Astro -->
+<script>
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    
+    const handleSubmit = async (e: SubmitEvent) => {
+        e.preventDefault();
+        
+        const submitButtons = form.querySelectorAll<HTMLButtonElement>('button[type="submit"]');
+        submitButtons.forEach(button => {
+            button.disabled = true;
+            button.innerHTML = 'Enviando...';
+            button.setAttribute('aria-busy', 'true');
+        });
+
+        try {
+            const formData = new FormData(form);
+            formData.append('_subject', 'Nuevo mensaje desde el formulario de contacto');
+            
+            const response = await fetch('https://formsubmit.co/ajax/suaweb.info@gmail.com', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: formData
+            });
+
+            if (response.ok) {
+                window.location.href = '/gracias';
+            } else {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            submitButtons.forEach(button => {
+                button.disabled = false;
+                button.innerHTML = 'Error al enviar. Intenta de nuevo.';
+                button.removeAttribute('aria-busy');
+                button.focus();
+            });
+        }
+    };
+
+    if (form) form.addEventListener('submit', handleSubmit);
+</script>

@@ -1,5 +1,8 @@
 ---
+import { createWhatsappUrl } from '../../../constants/contact';
 
+const whatsappMessage = "Hola, estoy interesado en obtener más información sobre una Tienda Online / E-commerce. ¿Podrían brindarme más información? ¡Gracias!";
+const whatsappUrl = createWhatsappUrl(whatsappMessage);
 ---
 
 <div class="landing-component">
@@ -15,11 +18,14 @@
                 <span class="block">Tienda Online</span>
                 <span class="block">E-Commerce</span>
             </h2>
-            <button
-                class="mt-4 md:mt-8 px-6 py-3 bg-primary text-white rounded-full text-base hover:bg-primary/90 transition-colors"
+            <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 md:mt-8 px-6 py-3 bg-primary text-white rounded-full text-base hover:bg-primary/90 transition-colors inline-block"
             >
                 Solicitar cotización
-            </button>
+            </a>
         </article>
 
         <!-- Sección Derecha con información técnica -->

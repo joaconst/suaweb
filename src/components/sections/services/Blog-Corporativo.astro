@@ -1,5 +1,10 @@
 ---
+import { createWhatsappUrl } from '../../../constants/contact';
 
+const whatsappMessageBlog = "Hola, estoy interesado en obtener más información sobre un Blog/Portfolio Personal. ¿Podrían brindarme más información? ¡Gracias!";
+const whatsappMessageCorp = "Hola, estoy interesado en obtener más información sobre un Sitio Web Corporativo. ¿Podrían brindarme más información? ¡Gracias!";
+const whatsappUrlBlog = createWhatsappUrl(whatsappMessageBlog);
+const whatsappUrlCorp = createWhatsappUrl(whatsappMessageCorp);
 ---
 
 <section
@@ -10,14 +15,7 @@
     <article
         class="h-[400px] bg-white p-6 shadow-lg rounded-3xl hover:shadow-lg transition-shadow relative flex flex-col"
     >
-        <!-- Botón + -->
-        <button
-            class="absolute top-4 right-4 text-2xl w-8 h-8 rounded-full bg-primary"
-        >
-            +
-        </button>
-
-        <h3 class="text-2xl font-bold mb-4">Blog/Portfolio Personal</h3>
+        <h3 class="text-2xl font-bold mb-4 text-center">Blog/Portfolio Personal</h3>
 
         <!-- Contenido central -->
         <div class="flex-1 flex items-center justify-center">
@@ -33,11 +31,14 @@
 
         <!-- Botón inferior -->
         <div class="mt-auto">
-            <button
-                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors"
+            <a
+                href={whatsappUrlBlog}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors inline-block text-center"
             >
                 Solicitar cotización
-            </button>
+            </a>
         </div>
     </article>
 
@@ -45,13 +46,6 @@
     <article
         class="h-[400px] bg-white p-6 shadow-lg rounded-3xl hover:shadow-lg transition-shadow relative flex flex-col"
     >
-        <!-- Botón + -->
-        <button
-            class="absolute top-4 right-4 text-2xl w-8 h-8 rounded-full bg-primary"
-        >
-            +
-        </button>
-
         <h3 class="text-2xl font-bold mb-4 text-center">Sitio web corporativo</h3>
 
         <!-- Contenido central -->
@@ -67,11 +61,14 @@
 
         <!-- Botón inferior -->
         <div class="mt-auto">
-            <button
-                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors"
+            <a
+                href={whatsappUrlCorp}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors inline-block text-center"
             >
                 Solicitar cotización
-            </button>
+            </a>
         </div>
     </article>
 </section>
