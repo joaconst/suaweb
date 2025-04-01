@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import Header from "../components/common/Header.astro";
+import  SpeedInsights  from "@vercel/speed-insights/astro"
+import Analytics from '@vercel/analytics/astro';
 ---
 
 <html lang="es" class="scroll-smooth">
@@ -81,6 +83,9 @@ import Header from "../components/common/Header.astro";
         <!-- Preconexión y precarga de recursos críticos -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <SpeedInsights />
+        <Analytics />
     </head>
 
     <body
