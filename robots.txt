@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://suaweb.vercel.app/sitemap.xml
+
+# Tiempo de espera entre solicitudes
+Crawl-delay: 10 
