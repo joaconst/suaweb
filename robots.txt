@@ -1,9 +1,16 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /robots.txt
 
 # Sitemap
-Sitemap: https://suaweb.vercel.app/sitemap.xml
+Sitemap: https://suaweb.com.ar/sitemap.xml
 
 # Tiempo de espera entre solicitudes
-Crawl-delay: 10 
+Crawl-delay: 10
+
+# Reglas adicionales para SEO
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/ 
