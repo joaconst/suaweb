@@ -1,0 +1,267 @@
+---
+import {
+  ArrowRight,
+  ArrowDown,
+  ArrowLeft,
+  Users,
+  Presentation,
+  Palette,
+  Rss,
+} from "@lucide/astro";
+---
+
+<section class="mt-22">
+  <article>
+    <h2 class="text-4xl md:text-5xl font-bold text-center">
+      Paso a paso hacia tu proyecto
+    </h2>
+    <p class="text-center text-2xl mt-4">
+      Convertimos tu idea en una web que te represente
+    </p>
+  </article>
+
+  <!-- Layout para pantallas grandes -->
+  <article class="hidden lg:flex items-center justify-center mt-8 flex-wrap">
+    <!-- Card 1 -->
+    <div
+      class="bg-white rounded-xl p-6 w-58 xl:w-72 h-[360px] border text-center shadow-md flex flex-col items-center"
+    >
+      <Users class="w-20 h-20 mb-4" />
+      <h3 class="text-2xl font-semibold mb-2">Reunión inicial</h3>
+      <p class="text-lg">
+        Conversamos sobre tu proyecto, objetivos y necesidades específicas para
+        entender tu visión.
+      </p>
+    </div>
+
+    <!-- Flecha -->
+    <span
+      class="relative -mx-3 z-10 flex items-center justify-center bg-white rounded-full w-14 h-14 shadow-md"
+    >
+      <ArrowRight class="w-8 h-8 text-primary" />
+    </span>
+
+    <!-- Card 2 -->
+    <div
+      class="bg-white rounded-xl p-6 w-58 xl:w-72 h-[360px] border text-center shadow-md flex flex-col items-center"
+    >
+      <Presentation class="w-20 h-20 mb-4" />
+      <h3 class="text-xl xl:text-2xl font-semibold mb-2">
+        Presentación de propuesta
+      </h3>
+      <p class="text-base xl:text-lg">
+        Desarrollamos y presentamos un concepto visual adaptado a tus
+        requerimientos.
+      </p>
+    </div>
+
+    <!-- Flecha -->
+    <span
+      class="relative -mx-3 z-10 flex items-center justify-center bg-white rounded-full w-14 h-14 shadow-md"
+    >
+      <ArrowRight class="w-8 h-8 text-primary" />
+    </span>
+
+    <!-- Card 3 -->
+    <div
+      class="bg-white rounded-xl p-6 w-58 xl:w-72 h-[360px] border text-center shadow-md flex flex-col items-center"
+    >
+      <Palette class="w-20 h-20 mb-4" />
+      <h3 class="text-xl xl:text-2xl font-semibold mb-2">Diseño</h3>
+      <p class="text-base xl:text-lg">
+        Construimos tu sitio paso a paso, incorporando tus comentarios en cada
+        etapa para garantizar que el resultado final sea justo lo que necesitas.
+      </p>
+    </div>
+
+    <!-- Flecha -->
+    <span
+      class="relative -mx-3 z-10 flex items-center justify-center bg-white rounded-full w-14 h-14 shadow-md"
+    >
+      <ArrowRight class="w-8 h-8 text-primary" />
+    </span>
+
+    <!-- Card 4 -->
+    <div
+      class="bg-white rounded-xl p-6 w-58 xl:w-72 h-[360px] border text-center shadow-md flex flex-col items-center"
+    >
+      <Rss class="w-20 h-20 mb-4" />
+      <h3 class="text-xl xl:text-2xl font-semibold mb-2">Web online</h3>
+      <p class="text-base xl:text-lg">
+        Lanzamos tu sitio y te brindamos soporte inicial, en el caso que así lo
+        requiera, para que puedas gestionarlo con confianza.
+      </p>
+    </div>
+  </article>
+
+  <!-- Layout para pantallas intermedias: dos filas de dos tarjetas con flechas horizontales -->
+  <!-- Layout para pantallas intermedias -->
+  <article class="hidden md:grid lg:hidden mt-8 p-8">
+    <!-- Fila 1: Card 1 - Flecha horizontal - Card 2 -->
+    <div class="grid grid-cols-[1fr_auto_1fr] items-center">
+      <!-- Card 1 -->
+      <div
+        class="bg-white rounded-xl p-6 w-full xl:w-72 h-[360px] border text-center shadow-md flex flex-col items-center"
+      >
+        <Users class="w-20 h-20 mb-4" />
+        <h3 class="text-2xl font-semibold mb-2">Reunión inicial</h3>
+        <p class="text-lg">
+          Conversamos sobre tu proyecto, objetivos y necesidades específicas
+          para entender tu visión.
+        </p>
+      </div>
+
+      <!-- Flecha horizontal que se superpone -->
+      <span class="flex z-10 items-center justify-center">
+        <span
+          class="bg-white rounded-full w-12 h-12 shadow-md flex items-center justify-center -mx-3"
+        >
+          <ArrowRight class="w-8 h-8 text-primary" />
+        </span>
+      </span>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-white rounded-xl p-6 w-full xl:w-72 h-[360px] border text-center shadow-md flex flex-col items-center"
+      >
+        <Presentation class="w-20 h-20 mb-4" />
+        <h3 class="text-2xl font-semibold mb-2">Presentación de propuesta</h3>
+        <p class="text-lg">
+          Desarrollamos y presentamos un concepto visual adaptado a tus
+          requerimientos.
+        </p>
+      </div>
+    </div>
+
+    <!-- Fila 2 -->
+    <div class="grid grid-cols-[1fr_auto_1fr]">
+      <div></div>
+      <div></div>
+      <div class="flex items-center justify-center">
+        <span
+          class="bg-white rounded-full w-12 h-12 shadow-md flex items-center justify-center -my-3 z-10"
+        >
+          <ArrowDown class="w-8 h-8 text-primary" />
+        </span>
+      </div>
+    </div>
+
+    <!-- Fila 3: Card 4 -->
+    <div class="grid grid-cols-[1fr_auto_1fr] items-center">
+      <!-- Card 4 (izquierda) -->
+      <div
+        class="bg-white rounded-xl p-6 w-full xl:w-72 h-[360px] border text-center shadow-md flex flex-col items-center"
+      >
+        <Rss class="w-20 h-20 mb-4" />
+        <h3 class="text-2xl font-semibold mb-2">Web online</h3>
+        <p class="text-lg">
+          Lanzamos tu sitio y te brindamos soporte inicial, en el caso que así
+          lo requiera, para que puedas gestionarlo con confianza.
+        </p>
+      </div>
+
+      <!-- Flecha horizontal que se superpone -->
+      <span class="flex z-10 items-center justify-center">
+        <span
+          class="bg-white rounded-full w-12 h-12 shadow-md flex items-center justify-center -mx-3"
+        >
+          <ArrowLeft class="w-8 h-8 text-primary" />
+        </span>
+      </span>
+
+      <!-- Card 3 (derecha) -->
+      <div
+        class="bg-white rounded-xl p-6 w-full xl:w-72 h-[360px] border text-center shadow-md flex flex-col items-center"
+      >
+        <Palette class="w-20 h-20 mb-4" />
+        <h3 class="text-2xl font-semibold mb-2">Diseño</h3>
+        <p class="text-lg">
+          Construimos tu sitio paso a paso, incorporando tus comentarios en cada
+          etapa para garantizar que el resultado final sea justo lo que
+          necesitas.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Layout para pantallas muy pequeñas -->
+<article class="grid grid-cols-1 mt-8 md:hidden p-8">
+  <!-- Card 1 -->
+  <div class="relative flex flex-col items-center">
+    <div
+      class="bg-white rounded-xl p-6 w-full xl:w-72 border text-center shadow-md flex flex-col items-center"
+    >
+      <Users class="w-20 h-20 mb-4" />
+      <h3 class="text-2xl font-semibold mb-2">Reunión inicial</h3>
+      <p class="text-lg">
+        Conversamos sobre tu proyecto, objetivos y necesidades específicas
+        para entender tu visión.
+      </p>
+    </div>
+
+    <!-- Flecha hacia abajo -->
+    <span
+      class="bg-white rounded-full w-12 h-12 shadow-md flex items-center justify-center z-10 -my-3"
+    >
+      <ArrowDown class="w-8 h-8 text-primary" />
+    </span>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="relative flex flex-col items-center">
+    <div
+      class="bg-white rounded-xl p-6 w-full xl:w-72 border text-center shadow-md flex flex-col items-center"
+    >
+      <Presentation class="w-20 h-20 mb-4" />
+      <h3 class="text-2xl font-semibold mb-2">Presentación de propuesta</h3>
+      <p class="text-lg">
+        Desarrollamos y presentamos un concepto visual adaptado a tus
+        requerimientos.
+      </p>
+    </div>
+
+    <!-- Flecha hacia abajo -->
+    <span
+      class="bg-white rounded-full w-12 h-12 shadow-md flex items-center justify-center z-10 -my-3"
+    >
+      <ArrowDown class="w-8 h-8 text-primary" />
+    </span>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="relative flex flex-col items-center">
+    <div
+      class="bg-white rounded-xl p-6 w-full xl:w-72 border text-center shadow-md flex flex-col items-center"
+    >
+      <Palette class="w-20 h-20 mb-4" />
+      <h3 class="text-2xl font-semibold mb-2">Diseño</h3>
+      <p class="text-lg">
+        Construimos tu sitio paso a paso, incorporando tus comentarios en cada
+        etapa para garantizar que el resultado final sea justo lo que
+        necesitas.
+      </p>
+    </div>
+
+    <!-- Flecha hacia abajo -->
+    <span
+      class="bg-white rounded-full w-12 h-12 shadow-md flex items-center justify-center z-10 -my-3"
+    >
+      <ArrowDown class="w-8 h-8 text-primary" />
+    </span>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="relative flex flex-col items-center">
+    <div
+      class="bg-white rounded-xl p-6 w-full xl:w-72 border text-center shadow-md flex flex-col items-center"
+    >
+      <Rss class="w-20 h-20 mb-4" />
+      <h3 class="text-2xl font-semibold mb-2">Web online</h3>
+      <p class="text-lg">
+        Lanzamos tu sitio y te brindamos soporte inicial, en el caso que así
+        lo requiera, para que puedas gestionarlo con confianza.
+      </p>
+    </div>
+  </div>
+</article>
+</section>

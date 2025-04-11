@@ -1,166 +1,107 @@
 ---
-import { createWhatsappUrl } from '../../../constants/contact';
-
-const titleText = "Desarrollo Web Profesional";
-const seoText = "optimizados para SEO";
-const responsiveText = "diseños responsive";
-const whatsappMessage = "Hola! Me interesa solicitar un presupuesto para mi sitio web";
-const whatsappUrl = createWhatsappUrl(whatsappMessage);
+import { MoveRight } from "@lucide/astro";
 ---
 
-<section class="text-center px-4 py-8 sm:py-12 md:py-16 lg:py-20 mt-16 md:mt-8 space-y-4 sm:space-y-6">
-  <div class="max-w-xs sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto space-y-4 sm:space-y-6">
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-2 sm:mb-4 text-white drop-shadow-lg">
-      <span class="wave-text inline-block relative" data-text={titleText}>
-        {titleText}
-      </span>
+<section class="pt-24 md:pt-0 grid lg:grid-cols-2 items-center justify-center gap-8 p-8 min-h-screen">
+  <!-- Columna izquierda -->
+  <div class="space-y-6 text-center lg:text-left col-span-2 md:col-span-1">
+    <h2 class="text-4xl sm:text-6xl font-bold">
+      Tu Web no debería<br />
+      <span style="md:white-space:nowrap">parecerse a la de nadie más.</span>
+    </h2>
+    <p class="text-xl sm:text-2xl">
+      Diseños únicos, sin plantilla s genéricas.
       <br />
-      Para impulsar tu negocio
-    </h1>
+      Mirá nuestros trabajos o contanos tu idea.
+    </p>
 
-    <div class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-xs sm:max-w-xl md:max-w-2xl mx-auto leading-snug sm:leading-relaxed">
-      <p>
-        En suaweb creamos sitios web
-        <span class="underline-animation" data-text={seoText}>
-          {seoText}
-        </span>
-        y
-        <span class="underline-animation" data-text={responsiveText}>
-          {responsiveText}
-        </span>
-        que generan más clientes para tu negocio.
-      </p>
+    <!-- Imágenes visibles solo en mobile -->
+    <div class="lg:hidden flex flex-col items-center gap-8">
+      <!-- Fila superior: dos imágenes lado a lado -->
+      <div class="flex gap-8 sm:gap-16 max-[360px]:flex-col">
+        <img
+          src="/home/hero/hero-1.webp"
+          alt="Imagen 1"
+          class="w-40 sm:w-52 h-40 sm:h-52 bg-white rounded-xl shadow-md border-2 border-black object-cover p-1"
+        />
+        <img
+          src="/home/hero/hero-2.webp"
+          alt="Imagen 2"
+          class="w-40 sm:w-52 h-40 sm:h-52 bg-white rounded-xl shadow-md border-2 border-black object-cover p-1"
+        />
+      </div>
+      <!-- Imagen inferior centrada -->
+      <img
+        src="/home/hero/hero-3.webp"
+        alt="Imagen 3"
+        class="w-40 sm:w-52 h-40 sm:h-52 bg-white rounded-xl shadow-md border-2 border-black object-cover p-1"
+      />
+    </div>
+
+    <!-- Botones solo para escritorio -->
+    <div class="hidden lg:flex gap-4 mt-6">
+      <a
+        href="#"
+        class="px-5 py-3 bg-white rounded-xl text-xl font-bold shadow-[4px_10px_10px_0px_rgba(0,0,0,0.2)] hover:scale-105 transition-all duration-300"
+        >Quiero mi web</a
+      >
+      <a
+        href="#"
+        class="bg-primary flex items-center gap-2 text-white px-5 py-3 rounded-xl text-xl font-bold shadow-[4px_10px_10px_0px_rgba(0,0,0,0.2)] hover:scale-105 transition-all duration-300"
+        >Ver ejemplos
+        <MoveRight />
+      </a>
     </div>
   </div>
 
-  <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
-    <a
-      href={whatsappUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      role="button"
-      aria-label="Solicitar presupuesto gratuito por WhatsApp"
-      class="inline-block bg-primary hover:bg-primary/90 transition-all duration-300 uppercase text-white font-semibold rounded-full px-6 py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl shadow-primary/30 hover:shadow-primary/40"
+  <!-- Columna derecha solo en escritorio -->
+  <div class="relative w-full h-72 hidden lg:block">
+    <!-- Imagen superior -->
+    <article
+      class="absolute bg-white w-52 h-52 lg:w-62 lg:h-62 md:-top-10 md:left-1/2 transform md:-translate-x-1/2 rounded-xl shadow-md flex items-center justify-center border-2 border-black hover:scale-105 transition-all duration-300"
     >
-      Solicitar Presupuesto
+      <img
+        src="/home/hero/hero-1.webp"
+        alt="Imagen 1"
+        class="w-full h-full p-2 object-cover rounded-xl"
+      />
+    </article>
+
+    <!-- Imagen inferior izquierda -->
+    <article
+      class="absolute -bottom-40 lg:-bottom-50 xl:-bottom-55 lg:-left-15 xl:left-1/8 transform xl:-translate-x-1/8 bg-white w-52 h-52 lg:w-62 lg:h-62 rounded-xl shadow-md flex items-center justify-center border-2 border-black hover:scale-105 transition-all duration-300"
+    >
+      <img
+        src="/home/hero/hero-2.webp"
+        alt="Imagen 2"
+        class="w-full h-full p-2 object-cover rounded-xl"
+      />
+    </article>
+
+    <!-- Imagen inferior derecha -->
+    <article
+      class="absolute -bottom-35 lg:-bottom-45 xl:-bottom-50 right-0 xl:right-25 bg-white w-52 h-52 lg:w-62 lg:h-62 rounded-xl shadow-md flex items-center justify-center border-2 border-black hover:scale-105 transition-all duration-300"
+    >
+      <img
+        src="/home/hero/hero-3.webp"
+        alt="Imagen 3"
+        class="w-full h-full p-2 object-cover rounded-xl"
+      />
+    </article>
+  </div>
+
+  <!-- Botones visibles solo en mobile (debajo de las imágenes) -->
+  <div class="lg:hidden col-span-2 flex flex-col md:flex-row gap-4 justify-center">
+    <a
+      href="#"
+      class="px-5 py-3 bg-white rounded-xl text-xl font-bold shadow-[4px_10px_10px_0px_rgba(0,0,0,0.2)] hover:scale-105 transition-all duration-300 text-center"
+      >Quiero mi web</a
+    >
+    <a
+      href="#"
+      class="bg-primary flex items-center justify-center gap-2 text-white px-5 py-3 rounded-xl text-xl font-bold shadow-[4px_10px_10px_0px_rgba(0,0,0,0.2)] hover:scale-105 transition-all duration-300"
+      >Ver ejemplos
+      <MoveRight />
     </a>
   </div>
 </section>
-
-<style>
-  .wave-text {
-    position: relative;
-    display: inline-block;
-    color: transparent;
-    -webkit-text-stroke: 1px #000;
-  }
-
-  .wave-text::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: var(--color-primary);
-    clip-path: circle(0% at var(--mouse-x, 50%) var(--mouse-y, 50%));
-    pointer-events: none;
-    -webkit-text-stroke: 0px transparent;
-  }
-
-  .underline-animation {
-    position: relative;
-    display: inline-block;
-  }
-
-  .underline-animation::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-primary);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  /* Animaciones desktop */
-  @media (min-width: 768px) {
-    .wave-text.animate::after {
-      animation: waveExpand 0.8s ease-out forwards;
-    }
-
-    @keyframes waveExpand {
-      0% {
-        clip-path: circle(0% at var(--mouse-x, 50%) var(--mouse-y, 50%));
-      }
-      70% {
-        clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
-      }
-      100% {
-        clip-path: circle(150% at var(--mouse-x, 50%) var(--mouse-y, 50%));
-      }
-    }
-
-    .underline-animation.active::after {
-      transform: scaleX(1);
-    }
-  }
-
-  /* Animación mobile mejorada */
-  @media (max-width: 767px) {
-    .wave-text {
-      color: transparent;
-      -webkit-text-stroke: 0;
-      background: linear-gradient(
-        to right,
-        var(--color-primary) 50%,
-        transparent 50%
-      );
-      background-size: 200% 100%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      animation: textReveal 2s ease-out forwards;
-    }
-
-    @keyframes textReveal {
-      0% {
-        background-position: 100% 0;
-      }
-      100% {
-        background-position: 0 0;
-      }
-    }
-
-    .wave-text::after {
-      display: none;
-    }
-
-    .underline-animation::after {
-      display: none;
-    }
-  }
-</style>
-
-<script>
-  // Animaciones solo en desktop
-  if (window.innerWidth >= 768) {
-    document.querySelectorAll<HTMLElement>(".wave-text").forEach((el) => {
-      el.addEventListener("mousemove", (e: MouseEvent) => {
-        const rect = el.getBoundingClientRect();
-        el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-        el.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
-      });
-
-      el.addEventListener("mouseenter", () => el.classList.add("animate"));
-      el.addEventListener("mouseleave", () => el.classList.remove("animate"));
-    });
-
-    document.querySelectorAll<HTMLElement>(".underline-animation").forEach((el) => {
-      el.addEventListener("mouseenter", () => el.classList.add("active"));
-      el.addEventListener("mouseleave", () => el.classList.remove("active"));
-    });
-  }
-</script>

@@ -1,0 +1,45 @@
+---
+import {MoveRight} from "@lucide/astro";
+---
+
+<section class="mt-[450px] md:mt-22 p-8">
+    <h2 class="text-5xl md:text-6xl text-center mb-8">Nuestros trabajos y plantillas</h2>
+    <div
+        class="grid grid-cols-2 md:grid-cols-3 grid-rows-2 max-w-6xl justify-items-center gap-4 mx-auto"
+    >
+        <article class="hidden md:block w-full h-62 rounded-xl hover:scale-105 hover:bg-primary transition-all duration-300">
+            <a href="">
+                <img src="/home/portfolio/portfolio-1.webp" alt="Imagen 1" class="w-full h-full object-cover rounded-xl" />
+            </a>
+        </article>
+        <article class="w-full h-62 flex flex-col items-center justify-around rounded-xl border text-center bg-white shadow-[6px_6px_12px_rgba(0,0,0,0.3)]">
+            <h3 class="text-3xl text-primary">Nuestros Trabajos</h3>
+            <span class="flex items-center justify-center gap-2 border rounded-xl p-2 hover:scale-105 hover:bg-primary hover:text-white transition-all duration-300">
+                <a href="#">Ver más</a>
+                <MoveRight />
+            </span>
+        </article>
+        <article class="w-full h-62 rounded-xl hover:scale-105 hover:bg-primary transition-all duration-300">
+            <a href="">
+                <img src="/home/portfolio/portfolio-2.webp" alt="Imagen 1" class="w-full h-full object-cover rounded-xl" />
+            </a>
+        </article>
+        <article class="w-full h-62 rounded-xl hover:scale-105 hover:bg-primary transition-all duration-300">
+            <a href="">
+                <img src="/home/portfolio/portfolio-3.webp" alt="Imagen 1" class="w-full h-full object-cover rounded-xl" />
+            </a>
+        </article>
+        <article class="hidden md:block w-full h-62 rounded-xl hover:scale-105 hover:bg-primary transition-all duration-300">
+            <a href="">
+                <img src="/home/portfolio/portfolio-4.webp" alt="Imagen 1" class="w-full h-full object-cover rounded-xl" />
+            </a>
+        </article>
+        <article class="w-full h-62 flex flex-col items-center justify-around rounded-xl border text-center bg-white shadow-[6px_6px_12px_rgba(0,0,0,0.3)]">
+            <h3 class="text-3xl text-primary">Plantillas</h3>
+            <span class="flex items-center justify-center gap-2 border rounded-xl p-2 hover:scale-105 hover:bg-primary hover:text-white transition-all duration-300">
+                <a href="#">Ver más</a>
+                <MoveRight />
+            </span>
+        </article>
+    </div>
+</section>
