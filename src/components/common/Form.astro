@@ -2,151 +2,113 @@
 
 ---
 
-<section class="w-full max-w-sm sm:max-w-4xl mx-auto mt-16 mb-8 px-4 md:px-6">
-    <h2 class="text-5xl lg:text-6xl font-extrabold text-center mb-8">
-        ¿Trabajamos Juntos?
-    </h2>
-
+<section class="w-full max-w-sm sm:max-w-4xl mx-auto mt-22 pb-8 px-8">
+    <article class="text-center">
+      <h2 class="text-5xl lg:text-6xl font-extrabold mb-4">¿Listo para empezar?</h2>
+      <p class="text-xl">Completa el formulario y contanos sobre su proyecto.</p>
+    </article>
+  
     <section
-        class="flex flex-col md:flex-row justify-between items-center bg-background_secondary w-full h-auto md:h-[80vh] p-8 border-2 rounded-2xl relative"
+      class="bg-white flex flex-col md:flex-row md:items-end justify-between w-full h-auto md:h-[70vh] p-8 border-2 rounded-2xl relative mt-4"
     >
-        <!-- Imagen mantenida en ambos modos -->
-        <img
-            src="/home/slider/image_4.webp"
-            alt="Icono"
-            class="absolute top-4 left-4 w-24 h-24"
-        />
-
-        <!-- Formulario principal -->
-        <form
-            id="contact-form"
-            class="relative w-full md:w-1/2 flex flex-col gap-4 pr-6 mt-25 lg:mt-32"
-        >
-            <!-- Campos del formulario -->
-            <label class="font-semibold">
-                Nombre
-                <input
-                    type="text"
-                    name="nombre"
-                    required
-                    placeholder="Tu nombre"
-                    class="w-full p-3 bg-white rounded-2xl"
-                />
-            </label>
-
-            <label class="font-semibold">
-                Correo electrónico
-                <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="Tu correo"
-                    class="w-full p-3 bg-white rounded-2xl"
-                />
-            </label>
-
-            <label class="font-semibold">
-                Teléfono
-                <input
-                    type="tel"
-                    inputmode="numeric"
-                    name="telefono"
-                    required
-                    placeholder="Tu teléfono"
-                    class="w-full p-3 bg-white rounded-2xl"
-                />
-            </label>
-
-            <label class="font-semibold">
-                Elije un paquete
-                <select name="paquete" required class="w-full p-3 bg-white rounded-2xl">
-                    <option value="" disabled selected>¿Qué tipo de página buscas?</option>
-                    <option value="blog-portfolio">Blog / Portfolio</option>
-                    <option value="landing">Landing Page</option>
-                    <option value="corporativo">Sitio web corporativo</option>
-                    <option value="ecommerce">E-commerce (Tienda Online)</option>
-                    <option value="asesoramiento">Necesito asesoramiento (gratis)</option>
-                </select>
-            </label>
-
-            <!-- Botón de escritorio -->
-            <button
-                type="submit"
-                class="hidden md:block w-full bg-white hover:bg-primary transition-colors font-bold py-3 rounded-xl"
-            >
-                Enviar
-            </button>
-        </form>
-
-        <!-- Área de texto -->
-        <div
-            class="w-full md:w-1/2 mt-6 md:mt-0 pt-6 xs:pt-0 md:pl-6 flex flex-col h-full border-t-2 md:border-t-0 md:border-l-2"
-        >
-            <label class="font-semibold w-full flex-1 mb-2">
-                Cuéntanos de tu proyecto
-            </label>
-            <textarea
-                name="mensaje"
-                form="contact-form"
+      <!-- Formulario principal -->
+      <form
+        id="contact-form"
+        class="relative w-full md:w-1/2 flex flex-col gap-4 pr-6 h-full justify-end"
+      >
+        <label class="font-semibold">
+          Nombre
+          <input
+            type="text"
+            name="nombre"
+            required
+            placeholder="Tu nombre"
+            class="w-full p-3 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </label>
+  
+        <label class="font-semibold">
+          Correo electrónico
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Tu correo"
+            class="w-full p-3 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </label>
+  
+        <label class="font-semibold">
+          Teléfono
+          <input
+            type="tel"
+            inputmode="numeric"
+            name="telefono"
+            required
+            placeholder="Tu teléfono"
+            class="w-full p-3 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </label>
+  
+        <label class="font-semibold relative">
+            Elije un paquete
+            <div class="relative mt-2 group">
+              <select
+                name="paquete"
                 required
-                placeholder="Escribe sobre él aquí..."
-                class="w-full p-3 rounded-xl h-[calc(100%-1rem)] resize-none bg-white"
-            ></textarea>
-        </div>
-
-        <!-- Botón móvil -->
+                class="w-full p-3 pr-10 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary peer"
+              >
+                <option value="" disabled selected>¿Qué tipo de página buscas?</option>
+                <option value="blog-portfolio">Blog / Portfolio</option>
+                <option value="landing">Landing Page</option>
+                <option value="corporativo">Sitio web corporativo</option>
+                <option value="ecommerce">E-commerce (Tienda Online)</option>
+                <option value="asesoramiento">Necesito asesoramiento (gratis)</option>
+              </select>
+          
+              <!-- Flechita animada -->
+              <div
+                class="pointer-events-none absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 transition-transform duration-300 peer-focus:rotate-180"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </label>
+          
+  
+        <!-- Botón de escritorio -->
         <button
-            type="submit"
-            form="contact-form"
-            class="md:hidden w-full bg-white hover:bg-primary transition-colors font-bold py-3 rounded-xl mt-8"
+          type="submit"
+          class="hidden md:block w-full bg-black/10 hover:bg-primary transition-colors font-bold py-3 rounded-xl"
         >
-            Enviar
+          Enviar
         </button>
+      </form>
+  
+      <!-- Área de texto -->
+      <div
+        class="w-full md:w-1/2 mt-6 md:mt-0 pt-6 xs:pt-0 md:pl-6 flex flex-col h-full border-t-2 md:border-t-0 md:border-l-2 justify-end"
+      >
+        <label class="font-semibold w-full mb-2">Cuéntanos de tu proyecto</label>
+        <textarea
+          name="mensaje"
+          form="contact-form"
+          required
+          placeholder="Escribe sobre él aquí..."
+          class="w-full p-3 rounded-xl h-full resize-none bg-black/10 appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
+        ></textarea>
+      </div>
+  
+      <!-- Botón móvil -->
+      <button
+        type="submit"
+        form="contact-form"
+        class="md:hidden w-full bg-black/10 hover:bg-primary transition-colors font-bold py-3 rounded-xl mt-8"
+      >
+        Enviar
+      </button>
     </section>
-</section>
-
-<script>
-    const form = document.getElementById('contact-form') as HTMLFormElement;
-    
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Mostrar indicador de carga
-            const submitButtons = form.querySelectorAll('button[type="submit"]');
-            submitButtons.forEach(button => {
-                (button as HTMLButtonElement).disabled = true;
-                button.innerHTML = 'Enviando...';
-            });
-
-            try {
-                const formData = new FormData(form);
-                formData.append('_subject', 'Nuevo mensaje desde el formulario de contacto');
-                formData.append('_template', 'table');
-                formData.append('_autoresponse', 'Gracias por tu mensaje. Te responderemos pronto.');
-
-                const response = await fetch('https://formsubmit.co/ajax/suaweb.info@gmail.com', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json'
-                    },
-                    body: formData
-                });
-
-                if (response.ok) {
-                    // Redirigir a la página de agradecimiento
-                    window.location.href = '/gracias';
-                } else {
-                    throw new Error('Error al enviar el formulario');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                // Mostrar mensaje de error
-                submitButtons.forEach(button => {
-                    (button as HTMLButtonElement).disabled = false;
-                    button.innerHTML = 'Error al enviar. Intenta de nuevo.';
-                });
-            }
-        });
-    }
-</script>
+  </section>
+  

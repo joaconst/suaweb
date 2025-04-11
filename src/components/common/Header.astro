@@ -1,60 +1,118 @@
 <!-- Header para PC -->
 <header
-  class="hidden w-full md:flex fixed justify-center items-center top-0 mt-0 h-20 px-4 md:gap-8 z-50 sm:mb-8 border-b border-white"
+  class="hidden w-full md:flex fixed justify-between items-center top-0 mt-0 h-20 px-8 md:gap-8 z-100 sm:mb-8"
 >
   <!-- Logo -->
-  
+  <a
+    href="/#"
+    class="text-white text-2xl font-medium transition-all duration-300 hover:scale-105 relative group"
+  >
+    SW
+  </a>
 
   <!-- Menú para Desktop -->
-  <nav class="flex items-center space-x-8 p-3 bg-white rounded-full shadow-lg shadow-black/50">
-    <a href="/#"
-       class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
-      INICIO
-      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+  <nav
+    class="flex items-center space-x-8 p-3 bg-white rounded-2xl border shadow-lg"
+  >
+    <a
+      href="/#"
+      class="font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
+      Inicio
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
     </a>
-    <a href="/#beneficios"
-       class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
-      BENEFICIOS
-      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+    <a
+      href="/portfolio"
+      class="font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
+      Portafolio
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
     </a>
-    <a href="/servicios"
-       class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
-      SERVICIOS
-      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+    <a
+      href="/servicios"
+      class="font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
+      Servicios
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
     </a>
-    <a href="/trabajos"
-       class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
-      TRABAJOS
-      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-    </a>
-    <a href="/contacto"
-       class="text-black font-medium transition-all duration-300 hover:scale-105 relative group">
-      CONTACTO
-      <span class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+    <a
+      href="/#proceso"
+      class="font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
+      Proceso
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
     </a>
   </nav>
+
+  <a
+    href="/contacto"
+    class="bg-primary p-3 rounded-2xl text-white font-medium transition-all duration-300 hover:scale-105 relative group"
+  >
+    Contacto
+  </a>
 </header>
 
 <!-- Header para Mobile -->
 <header
-  class="md:hidden fixed top-0 left-0 right-0 mt-0 h-16 flex items-center justify-center z-100 border-b border-white"
+  class="md:hidden fixed top-0 left-0 right-0 mt-0 h-16 flex items-center justify-between z-100 px-8"
 >
-  <div class="flex items-center justify-center bg-white rounded-4xl p-2 px-4 space-x-5 shadow-[4px_4px_0px_#000000]">
-    <!-- Logo -->
-    
-
-    <a href="/#"
-       class="text-2xl font-bold text-black flex items-center space-x-2">
-      <span>SuaWeb</span>
+  <!-- Logo -->
+  <a
+    href="/#"
+    class="text-white text-2xl font-medium transition-all duration-300 hover:scale-105 relative group"
+  >
+    SW
+  </a>
+  <div
+    class="flex items-center justify-center bg-white rounded-2xl border p-2 px-4 space-x-5"
+  >
+    <a
+      href="/#"
+      class="font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
+      Inicio
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
+    </a>
+    <a
+      href="/portfolio"
+      class="font-medium transition-all duration-300 hover:scale-105 relative group"
+    >
+      Portafolio
+      <span
+        class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+      ></span>
     </a>
 
     <!-- Botón Hamburguesa -->
-    <button id="menuBtn" class="p-2 bg-primary rounded-full">
-      <div class="w-6 h-1 bg-white mb-1 transition-all duration-300 rounded-full"></div>
-      <div class="w-6 h-1 bg-white mb-1 transition-all duration-300 rounded-full"></div>
-      <div class="w-6 h-1 bg-white transition-all duration-300 rounded-full"></div>
+    <button id="menuBtn" class="py-2 px-3 bg-primary rounded-2xl">
+      <div
+        class="w-6 h-1 bg-white mb-1 transition-all duration-300 rounded-full"
+      >
+      </div>
+      <div
+        class="w-6 h-1 bg-white mb-1 transition-all duration-300 rounded-full"
+      >
+      </div>
+      <div class="w-6 h-1 bg-white transition-all duration-300 rounded-full">
+      </div>
     </button>
   </div>
+  <a
+    href="/contacto"
+    class="bg-primary p-3 rounded-2xl text-white font-medium transition-all duration-300 hover:scale-105 relative group"
+  >
+    Contacto
+  </a>
 </header>
 
 <!-- Menú Mobile -->
@@ -63,101 +121,131 @@
   class="hidden md:hidden fixed top-16 left-1/2 -translate-x-1/2 w-11/12 max-w-sm bg-white shadow-lg py-4 px-6 rounded-lg z-100"
 >
   <div class="flex flex-col space-y-4 text-center">
-    <a href="/"
-       class="text-black font-medium py-2 hover:text-primary transition-all">INICIO</a>
-    <a href="/#beneficios"
-       class="text-black font-medium py-2 hover:text-primary transition-all">BENEFICIOS</a>
-    <a href="/servicios"
-       class="text-black font-medium py-2 hover:text-primary transition-all">SERVICIOS</a>
-    <a href="/trabajos"
-       class="text-black font-medium py-2 hover:text-primary transition-all">TRABAJOS</a>
-    <a href="/contacto"
-       class="text-black font-medium py-2 hover:text-primary transition-all">CONTACTO</a>
+    <a
+    href="/#"
+    class="font-medium transition-all duration-300 hover:scale-105 relative group"
+  >
+    Inicio
+    <span
+      class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+    ></span>
+  </a>
+  <a
+    href="/portfolio"
+    class="font-medium transition-all duration-300 hover:scale-105 relative group"
+  >
+    Portafolio
+    <span
+      class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+    ></span>
+  </a>
+  <a
+    href="/servicios"
+    class="font-medium transition-all duration-300 hover:scale-105 relative group"
+  >
+    Servicios
+    <span
+      class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+    ></span>
+  </a>
+  <a
+    href="/#proceso"
+    class="font-medium transition-all duration-300 hover:scale-105 relative group"
+  >
+    Proceso
+    <span
+      class="absolute bottom-[-2px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+    ></span>
+  </a>
   </div>
 </div>
 
 <style>
   .header-blur {
     backdrop-filter: blur(10px);
-    transition: background-color 0.3s, backdrop-filter 0.3s;
+    transition:
+      background-color 0.3s,
+      backdrop-filter 0.3s;
   }
 </style>
 
 <!-- Scripts -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Seleccionamos ambos headers
-  const headerDesktop = document.querySelector("header.md\\:flex");
-  const headerMobile = document.querySelector("header.md\\:hidden");
+  document.addEventListener("DOMContentLoaded", () => {
+    // Seleccionamos ambos headers
+    const headerDesktop = document.querySelector("header.md\\:flex");
+    const headerMobile = document.querySelector("header.md\\:hidden");
 
-  const updateHeaderBlur = () => {
-    if (window.scrollY > 0) {
-      headerDesktop?.classList.add("header-blur");
-      headerMobile?.classList.add("header-blur");
-    } else {
-      headerDesktop?.classList.remove("header-blur");
-      headerMobile?.classList.remove("header-blur");
-    }
-  };
+    const updateHeaderBlur = () => {
+      if (window.scrollY > 0) {
+        headerDesktop?.classList.add("header-blur");
+        headerMobile?.classList.add("header-blur");
+      } else {
+        headerDesktop?.classList.remove("header-blur");
+        headerMobile?.classList.remove("header-blur");
+      }
+    };
 
-  // Ejecutar al cargar y en cada scroll
-  updateHeaderBlur();
-  window.addEventListener("scroll", updateHeaderBlur);
-});
+    // Ejecutar al cargar y en cada scroll
+    updateHeaderBlur();
+    window.addEventListener("scroll", updateHeaderBlur);
+  });
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-  if (!menuBtn || !mobileMenu) return;
+    if (!menuBtn || !mobileMenu) return;
 
-  const menuBtnElement = menuBtn;
-  const mobileMenuElement = mobileMenu as HTMLDivElement;
-  const bars = menuBtnElement.querySelectorAll<HTMLDivElement>("div");
-  
-  let menuOpen = false;
+    const menuBtnElement = menuBtn;
+    const mobileMenuElement = mobileMenu as HTMLDivElement;
+    const bars = menuBtnElement.querySelectorAll<HTMLDivElement>("div");
 
-  // Función para alternar el menú
-  const toggleMenu = () => {
-    menuOpen = !menuOpen;
+    let menuOpen = false;
 
-    // Animación de las barras
-    if (menuOpen) {
-      bars[0].style.transform = "rotate(45deg) translate(5px, 6px)";
-      bars[1].style.opacity = "0";
-      bars[2].style.transform = "rotate(-45deg) translate(5px, -6px)";
-    } else {
-      bars.forEach(bar => {
-        bar.style.transform = "";
-        bar.style.opacity = "1";
-      });
-    }
+    // Función para alternar el menú
+    const toggleMenu = () => {
+      menuOpen = !menuOpen;
 
-    mobileMenuElement.classList.toggle("hidden");
-  };
+      // Animación de las barras
+      if (menuOpen) {
+        bars[0].style.transform = "rotate(45deg) translate(5px, 6px)";
+        bars[1].style.opacity = "0";
+        bars[2].style.transform = "rotate(-45deg) translate(5px, -6px)";
+      } else {
+        bars.forEach((bar) => {
+          bar.style.transform = "";
+          bar.style.opacity = "1";
+        });
+      }
 
-  // Cerrar menú al hacer clic fuera
-  document.addEventListener("click", (e) => {
-    const target = e.target as Node;
-    const clickOutside = !menuBtnElement.contains(target) && 
-                        !mobileMenuElement.contains(target);
-    
-    if (clickOutside && menuOpen) {
+      mobileMenuElement.classList.toggle("hidden");
+    };
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      const target = e.target as Node;
+      const clickOutside =
+        !menuBtnElement.contains(target) && !mobileMenuElement.contains(target);
+
+      if (clickOutside && menuOpen) {
+        toggleMenu();
+      }
+    });
+
+    // Evento del botón hamburguesa
+    menuBtnElement.addEventListener("click", (e) => {
+      e.stopPropagation();
       toggleMenu();
-    }
-  });
+    });
 
-  // Evento del botón hamburguesa
-  menuBtnElement.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleMenu();
+    // Cerrar menú al seleccionar enlace
+    mobileMenuElement
+      .querySelectorAll<HTMLAnchorElement>("a")
+      .forEach((link) => {
+        link.addEventListener("click", () => menuOpen && toggleMenu());
+      });
   });
-
-  // Cerrar menú al seleccionar enlace
-  mobileMenuElement.querySelectorAll<HTMLAnchorElement>("a").forEach(link => {
-    link.addEventListener("click", () => menuOpen && toggleMenu());
-  });
-});
 </script>
