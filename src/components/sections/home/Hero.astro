@@ -2,7 +2,9 @@
 import { MoveRight } from "@lucide/astro";
 ---
 
-<section class="pt-24 lg:pt-0 grid lg:grid-cols-2 items-center justify-center gap-8 p-8 min-h-screen">
+<section
+  class="pt-24 lg:pt-0 grid lg:grid-cols-2 items-center justify-center gap-8 p-8 min-h-screen"
+>
   <!-- Columna izquierda -->
   <div class="space-y-6 text-center lg:text-left col-span-2 md:col-span-1">
     <h2 class="text-4xl sm:text-6xl font-bold">
@@ -19,23 +21,29 @@ import { MoveRight } from "@lucide/astro";
     <div class="lg:hidden flex flex-col items-center gap-8">
       <!-- Fila superior: dos imágenes lado a lado -->
       <div class="flex gap-8 sm:gap-16 max-[360px]:flex-col">
-        <img
-          src="/home/hero/hero-1.webp"
-          alt="Imagen 1"
-          class="w-40 sm:w-52 h-40 sm:h-52 bg-white rounded-xl shadow-md border-2 border-black object-cover p-1"
-        />
-        <img
-          src="/home/hero/hero-2.webp"
-          alt="Imagen 2"
-          class="w-40 sm:w-52 h-40 sm:h-52 bg-white rounded-xl shadow-md border-2 border-black object-cover p-1"
-        />
+        <a href="https://template-gauchito.vercel.app/" target="_blank">
+          <img
+            src="/home/hero/hero-1.webp"
+            alt="Imagen 1"
+            class="w-40 sm:w-52 h-40 sm:h-52 bg-white rounded-xl shadow-md border-2 border-black object-cover p-1"
+          />
+        </a>
+        <a href="" target="_blank">
+          <img
+            src="/home/hero/hero-2.webp"
+            alt="Imagen 2"
+            class="w-40 sm:w-52 h-40 sm:h-52 bg-white rounded-xl shadow-md border-2 border-black object-cover p-1"
+          />
+        </a>
       </div>
       <!-- Imagen inferior centrada -->
-      <img
-        src="/home/hero/hero-3.webp"
-        alt="Imagen 3"
-        class="w-40 sm:w-52 h-40 sm:h-52 bg-white rounded-xl shadow-md border-2 border-black object-cover p-1"
-      />
+      <a href="https://ross-suspension.com.ar/" target="_blank">
+        <img
+          src="/home/hero/hero-3.webp"
+          alt="Imagen 3"
+          class="w-40 sm:w-52 h-40 sm:h-52 bg-white rounded-xl shadow-md border-2 border-black object-cover p-1"
+        />
+      </a>
     </div>
 
     <!-- Botones solo para escritorio -->
@@ -60,38 +68,58 @@ import { MoveRight } from "@lucide/astro";
     <article
       class="absolute bg-white w-52 h-52 lg:w-62 lg:h-62 md:-top-10 md:left-1/2 transform md:-translate-x-1/2 rounded-xl shadow-md flex items-center justify-center border-2 border-black hover:scale-105 transition-all duration-300"
     >
-      <img
-        src="/home/hero/hero-1.webp"
-        alt="Imagen 1"
-        class="w-full h-full p-2 object-cover rounded-xl"
-      />
+      <a
+        href="https://template-gauchito.vercel.app/"
+        target="_blank"
+        class="w-full h-full object-cover rounded-xl p-2"
+      >
+        <img
+          src="/home/hero/hero-1.webp"
+          alt="Imagen 1"
+          class="w-full h-full object-cover rounded-xl"
+        />
+      </a>
     </article>
 
     <!-- Imagen inferior izquierda -->
     <article
       class="absolute -bottom-40 lg:-bottom-50 xl:-bottom-55 lg:-left-15 xl:left-1/8 transform xl:-translate-x-1/8 bg-white w-52 h-52 lg:w-62 lg:h-62 rounded-xl shadow-md flex items-center justify-center border-2 border-black hover:scale-105 transition-all duration-300"
     >
-      <img
-        src="/home/hero/hero-2.webp"
-        alt="Imagen 2"
-        class="w-full h-full p-2 object-cover rounded-xl"
-      />
+      <a
+        href=""
+        target="_blank"
+        class="w-full h-full object-cover rounded-xl p-2"
+      >
+        <img
+          src="/home/hero/hero-2.webp"
+          alt="Imagen 2"
+          class="w-full h-full object-cover rounded-xl"
+        />
+      </a>
     </article>
 
     <!-- Imagen inferior derecha -->
     <article
       class="absolute -bottom-35 lg:-bottom-45 xl:-bottom-50 right-0 xl:right-25 bg-white w-52 h-52 lg:w-62 lg:h-62 rounded-xl shadow-md flex items-center justify-center border-2 border-black hover:scale-105 transition-all duration-300"
     >
-      <img
-        src="/home/hero/hero-3.webp"
-        alt="Imagen 3"
-        class="w-full h-full p-2 object-cover rounded-xl"
-      />
+      <a
+        href="https://ross-suspension.com.ar/"
+        target="_blank"
+        class="w-full h-full object-cover rounded-xl p-2"
+      >
+        <img
+          src="/home/hero/hero-3.webp"
+          alt="Imagen 3"
+          class="w-full h-full object-cover rounded-xl"
+        />
+      </a>
     </article>
   </div>
 
   <!-- Botones visibles solo en mobile (debajo de las imágenes) -->
-  <div class="lg:hidden col-span-2 flex flex-col md:flex-row gap-4 justify-center">
+  <div
+    class="lg:hidden col-span-2 flex flex-col md:flex-row gap-4 justify-center"
+  >
     <a
       href="/contacto"
       class="px-5 py-3 bg-white rounded-xl text-xl font-bold shadow-[4px_10px_10px_0px_rgba(0,0,0,0.2)] hover:scale-105 transition-all duration-300 text-center"
