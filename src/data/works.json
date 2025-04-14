@@ -7,7 +7,9 @@
         "src": "/portfolio/portfolio-1.webp",
         "alt": "Imagen 1",
         "text1": "Taller mecánico - Fábrica de amortiguadores",
-        "text2": "Sitio web corporativo"
+        "text2": "Sitio web corporativo",
+        "type":"corporative",
+        "category": "work"
     },
     {
         "id": "pizzeria",
@@ -17,7 +19,9 @@
         "src": "/portfolio/portfolio-2.webp",
         "alt": "Imagen 2",
         "text1": "Pizzería - Menú virtual",
-        "text2": "Tienda E-commerce"
+        "text2": "Tienda E-commerce",
+        "type":"ecommerce",
+        "category": "template"
     },
     {
         "id": "mates",
@@ -27,46 +31,56 @@
         "src": "/portfolio/portfolio-3.webp",
         "alt": "Imagen 3",
         "text1": "Emprendimiento de Mates",
-        "text2": "Tienda E-Commerce"
+        "text2": "Tienda E-Commerce",
+        "type":"ecommerce",
+        "category": "template"
     },
     {
-        "id": "pizzeria",
+        "id": "digital-word",
         "badge": "Plantilla",
         "badgeColor": "bg-gray-400/80",
         "href": "",
         "src": "/portfolio/portfolio-4.webp",
         "alt": "Imagen 2",
         "text1": "Digital Word",
-        "text2": "Sitio web corporativo "
+        "text2": "Sitio web corporativo ",
+        "type":"corporative",
+        "category": "template"
     },
     {
-        "id": "pizzeria",
+        "id": "gym",
         "badge": "Plantilla",
         "badgeColor": "bg-gray-400/80",
-        "href": "",
+        "href": "https://tempalte-gym.vercel.app/",
         "src": "/portfolio/portfolio-5.webp",
         "alt": "Imagen 2",
         "text1": "Gimnasio",
-        "text2": "Sitio Web corporativo"
+        "text2": "Sitio Web corporativo",
+        "type":"corporative",
+        "category": "template"
     },
     {
-        "id": "pizzeria",
+        "id": "task-manager",
         "badge": "Plantilla",
         "badgeColor": "bg-gray-400/80",
-        "href": "",
+        "href": "https://landding-page-1.vercel.app/",
         "src": "/portfolio/portfolio-6.webp",
         "alt": "Imagen 2",
         "text1": "App de tareas",
-        "text2": "Landing Page"
+        "text2": "Landing Page",
+        "type":"landing",
+        "category": "template"
     },
     {
-        "id": "pizzeria",
+        "id": "menu",
         "badge": "Plantilla",
         "badgeColor": "bg-gray-400/80",
         "href": "",
         "src": "/portfolio/portfolio-7.webp",
         "alt": "Imagen 2",
         "text1": "Local de empanadas - Menú virtual",
-        "text2": ""
+        "text2": "",
+        "type":"landing",
+        "category": "template"
     }
 ]
