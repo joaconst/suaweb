@@ -1,0 +1,72 @@
+[
+    {
+        "id": "ross",
+        "badge": "Trabajo realizado",
+        "badgeColor": "bg-primary/80",
+        "href": "https://ross-suspension.com.ar/",
+        "src": "/portfolio/portfolio-1.webp",
+        "alt": "Imagen 1",
+        "text1": "Taller mecánico - Fábrica de amortiguadores",
+        "text2": "Sitio web corporativo"
+    },
+    {
+        "id": "pizzeria",
+        "badge": "Plantilla",
+        "badgeColor": "bg-gray-400/80",
+        "href": "",
+        "src": "/portfolio/portfolio-2.webp",
+        "alt": "Imagen 2",
+        "text1": "Pizzería - Menú virtual",
+        "text2": "Tienda E-commerce"
+    },
+    {
+        "id": "mates",
+        "badge": "Plantilla",
+        "badgeColor": "bg-gray-400/80",
+        "href": "https://template-gauchito.vercel.app/",
+        "src": "/portfolio/portfolio-3.webp",
+        "alt": "Imagen 3",
+        "text1": "Emprendimiento de Mates",
+        "text2": "Tienda E-Commerce"
+    },
+    {
+        "id": "pizzeria",
+        "badge": "Plantilla",
+        "badgeColor": "bg-gray-400/80",
+        "href": "",
+        "src": "/portfolio/portfolio-4.webp",
+        "alt": "Imagen 2",
+        "text1": "Digital Word",
+        "text2": "Sitio web corporativo "
+    },
+    {
+        "id": "pizzeria",
+        "badge": "Plantilla",
+        "badgeColor": "bg-gray-400/80",
+        "href": "",
+        "src": "/portfolio/portfolio-5.webp",
+        "alt": "Imagen 2",
+        "text1": "Gimnasio",
+        "text2": "Sitio Web corporativo"
+    },
+    {
+        "id": "pizzeria",
+        "badge": "Plantilla",
+        "badgeColor": "bg-gray-400/80",
+        "href": "",
+        "src": "/portfolio/portfolio-6.webp",
+        "alt": "Imagen 2",
+        "text1": "App de tareas",
+        "text2": "Landing Page"
+    },
+    {
+        "id": "pizzeria",
+        "badge": "Plantilla",
+        "badgeColor": "bg-gray-400/80",
+        "href": "",
+        "src": "/portfolio/portfolio-7.webp",
+        "alt": "Imagen 2",
+        "text1": "Local de empanadas - Menú virtual",
+        "text2": ""
+    }
+]
