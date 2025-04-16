@@ -4,10 +4,14 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
 ---
 
 <!-- Backdrop overlay for blur effect -->
-<div id="backdrop-overlay" class="fixed inset-0 bg-black/5 backdrop-blur-lg z-10 hidden transition-all duration-300 opacity-0"></div>
+<div
+  id="backdrop-overlay"
+  class="fixed inset-0 bg-black/5 backdrop-blur-lg z-10 hidden transition-all duration-300 opacity-0"
+>
+</div>
 
 <!-- Botón de filtrado - Adaptado para móvil -->
-<div class="absolute right-0 z-10 px-4 sm:px-8">
+<div class="absolute right-0 z-30 px-4 sm:px-8">
   <div class="relative">
     <!-- Botón de filtrado -->
     <button
@@ -15,13 +19,21 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
       class="flex items-center gap-2 rounded-xl px-3 py-2 text-sm shadow-lg bg-primary text-white transition-all duration-200 hover:bg-primary/90"
     >
       <SlidersHorizontal class="w-4 h-4 text-white/80" />
-      <span class="h">Filtrar</span>
-      <ChevronDown id="arrow-icon" class="w-4 h-4 text-white/80 transition-transform duration-300" />
+      <span id="filter-text" class="font-medium">Filtrar</span>
+      <ChevronDown
+        id="arrow-icon"
+        class="w-4 h-4 text-white/80 transition-transform duration-300"
+      />
     </button>
 
     <!-- Modal - Adaptado para móvil -->
-    <div id="filter-modal" class="fixed sm:absolute inset-x-0 sm:inset-auto bottom-0 sm:top-full sm:right-0 hidden z-20">
-      <div class="bg-white rounded-t-xl sm:rounded-xl shadow-xl p-4 w-full sm:w-64 transition-all duration-300 opacity-0 translate-y-2 mx-auto sm:mx-0 max-w-screen-sm">
+    <div
+      id="filter-modal"
+      class="fixed sm:absolute inset-x-0 sm:inset-auto bottom-0 sm:top-full sm:right-0 hidden z-20"
+    >
+      <div
+        class="bg-white rounded-t-xl sm:rounded-xl shadow-xl p-4 w-full sm:w-64 transition-all duration-300 opacity-0 translate-y-2 mx-auto sm:mx-0 max-w-screen-sm"
+      >
         <div class="flex justify-between items-center mb-4">
           <h3 class="font-semibold text-lg">Filtrar por</h3>
           <button id="close-modal" class="p-1 hover:bg-gray-100 rounded-lg">
@@ -29,19 +41,39 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
           </button>
         </div>
         <div class="space-y-2">
-          <button data-type="all" class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors">
+          <button
+            data-type="all"
+            data-label="Filtrar"
+            class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors"
+          >
             Todos
           </button>
-          <button data-type="corporative" class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors">
-            Corporativo
-          </button>
-          <button data-type="ecommerce" class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors">
-            Ecommerce
-          </button>
-          <button data-type="landing" class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors">
+          <button
+            data-type="landing"
+            data-label="Landing"
+            class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors"
+          >
             Landing
           </button>
-          <button data-type="blog" class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors">
+          <button
+            data-type="ecommerce"
+            data-label="E-commerce"
+            class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors"
+          >
+            E-commerce
+          </button>
+          <button
+            data-type="corporative"
+            data-label="Corporativo"
+            class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors"
+          >
+            Corporativo
+          </button>
+          <button
+            data-type="blog"
+            data-label="Blog"
+            class="filter-option w-full text-left px-3 py-3 sm:py-2 rounded-lg hover:bg-primary/10 transition-colors"
+          >
             Blog
           </button>
         </div>
@@ -51,8 +83,14 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
 </div>
 
 <!-- Botón para borrar filtros -->
-<div id="clear-filter-container" class="fixed bottom-4 inset-x-0 flex justify-center z-10 transition-all duration-300 opacity-0 translate-y-4 hidden">
-  <button id="clear-filter-button" class="flex items-center gap-2 rounded-full px-4 py-2 bg-primary text-white shadow-lg hover:bg-primary/80 transition-all duration-300">
+<div
+  id="clear-filter-container"
+  class="fixed bottom-4 inset-x-0 flex justify-center z-10 transition-all duration-300 opacity-0 translate-y-4 hidden"
+>
+  <button
+    id="clear-filter-button"
+    class="flex items-center gap-2 rounded-full px-4 py-2 bg-primary text-white shadow-lg hover:bg-primary/80 transition-all duration-300"
+  >
     <FilterX class="w-4 h-4" />
     <span>Borrar filtros</span>
   </button>
@@ -60,147 +98,190 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
 
 <!-- Listado de trabajos -->
 <div class="flex flex-wrap justify-center gap-8 mt-20 px-8 pb-20">
-  {works.map(example => (
-    <article
-      id={example.id}
-      data-type={example.type}
-      class="bg-white rounded-2xl shadow-lg p-4 w-80 flex flex-col border-2 border-black transition-all duration-300 hover:scale-102 relative group"
-    >
-      <a href={example.href} target="_blank" rel="noopener noreferrer" class="relative">
-        <span class={`absolute top-2 right-2 ${example.badgeColor} text-white text-xs font-semibold px-2 py-1 rounded-full shadow transition-colors duration-200`}>
-          {example.badge}
-        </span>
-        <img
-          src={example.src}
-          alt={example.alt}
-          class="w-full h-60 object-cover rounded-xl border border-black mb-4 group-hover:brightness-105 transition-all duration-300"
-          loading="lazy"
-        />
-        <p class="text-sm text-gray-700">{example.text1}</p>
-        <p class="text-sm mt-2 text-gray-500">{example.text2}</p>
-      </a>
-    </article>
-  ))}
+  {
+    works.map((example) => (
+      <article
+        id={example.id}
+        data-type={example.type}
+        class="bg-white rounded-2xl shadow-lg p-4 w-80 flex flex-col border-2 border-black transition-all duration-300 hover:scale-102 relative group"
+      >
+        <a
+          href={example.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="relative"
+        >
+          <span
+            class={`absolute top-2 right-2 ${example.badgeColor} text-white text-xs font-semibold px-2 py-1 rounded-full shadow transition-colors duration-200`}
+          >
+            {example.badge}
+          </span>
+          <img
+            src={example.src}
+            alt={example.alt}
+            class="w-full h-60 object-cover rounded-xl border border-black mb-4 group-hover:brightness-105 transition-all duration-300"
+            loading="lazy"
+          />
+          <p class="text-sm text-gray-700">{example.text1}</p>
+          <p class="text-sm mt-2 text-gray-500">{example.text2}</p>
+        </a>
+      </article>
+    ))
+  }
 </div>
 
-<script client:load>
+<div id="no-results" class="hidden text-center">
+  <p class="text-xl text-primary">No se encontraron páginas para este filtro.</p>
+</div>
+
+<script>
   // Elementos del DOM
-  const filterButton = document.getElementById('filter-button');
-  const filterModal = document.getElementById('filter-modal');
-  const closeButton = document.getElementById('close-modal');
-  const modalContent = filterModal.querySelector('div');
-  const arrow = document.getElementById('arrow-icon');
-  const filterOptions = document.querySelectorAll('.filter-option');
-  const backdropOverlay = document.getElementById('backdrop-overlay');
-  const clearFilterContainer = document.getElementById('clear-filter-container');
-  const clearFilterButton = document.getElementById('clear-filter-button');
+  const filterButton = document.getElementById("filter-button") as HTMLElement;
+  const filterModal = document.getElementById("filter-modal") as HTMLElement;
+  const closeButton = document.getElementById("close-modal") as HTMLElement;
+  const modalContent = filterModal.querySelector("div") as HTMLElement;
+  const arrow = document.getElementById("arrow-icon") as HTMLElement;
+  const filterOptions = document.querySelectorAll<HTMLElement>(".filter-option");
+  const backdropOverlay = document.getElementById("backdrop-overlay") as HTMLElement;
+  const clearFilterContainer = document.getElementById("clear-filter-container") as HTMLElement;
+  const clearFilterButton = document.getElementById("clear-filter-button") as HTMLElement;
+  const filterText = document.getElementById("filter-text") as HTMLElement;
 
   let isOpen = false;
-  let selectedFilter = 'all';
+  // Obtener el filtro guardado de localStorage o usar "all" por defecto
+  let selectedFilter = localStorage.getItem("selectedFilter") || "all";
+
+  // Aplicar el filtro al cargar la página
+  const applyFilter = (filter = selectedFilter) => {
+    selectedFilter = filter;
+    
+    // Guardar en localStorage
+    localStorage.setItem("selectedFilter", selectedFilter);
+    
+    // Marcar la opción seleccionada
+    filterOptions.forEach((opt: HTMLElement) => {
+      opt.classList.remove("bg-primary/20");
+      if (opt.dataset.type === selectedFilter) {
+        opt.classList.add("bg-primary/20");
+        
+        // Actualizar el texto del botón de filtrado si no es "all"
+        if (selectedFilter !== "all") {
+          filterText.textContent = opt.dataset.label || "Filtrar";
+        } else {
+          filterText.textContent = "Filtrar";
+        }
+      }
+    });
+
+    // Filtrar los artículos
+    const articles = document.querySelectorAll("article[data-type]");
+    articles.forEach((article) => {
+      const shouldShow =
+        selectedFilter === "all" || (article as HTMLElement).dataset.type === selectedFilter;
+      article.classList.toggle("hidden", !shouldShow);
+      if (shouldShow) article.classList.add("animate-fade-in");
+    });
+
+    // Mostrar u ocultar el mensaje "no resultados"
+    const noResults = document.getElementById("no-results");
+    // Convertimos NodeList a array para usar every
+    const allHidden = Array.from(articles).every((article) =>
+      article.classList.contains("hidden"),
+    );
+    if (allHidden) {
+      noResults.classList.remove("hidden");
+    } else {
+      noResults.classList.add("hidden");
+    }
+
+    // Mostrar botón de borrar filtros si es necesario
+    showClearFilterButton();
+  };
 
   // Toggle modal
   const toggleModal = () => {
     isOpen = !isOpen;
-    filterModal.classList.toggle('hidden');
-    arrow.classList.toggle('rotate-180');
-    
+    filterModal.classList.toggle("hidden");
+    arrow.classList.toggle("rotate-180");
+
     // Toggle backdrop with blur effect
-    backdropOverlay.classList.toggle('hidden');
-    
+    backdropOverlay.classList.toggle("hidden");
+
     if (isOpen) {
       // Prevenir scroll en el body cuando el modal está abierto
-      document.body.style.overflow = 'hidden';
-      
+      document.body.style.overflow = "hidden";
+
       setTimeout(() => {
-        modalContent.classList.remove('opacity-0', 'translate-y-2');
-        modalContent.classList.add('opacity-100', 'translate-y-0');
-        backdropOverlay.classList.remove('opacity-0');
-        backdropOverlay.classList.add('opacity-100');
+        modalContent.classList.remove("opacity-0", "translate-y-2");
+        modalContent.classList.add("opacity-100", "translate-y-0");
+        backdropOverlay.classList.remove("opacity-0");
+        backdropOverlay.classList.add("opacity-100");
       }, 10);
     } else {
       // Restaurar scroll
-      document.body.style.overflow = '';
-      
-      modalContent.classList.remove('opacity-100', 'translate-y-0');
-      modalContent.classList.add('opacity-0', 'translate-y-2');
-      backdropOverlay.classList.remove('opacity-100');
-      backdropOverlay.classList.add('opacity-0');
+      document.body.style.overflow = "";
+
+      modalContent.classList.remove("opacity-100", "translate-y-0");
+      modalContent.classList.add("opacity-0", "translate-y-2");
+      backdropOverlay.classList.remove("opacity-100");
+      backdropOverlay.classList.add("opacity-0");
     }
   };
-  
+
   // Mostrar botón de borrar filtros
   const showClearFilterButton = () => {
-    if (selectedFilter !== 'all') {
-      clearFilterContainer.classList.remove('hidden');
+    if (selectedFilter !== "all") {
+      clearFilterContainer.classList.remove("hidden");
       setTimeout(() => {
-        clearFilterContainer.classList.remove('opacity-0', 'translate-y-4');
-        clearFilterContainer.classList.add('opacity-100', 'translate-y-0');
+        clearFilterContainer.classList.remove("opacity-0", "translate-y-4");
+        clearFilterContainer.classList.add("opacity-100", "translate-y-0");
       }, 10);
     } else {
-      clearFilterContainer.classList.add('opacity-0', 'translate-y-4');
+      clearFilterContainer.classList.add("opacity-0", "translate-y-4");
       setTimeout(() => {
-        clearFilterContainer.classList.add('hidden');
+        clearFilterContainer.classList.add("hidden");
       }, 300);
     }
   };
 
   // Borrar filtros
   const clearFilters = () => {
-    selectedFilter = 'all';
+    selectedFilter = "all";
+    localStorage.removeItem("selectedFilter");
+    filterText.textContent = "Filtrar";
     
-    // Resetear visualización
-    filterOptions.forEach(opt => opt.classList.remove('bg-primary/20'));
-    document.querySelector('[data-type="all"]').classList.add('bg-primary/20');
-    
-    // Mostrar todos los artículos
-    document.querySelectorAll('[data-type]').forEach(article => {
-      article.classList.remove('hidden');
-      article.classList.add('animate-fade-in');
-    });
-    
-    // Ocultar botón de borrar filtros
-    clearFilterContainer.classList.add('opacity-0', 'translate-y-4');
-    setTimeout(() => {
-      clearFilterContainer.classList.add('hidden');
-    }, 300);
+    applyFilter("all");
   };
 
   // Event listeners
-  filterButton.addEventListener('click', toggleModal);
-  closeButton.addEventListener('click', toggleModal);
-  backdropOverlay.addEventListener('click', toggleModal);
-  clearFilterButton.addEventListener('click', clearFilters);
-  
+  filterButton.addEventListener("click", toggleModal);
+  closeButton.addEventListener("click", toggleModal);
+  backdropOverlay.addEventListener("click", toggleModal);
+  clearFilterButton.addEventListener("click", clearFilters);
+
   // Cerrar al hacer click fuera
-  filterModal.addEventListener('click', (e) => {
+  filterModal.addEventListener("click", (e) => {
     if (e.target === filterModal) toggleModal();
   });
 
   // Filtrado
-  filterOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      selectedFilter = option.dataset.type;
-      filterOptions.forEach(opt => opt.classList.remove('bg-primary/20'));
-      option.classList.add('bg-primary/20');
-      
-      document.querySelectorAll('[data-type]').forEach(article => {
-        const shouldShow = selectedFilter === 'all' || article.dataset.type === selectedFilter;
-        article.classList.toggle('hidden', !shouldShow);
-        if (shouldShow) article.classList.add('animate-fade-in');
-      });
-      
+  filterOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      const filterType = option.dataset.type;
+      applyFilter(filterType);
       toggleModal();
-      showClearFilterButton(); // Mostrar botón de borrar filtros si es necesario
     });
   });
 
   // Animación inicial
-  document.querySelectorAll('[data-type]').forEach(article => {
-    article.classList.add('animate-fade-in');
+  document.querySelectorAll("[data-type]").forEach((article) => {
+    article.classList.add("animate-fade-in");
   });
 
-  // Marcar opción "Todos" como seleccionada por defecto
-  document.querySelector('[data-type="all"]').classList.add('bg-primary/20');
+  // Aplicar el filtro guardado al cargar la página
+  document.addEventListener("DOMContentLoaded", () => {
+    applyFilter();
+  });
 </script>
 
 <style>
@@ -209,7 +290,13 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
