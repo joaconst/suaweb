@@ -75,7 +75,7 @@
         "id": "menu",
         "badge": "Plantilla",
         "badgeColor": "bg-gray-400/80",
-        "href": "",
+        "href": "https://landing-menu-delta.vercel.app/",
         "src": "/portfolio/portfolio-7.webp",
         "alt": "Imagen 2",
         "text1": "Local de empanadas - Menú virtual",
