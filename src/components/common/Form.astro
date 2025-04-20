@@ -128,6 +128,9 @@
 
 <script>
   const form = document.getElementById("contact-form");
+  if (!(form instanceof HTMLFormElement)) {
+    throw new Error("Elemento no es un formulario");
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
