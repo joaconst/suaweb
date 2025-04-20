@@ -3,111 +3,152 @@
 ---
 
 <section class="w-full max-w-sm sm:max-w-4xl mx-auto mt-12 md:mt-22 pb-8 px-8">
-    <article class="text-center">
-      <h2 class="text-5xl lg:text-6xl font-extrabold mb-4">¿Listo para empezar?</h2>
-      <p class="text-xl">Completa el formulario y contanos sobre su proyecto.</p>
-    </article>
-  
-    <section
-      class="bg-white flex flex-col md:flex-row md:items-end justify-between w-full h-auto md:h-[70vh] p-8 border-2 rounded-2xl relative mt-4"
-    >
-      <!-- Formulario principal -->
-      <form
-        id="contact-form"
-        class="relative w-full md:w-1/2 flex flex-col gap-4 pr-6 h-full justify-end"
-      >
-        <label class="font-semibold">
-          Nombre
-          <input
-            type="text"
-            name="nombre"
-            required
-            placeholder="Tu nombre"
-            class="w-full p-3 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
-          />
-        </label>
-  
-        <label class="font-semibold mt-0 xl:mt-4">
-          Correo electrónico
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="Tu correo"
-            class="w-full p-3 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
-          />
-        </label>
-  
-        <label class="font-semibold xl:mt-4">
-          Teléfono
-          <input
-            type="tel"
-            inputmode="numeric"
-            name="telefono"
-            required
-            placeholder="Tu teléfono"
-            class="w-full p-3 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
-          />
-        </label>
-  
-        <label class="font-semibold relative mt-0 xl:mt-4">
-            Elije un paquete
-            <div class="relative mt-2 group">
-              <select
-                name="paquete"
-                required
-                class="w-full p-3 pr-10 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary peer"
-              >
-                <option value="" disabled selected>¿Qué tipo de página buscas?</option>
-                <option value="blog-portfolio">Blog / Portfolio</option>
-                <option value="landing">Landing Page</option>
-                <option value="corporativo">Sitio web corporativo</option>
-                <option value="ecommerce">E-commerce (Tienda Online)</option>
-                <option value="asesoramiento">Necesito asesoramiento (gratis)</option>
-              </select>
+  <article class="text-center">
+    <h2 class="text-5xl lg:text-6xl font-extrabold mb-4">
+      ¿Listo para empezar?
+    </h2>
+    <p class="text-xl">Completa el formulario y contanos sobre su proyecto.</p>
+  </article>
 
-              <div
-                class="pointer-events-none absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 transition-transform duration-300 peer-focus:rotate-180"
-              >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
-          </label>
-          
-  
-        <!-- Botón de escritorio -->
-        <button
-          type="submit"
-          class="hidden md:block w-full bg-black/10 hover:bg-primary transition-colors font-bold py-3 rounded-xl mt-0 xl:mt-4"
-        >
-          Enviar
-        </button>
-      </form>
-  
-      <!-- Área de texto -->
-      <div
-        class="w-full md:w-1/2 mt-6 md:mt-0 md:pl-6 flex flex-col h-full border-t-2 md:border-t-0 md:border-l-2 justify-end"
-      >
-        <label class="font-semibold w-full mb-4">Cuéntanos de tu proyecto</label>
-        <textarea
-          name="mensaje"
-          form="contact-form"
+  <section
+    class="bg-white flex flex-col md:flex-row md:items-end justify-between w-full h-auto md:h-[70vh] p-8 border-2 rounded-2xl relative mt-4"
+  >
+    <!-- Formulario principal -->
+    <form
+      id="contact-form"
+      method="POST"
+      class="relative w-full md:w-1/2 flex flex-col gap-4 pr-6 h-full justify-end"
+    >
+      <label class="font-semibold">
+        Nombre
+        <input
+          type="text"
+          name="nombre"
           required
-          placeholder="Escribe sobre él aquí..."
-          class="w-full p-3 rounded-xl h-full resize-none bg-black/10 appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
-        ></textarea>
-      </div>
-  
-      <!-- Botón móvil -->
+          placeholder="Tu nombre"
+          class="w-full p-3 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+      </label>
+
+      <label class="font-semibold mt-0 xl:mt-4">
+        Correo electrónico
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Tu correo"
+          class="w-full p-3 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+      </label>
+
+      <label class="font-semibold xl:mt-4">
+        Teléfono
+        <input
+          type="tel"
+          inputmode="numeric"
+          name="telefono"
+          required
+          placeholder="Tu teléfono"
+          class="w-full p-3 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+      </label>
+
+      <label class="font-semibold relative mt-0 xl:mt-4">
+        Elije un paquete
+        <div class="relative mt-2 group">
+          <select
+            name="paquete"
+            required
+            class="w-full p-3 pr-10 bg-black/10 rounded-2xl appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary peer"
+          >
+            <option value="" disabled selected
+              >¿Qué tipo de página buscas?</option
+            >
+            <option value="blog-portfolio">Blog / Portfolio</option>
+            <option value="landing">Landing Page</option>
+            <option value="corporativo">Sitio web corporativo</option>
+            <option value="ecommerce">E-commerce (Tienda Online)</option>
+            <option value="asesoramiento"
+              >Necesito asesoramiento (gratis)</option
+            >
+          </select>
+
+          <div
+            class="pointer-events-none absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 transition-transform duration-300 peer-focus:rotate-180"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </div>
+      </label>
+
+      <!-- Botón de escritorio -->
       <button
         type="submit"
-        form="contact-form"
-        class="md:hidden w-full bg-black/10 hover:bg-primary transition-colors font-bold py-3 rounded-xl mt-4 md:mt-8"
+        class="hidden md:block w-full bg-black/10 hover:bg-primary transition-colors font-bold py-3 rounded-xl mt-0 xl:mt-4"
       >
         Enviar
       </button>
-    </section>
+    </form>
+
+    <!-- Área de texto -->
+    <div
+    
+      class="w-full md:w-1/2 mt-6 md:mt-0 md:pl-6 flex flex-col h-full border-t-2 md:border-t-0 md:border-l-2 justify-end"
+    >
+      <label class="font-semibold w-full mb-4">Cuéntanos de tu proyecto</label>
+      <textarea
+        name="mensaje"
+        required
+        placeholder="Escribe sobre él aquí..."
+        class="w-full p-3 rounded-xl h-full resize-none bg-black/10 appearance-none transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary"
+      ></textarea>
+    </div>
+
+    <!-- Botón móvil -->
+    <button
+      type="submit"
+      form="contact-form"
+      class="md:hidden w-full bg-black/10 hover:bg-primary transition-colors font-bold py-3 rounded-xl mt-4 md:mt-8"
+    >
+      Enviar
+    </button>
   </section>
-  
+</section>
+
+<script>
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    
+    data.append('_next', window.location.origin + "/gracias");
+
+    fetch("https://formspree.io/f/mdkeqqpz", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+      redirect: 'manual'
+    })
+      .then((response) => {
+        window.location.href = "/gracias";
+      })
+      .catch((error) => {
+        alert("Hubo un error al enviar el formulario.");
+      });
+  });
+</script>
