@@ -1,13 +1,64 @@
 ---
 import works from "../../../data/works.json";
-import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
+import { SlidersHorizontal, ChevronDown, X, FilterX, ExternalLink } from "@lucide/astro";
 ---
 
 <!-- Backdrop overlay for blur effect -->
 <div
   id="backdrop-overlay"
-  class="fixed inset-0 bg-black/5 backdrop-blur-lg z-10 hidden transition-all duration-300 opacity-0"
+  class="fixed inset-0 bg-black/5 backdrop-blur-lg z-20 hidden transition-all duration-300 opacity-0"
 >
+</div>
+
+<!-- Filtro Modal Backdrop -->
+<div
+  id="article-modal-backdrop"
+  class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden transition-all duration-300 opacity-0"
+>
+</div>
+
+<!-- Modal para mostrar características del artículo -->
+<div
+  id="article-modal"
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden"
+>
+  <div
+    class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md mx-auto transition-all duration-300 opacity-0 translate-y-4"
+  >
+    <div class="flex justify-between items-center mb-4">
+      <h3 id="article-modal-title" class="font-bold text-xl"></h3>
+      <button id="close-article-modal" class="p-1.5 hover:bg-gray-100 rounded-lg transition-colors">
+        <X class="w-5 h-5" />
+      </button>
+    </div>
+    
+    <div class="space-y-4">
+      <img
+        id="article-modal-image"
+        src=""
+        alt=""
+        class="w-full h-48 object-cover rounded-xl border border-black mb-4"
+      />
+      
+      <div>
+        <h4 class="font-semibold text-lg mb-2">Características</h4>
+        <ul id="article-modal-characteristics" class="list-disc pl-5 space-y-1 text-gray-700"></ul>
+      </div>
+      
+      <div class="flex justify-end mt-6">
+        <a
+          id="article-modal-link"
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-all duration-200"
+        >
+          <span>Ver sitio web</span>
+          <ExternalLink class="w-4 h-4" />
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Botón de filtrado - Adaptado para móvil -->
@@ -103,28 +154,23 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
       <article
         id={example.id}
         data-type={example.type}
-        class="bg-white rounded-2xl shadow-lg p-4 w-80 flex flex-col border-2 border-black transition-all duration-300 hover:scale-102 relative group"
+        data-href={example.href}
+        data-title={example.title || example.title}
+        class="bg-white rounded-2xl shadow-lg p-4 w-80 flex flex-col border-2 border-black transition-all duration-300 hover:scale-102 relative group cursor-pointer"
       >
-        <a
-          href={example.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="relative"
+        <span
+          class={`absolute z-10 top-2 right-2 ${example.badgeColor} text-white text-xs font-semibold px-2 py-1 rounded-full shadow transition-colors duration-200`}
         >
-          <span
-            class={`absolute top-2 right-2 ${example.badgeColor} text-white text-xs font-semibold px-2 py-1 rounded-full shadow transition-colors duration-200`}
-          >
-            {example.badge}
-          </span>
-          <img
-            src={example.src}
-            alt={example.alt}
-            class="w-full h-60 object-cover rounded-xl border border-black mb-4 group-hover:brightness-105 transition-all duration-300"
-            loading="lazy"
-          />
-          <p class="text-sm text-gray-700">{example.text1}</p>
-          <p class="text-sm mt-2 text-gray-500">{example.text2}</p>
-        </a>
+          {example.badge}
+        </span>
+        <img
+          src={example.src}
+          alt={example.alt}
+          class="w-full h-60 object-cover rounded-xl border border-black mb-4 group-hover:brightness-105 transition-all duration-300"
+          loading="lazy"
+        />
+        <p class="text-sm text-gray-700">{example.title}</p>
+        <p class="text-sm mt-2 text-gray-500">{example.text}</p>
       </article>
     ))
   }
@@ -146,6 +192,19 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
   const clearFilterContainer = document.getElementById("clear-filter-container") as HTMLElement;
   const clearFilterButton = document.getElementById("clear-filter-button") as HTMLElement;
   const filterText = document.getElementById("filter-text") as HTMLElement;
+  
+  // Elementos del modal de artículo
+  const articleModal = document.getElementById("article-modal") as HTMLElement;
+  const articleModalBackdrop = document.getElementById("article-modal-backdrop") as HTMLElement;
+  const closeArticleModal = document.getElementById("close-article-modal") as HTMLElement;
+  const articleModalContent = articleModal.querySelector("div") as HTMLElement;
+  const articleModalTitle = document.getElementById("article-modal-title") as HTMLElement;
+  const articleModalImage = document.getElementById("article-modal-image") as HTMLImageElement;
+  const articleModalCharacteristics = document.getElementById("article-modal-characteristics") as HTMLElement;
+  const articleModalLink = document.getElementById("article-modal-link") as HTMLAnchorElement;
+
+  // Importar los trabajos para acceder a sus características
+  import works from "../../../data/works.json";
 
   let isOpen = false;
   // Obtener el filtro guardado de localStorage o usar "all" por defecto
@@ -198,7 +257,7 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
     showClearFilterButton();
   };
 
-  // Toggle modal
+  // Toggle modal de filtros
   const toggleModal = () => {
     isOpen = !isOpen;
     filterModal.classList.toggle("hidden");
@@ -253,11 +312,83 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
     applyFilter("all");
   };
 
+  // Abrir modal de artículo
+  const openArticleModal = (articleId: string) => {
+    // Buscar el trabajo por ID
+    const work = works.find(w => w.id === articleId);
+    
+    if (!work) return;
+    
+    // Llenar el modal con la información
+    articleModalTitle.textContent = work.title || work.title;
+    articleModalImage.src = work.src;
+    articleModalImage.alt = work.alt;
+    articleModalLink.href = work.href;
+    
+    // Mostrar las características
+    articleModalCharacteristics.innerHTML = '';
+    if (work.characteristics && Array.isArray(work.characteristics)) {
+      work.characteristics.forEach(characteristic => {
+        const li = document.createElement('li');
+        li.textContent = characteristic;
+        articleModalCharacteristics.appendChild(li);
+      });
+    } else {
+      const li = document.createElement('li');
+      li.textContent = 'No hay características disponibles';
+      articleModalCharacteristics.appendChild(li);
+    }
+    
+    // Mostrar el modal
+    articleModal.classList.remove("hidden");
+    articleModalBackdrop.classList.remove("hidden");
+    
+    // Prevenir scroll
+    document.body.style.overflow = "hidden";
+    
+    // Animar entrada
+    setTimeout(() => {
+      articleModalContent.classList.remove("opacity-0", "translate-y-4");
+      articleModalContent.classList.add("opacity-100", "translate-y-0");
+      articleModalBackdrop.classList.remove("opacity-0");
+      articleModalBackdrop.classList.add("opacity-100");
+    }, 10);
+  };
+
+  // Cerrar modal de artículo
+  const closeArticleModalFunc = () => {
+    // Animar salida
+    articleModalContent.classList.remove("opacity-100", "translate-y-0");
+    articleModalContent.classList.add("opacity-0", "translate-y-4");
+    articleModalBackdrop.classList.remove("opacity-100");
+    articleModalBackdrop.classList.add("opacity-0");
+    
+    // Restaurar scroll
+    document.body.style.overflow = "";
+    
+    // Ocultar después de la animación
+    setTimeout(() => {
+      articleModal.classList.add("hidden");
+      articleModalBackdrop.classList.add("hidden");
+    }, 300);
+  };
+
   // Event listeners
   filterButton.addEventListener("click", toggleModal);
   closeButton.addEventListener("click", toggleModal);
   backdropOverlay.addEventListener("click", toggleModal);
   clearFilterButton.addEventListener("click", clearFilters);
+  
+  // Event listeners para el modal de artículo
+  closeArticleModal.addEventListener("click", closeArticleModalFunc);
+  articleModalBackdrop.addEventListener("click", closeArticleModalFunc);
+  
+  // Cerrar el modal al hacer clic fuera del contenido
+  articleModal.addEventListener("click", (e) => {
+    if (e.target === articleModal) {
+      closeArticleModalFunc();
+    }
+  });
 
   // Cerrar al hacer click fuera
   filterModal.addEventListener("click", (e) => {
@@ -270,6 +401,13 @@ import { SlidersHorizontal, ChevronDown, X, FilterX } from "@lucide/astro";
       const filterType = option.dataset.type;
       applyFilter(filterType);
       toggleModal();
+    });
+  });
+  
+  // Añadir evento click a los artículos para abrir el modal
+  document.querySelectorAll("article[data-type]").forEach((article) => {
+    article.addEventListener("click", () => {
+      openArticleModal((article as HTMLElement).id);
     });
   });
 
