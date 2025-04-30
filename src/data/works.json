@@ -130,5 +130,25 @@
         ],
         "type": "landing",
         "category": "template"
+    },
+    {
+        "id": "blog-iphone",
+        "badge": "Plantilla",
+        "badgeColor": "bg-gray-400/80",
+        "href": "https://template-blog-iphone.vercel.app/",
+        "src": "/portfolio/portfolio-8.webp",
+        "alt": "Imagen 2",
+        "title": "Blog Iphone",
+        "text": "Blog",
+        "characteristics": [
+            "Página responsive (adaptable a celulares y tablets).",
+            "Estructura clara y navegación intuitiva.",
+            "Menú visual atractivo.",
+            "Llamadas a la acción claras.",
+            "Opciones de envío y retiro.",
+            "El pedido finaliza vía WhatsApp."
+        ],
+        "type": "blog",
+        "category": "template"
     }
 ]
