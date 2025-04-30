@@ -8,8 +8,14 @@
         "alt": "Imagen 1",
         "title": "Taller mecánico - Fábrica de amortiguadores",
         "text": "Sitio web corporativo",
-        "characteristics": ["1","2","3","4","5"],
-        "type":"corporative",
+        "characteristics": [
+            "Botón flotante de contacto directo vía WhatsApp.",
+            "Enlace a redes sociales integrado.",
+            "Optimización SEO básica para buscadores.",
+            "Página responsive (adaptable a celulares y tablets).",
+            "Sistema de contacto inteligente: cualquier acción dirige automáticamente a WhatsApp para concretar consultas o ventas."
+        ],
+        "type": "corporative",
         "category": "work"
     },
     {
@@ -21,8 +27,13 @@
         "alt": "Imagen 2",
         "title": "Pizzería - Menú virtual",
         "text": "Tienda E-commerce",
-        "characteristics": "",
-        "type":"ecommerce",
+        "characteristics": [
+            "Información de contacto y redes sociales.",
+            "Página responsive (adaptable a celulares y tablets).",
+            "Llamados a la acción claros.",
+            "Catálogo dinámico, filtrado y búsqueda de productos."
+        ],
+        "type": "ecommerce",
         "category": "template"
     },
     {
@@ -34,8 +45,13 @@
         "alt": "Imagen 3",
         "title": "Emprendimiento de Mates",
         "text": "Tienda E-Commerce",
-        "characteristics": "",
-        "type":"ecommerce",
+        "characteristics": [
+            "Información de contacto y redes sociales.",
+            "Página responsive (adaptable a celulares y tablets).",
+            "Llamados a la acción claros.",
+            "Catálogo dinámico, filtrado y búsqueda de productos."
+        ],
+        "type": "ecommerce",
         "category": "template"
     },
     {
@@ -47,8 +63,12 @@
         "alt": "Imagen 2",
         "title": "Digital Word",
         "text": "Sitio web corporativo ",
-        "characteristics": "",
-        "type":"corporative",
+        "characteristics": [
+            "Página responsive (adaptable a celulares y tablets).",
+            "Estructura clara y navegación intuitiva.",
+            "Optimización para motores de búsqueda (SEO)."
+        ],
+        "type": "corporative",
         "category": "template"
     },
     {
@@ -60,8 +80,16 @@
         "alt": "Imagen 2",
         "title": "Gimnasio",
         "text": "Sitio Web corporativo",
-        "characteristics": "",
-        "type":"corporative",
+        "characteristics": [
+            "Página responsive (adaptable a celulares y tablets).",
+            "Estructura clara y navegación intuitiva.",
+            "Optimización para motores de búsqueda (SEO).",
+            "Testimonios de usuarios.",
+            "Sección de preguntas frecuentes.",
+            "Llamadas a la acción claras.",
+            "Formulario de suscripción."
+        ],
+        "type": "corporative",
         "category": "template"
     },
     {
@@ -73,8 +101,14 @@
         "alt": "Imagen 2",
         "title": "App de tareas",
         "text": "Landing Page",
-        "characteristics": "",
-        "type":"landing",
+        "characteristics": [
+            "Página responsive (adaptable a celulares y tablets).",
+            "Estructura clara y navegación intuitiva.",
+            "Carrito de compras integrado.",
+            "Información esencial accesible.",
+            "Llamado a la acción claro."
+        ],
+        "type": "landing",
         "category": "template"
     },
     {
@@ -86,8 +120,15 @@
         "alt": "Imagen 2",
         "title": "Local de empanadas - Menú virtual",
         "text": "",
-        "characteristics": "",
-        "type":"landing",
+        "characteristics": [
+            "Página responsive (adaptable a celulares y tablets).",
+            "Estructura clara y navegación intuitiva.",
+            "Menú visual atractivo.",
+            "Llamadas a la acción claras.",
+            "Opciones de envío y retiro.",
+            "El pedido finaliza vía WhatsApp."
+        ],
+        "type": "landing",
         "category": "template"
     }
 ]
