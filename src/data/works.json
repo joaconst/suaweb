@@ -22,7 +22,7 @@
         "id": "pizzeria",
         "badge": "Plantilla",
         "badgeColor": "bg-gray-400/80",
-        "href": "",
+        "href": "https://template-pizzeria.vercel.app/",
         "src": "/portfolio/portfolio-2.webp",
         "alt": "Imagen 2",
         "title": "Pizzería - Menú virtual",
